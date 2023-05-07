@@ -1,0 +1,24 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/globals' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+
+
+
+.description {
+    @include td-p3-body-small;
+    width: 70%;
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: Arial;
+}
+
+// .salesgrowth {
+//     display: flex;
+//     margin-left: 20%;
+// }
+
+.salesgrowth_numbers {
+    display: flex;
+    width: 100%;
+}
