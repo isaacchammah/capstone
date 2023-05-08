@@ -3,36 +3,37 @@ import ReactApexChart from "react-apexcharts";
 
 
 
-function Page4({logo1}) {
+function Results({logo1, profile1,m1, s1}) {
+
     const series = [
       {
-        name: 'Apple',
+        name: profile1,
         data: [
-          [1, 10]
+          [s1, m1]
         ]
       },
       {
         name: 'Instagram',
         data: [
-          [2, 3]
+          [2, 1.5]
         ]
       },
       {
         name: 'Meta',
         data: [
-          [5, 7]
+          [1.5, 1.5]
         ]
       },
       {
         name: 'Your portifolio',
         data: [
-          [10, 5]
+          [1, 2]
         ]
       },
       {
         name: 'Down-jones',
         data: [
-          [6.4, 7],
+          [0.4, 0.5],
         ]
       }
     ];
@@ -51,14 +52,14 @@ function Page4({logo1}) {
           show: false
         }
       },
-      colors: ['black'],
+      colors: ['blue'],
       xaxis: {
-        tickAmount: 10,
+        tickAmount: 5,
         min: 0,
         max: 20
       },
       yaxis: {
-        tickAmount: 7
+        tickAmount: 5
       },
       markers: {
         size: 20
@@ -68,7 +69,7 @@ function Page4({logo1}) {
         opacity: 1,
         image: {
           src: [
-            ,
+           logo1 ,
             'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
             'https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.jpg',
             'https://thumbs.dreamstime.com/blog/2018/11/essential-tips-organizing-your-portfolio-29167-image42264873.jpg',
@@ -78,6 +79,20 @@ function Page4({logo1}) {
           height: 40
         }
       },
+      // yaxis: {
+      //   labels: {
+      //     formatter: function (value) {
+      //       return value + "%";
+      //     }
+      //   },
+      // },
+      // xaxis: {
+      //   labels: {
+      //     formatter: function (value) {
+      //       return value + "%";
+      //     }
+      //   }
+      // },
       legend: {
         labels: {
           useSeriesColors: true
@@ -108,11 +123,10 @@ function Page4({logo1}) {
       <div id="chart">
         <ReactApexChart options={options} series={series} type="scatter" height={350} 
         />
-              <img src={logo1.url} />
 
       </div>
       
     );
   }
   
-  export default Page4;
+  export default Results;

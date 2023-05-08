@@ -1,34 +1,40 @@
 import React from "react";
-import "../Stock1/Stock1.scss"
+import "../Stock1/Stock1.scss";
+import DataTable from "react-data-table-component";
+
+
+function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, m2, s2, v2, fullArray2 }) {
 
 
 
-function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, m2, s2, v2, fullArray2  }) {
 
   return (
     <>
 
       <h1>{profile1.name}</h1>
-      <img src={logo1.url} />
+      <img src={logo1} />
 
       <div className="description">{profile1.description}</div>
 
-      <p>Dateincome_statement</p>
-      <div>
-        {incomestatement1.map((date) => (
-          <div>{date.fiscal_date}  </div>
-        ))}
-      </div>
-
 
       <div >
-        <div className="salesgrowth">
-          <p>Sales Growth</p>
+
+
+      <div className="index_income-date">
+          {incomestatement1.map((date) => (
+            <div>{date.fiscal_date}</div>
+          ))}
+                  <p>Dateincome_statement</p>
+        </div>
+
+
+        <div className="index_sales-growth">
           {incomestatement1.map((sales, index) => (
             index > 0 && (
-              <div>{((sales.sales / incomestatement1[index - 1].sales) * 100).toFixed(2)}% </div>
+              <div>{(((incomestatement1[index - 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
             )
           ))}
+                    <p>Sales Growth</p>
         </div>
 
         <p>Gross Margin</p>
@@ -90,26 +96,21 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
           return <div key={index}> {roa.toFixed(2) * 100}%</div>;
         })}
 
-
-
-
-
-
-
       </div>
-<p>{m1}
-</p>
-<p>{s1}</p>
 
-<p>{v1}</p>
 
-<p>{m2}
-</p>
-<p>{s2}</p>
+      <p>{m1}
+      </p>
+      <p>{s1}</p>
 
-<p>{v2}</p>
+      <p>{v1}</p>
 
-<p>{fullArray2*100}</p>
+      <p>{m2}
+      </p>
+      <p>{s2}</p>
+
+      <p>{v2}</p>
+
 
 
     </>

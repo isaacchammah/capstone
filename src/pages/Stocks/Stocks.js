@@ -3,6 +3,8 @@ import Results from "../../components/Results/Results";
 import axios from "axios";
 import { useState } from "react";
 import { mean, variance, std, covariance } from 'mathjs'
+import { Link } from 'react-router-dom';
+
 // import covariance from "compute-covariance/lib";
 
 function Stocks() {
@@ -64,56 +66,63 @@ function Stocks() {
 
         axios.get(code2)
             .then(response => {
-                console.log(response.data);
-                setLogo1(response.data);
+                console.log(response.data.url);
+                setLogo1(response.data.url);
             },)
 
-        // const html3 = 'income_statement'
-        // const code3 = url + html3 + text + symbolInput1 + keyText + key
-        // console.log(code3)
-        // axios.get(code3)
-        //     .then(response => {
-        //         console.log(response.data.income_statement);
-        //         setIncomeStatement1(response.data.income_statement);
+        const html3 = 'income_statement'
+        const code3 = url + html3 + text + symbolInput1 + keyText + key
+        console.log(code3)
+        axios.get(code3)
+            .then(response => {
+                console.log(response.data.income_statement);
+                setIncomeStatement1(response.data.income_statement);
 
-        //     },)
+            },)
 
-        // const html4 = 'balance_sheet'
-        // const code4 = url + html4 + text + symbolInput1 + keyText + key
+        const html4 = 'balance_sheet'
+        const code4 = url + html4 + text + symbolInput1 + keyText + key
 
-        // axios.get(code4)
-        //     .then(response => {
-        //         console.log(response.data.balance_sheet);
-        //         setBalanceSheet1(response.data.balance_sheet);
+        axios.get(code4)
+            .then(response => {
+                console.log(response.data.balance_sheet);
+                setBalanceSheet1(response.data.balance_sheet);
 
-        //     },)
+            },)
 
         const html5 = 'avgprice'
         const datarange = `&interval=1month&outputsize=120&`
         const code5 = url + html5 + text + symbolInput1 + datarange + keyText + key
 
         axios.get(code5)
-            .then(response => {
-                console.log(response.data.values);
-                setPrices1(response.data.values);
-
-                const newArray = response.data.values.reduce((acc, price, index, array) => {
-                    if (index !== 0) {
-                        const prevPrice = array[index - 1].avgprice;
-                        const currPrice = price.avgprice;
-                        const returnVal = (currPrice - prevPrice) / prevPrice;
-                        acc.push(returnVal);
-                    }
-                    return acc;
-                }, []);
-
-                setM1(mean(newArray) * parseFloat(symbolInput2));
+        .then(response => {
+          console.log(response.data.values);
+          setPrices1(response.data.values);
+      
+          const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
+          const newArray = reversedArray.reduce((acc, price, index, array) => {
+            if (index !== 0) {
+              const prevPrice = array[index - 1].avgprice;
+              const currPrice = price.avgprice;
+              const returnVal = (currPrice - prevPrice) / prevPrice;
+              acc.push(returnVal);
+            }
+            return acc;
+          }, []);
+      
+          console.log(newArray); // The new array containing the returns from the prices, with the first price being the most recent
+        ;
+      
+    
+                setM1(mean(newArray)*100
+                // * parseFloat(symbolInput2)
+                );
                 console.log(setM1)
 
                 setV1(variance(newArray));
                 console.log(setV1);
 
-                setS1(std(newArray));
+                setS1(std(newArray)*100);
                 console.log(setS1);
 
 
@@ -194,10 +203,26 @@ function Stocks() {
             <Results
 
 
-            logo1={logo1}
+                profile1={profile1}
+                logo1={logo1}
+                incomestatement1={incomestatement1}
+                balancesheet1={balancesheet1}
+                m1={m1}
+                s1={s1}
+                v1={v1}
+                m2={m2}
+                s2={s2}
+                v2={v2}
+                fullArray2={fullArray2}
 
 
             ></Results>
+
+            <Link to="/results">
+                <button className="main-upload__button-space">
+                    PUBLISH
+                </button>
+            </Link>
 
         </div >
     );
