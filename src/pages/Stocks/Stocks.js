@@ -1,9 +1,10 @@
 import Stock1 from "../../components/Stock1/Stock1";
-import Results from "../../components/Results/Results";
+import Results from "../Results/Results";
 import axios from "axios";
 import { useState } from "react";
 import { mean, variance, std, covariance } from 'mathjs'
 import { Link } from 'react-router-dom';
+import "../Stocks/Stocks.scss"
 
 // import covariance from "compute-covariance/lib";
 
@@ -76,7 +77,7 @@ function Stocks() {
         axios.get(code3)
             .then(response => {
                 console.log(response.data.income_statement);
-                setIncomeStatement1(response.data.income_statement);
+                setIncomeStatement1(response.data.income_statement.reverse());
 
             },)
 
@@ -124,9 +125,6 @@ function Stocks() {
 
                 setS1(std(newArray)*100);
                 console.log(setS1);
-
-
-
 
             });
 
@@ -187,8 +185,6 @@ function Stocks() {
                 fullArray2={fullArray2}
             ></Stock1>
 
-
-
             <div>
 
                 <input type="text" id="symbol" name="symbol" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
@@ -201,8 +197,6 @@ function Stocks() {
             </div>
 
             <Results
-
-
                 profile1={profile1}
                 logo1={logo1}
                 incomestatement1={incomestatement1}
@@ -214,8 +208,6 @@ function Stocks() {
                 s2={s2}
                 v2={v2}
                 fullArray2={fullArray2}
-
-
             ></Results>
 
             <Link to="/results">

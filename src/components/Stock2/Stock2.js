@@ -1,0 +1,1 @@
+import "../Stock2/Stock2.scss"

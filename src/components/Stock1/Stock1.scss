@@ -14,10 +14,21 @@
 }
 
 
-.index_income-date,
-.index_sales-growth {
+.index__income-date,
+.index__sales-growth,
+.index__gross-margin,
+.index__ebitda-margin,
+.index__net-margin,
+.index__balance-dates,
+.index__current-ratio,
+.index__leverage-ratio,
+.index__roe,
+.index__roa
+
+
+{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
