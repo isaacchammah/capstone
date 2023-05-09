@@ -2,3 +2,15 @@
 @use '../../partials/globals' as *;
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
+
+
+.stock-input{height: 1rem;
+    border: solid .0625rem $primary-indigo;
+    border-radius: .25rem;
+    background-color:$background-grey ;
+    padding-left: .5rem;
+    width: 11%;}
+
+    .stocks{padding:2rem ; display: flex; flex-direction: column;}
+
+    .Stock1 {width: 100%;}
