@@ -78,7 +78,6 @@ function Stocks() {
             .then(response => {
                 console.log(response.data.income_statement);
                 setIncomeStatement1(response.data.income_statement.reverse());
-
             },)
 
         const html4 = 'balance_sheet'
@@ -87,8 +86,8 @@ function Stocks() {
         axios.get(code4)
             .then(response => {
                 console.log(response.data.balance_sheet);
-                setBalanceSheet1(response.data.balance_sheet);
-
+                setBalanceSheet1(response.data.balance_sheet.reverse());
+                console.log (setBalanceSheet1)
             },)
 
         const html5 = 'avgprice'
