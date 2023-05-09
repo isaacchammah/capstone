@@ -1,86 +1,92 @@
 import React from "react";
 import "../Stock1/Stock1.scss";
 import DataTable from "react-data-table-component";
+import { Fade } from "react-awesome-reveal";
+
 
 
 function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, m2, s2, v2, fullArray2, showTable }) {
 
   return (
     <>
+    <div className = "stock">
+        <h1 className="stock-name">{profile1.name}</h1>
 
-      <h1 className="stock-name">{profile1.name }</h1>
-      <h3>{profile1.industry}</h3>
-      <h6><a href={profile1.website}>{profile1.website}</a></h6>
 
-       
-      <div className="float">  <img src={logo1} /> </div>
+        <div className="float">  <img src={logo1} /> </div>
         <p className="description">{profile1.description}</p>
+        <p3>{profile1.industry}</p3>
+        <h6><a href={profile1.website}>{profile1.website}</a></h6>
 
-      <div className="App">
-        {showTable && (<table>
-          <tr className="table">
+        <div className="App">
+          {showTable && (<table>
+            <tr className="table">
 
-            <th> Index/Date {incomestatement1.map((date) => (
-              <div>{date.fiscal_date}</div>
-            ))}</th>
-          </tr>
-          <tr>
+              <th> Index/Date {incomestatement1.map((date) => (
+                <div>{date.fiscal_date}</div>
+              ))}</th>
+            </tr>
+            <tr>
 
-            <td>
-              Sales growth
-              {[<div className="wight">n/a</div>].concat(incomestatement1.map((sales, index) => (
-                index < incomestatement1.length - 1 && (
-                  <div className="wight">{(((incomestatement1[index + 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
-                )
-              )))}
-            </td>
+              <td>
+                Sales growth
+                {[<div className="wight">n/a</div>].concat(incomestatement1.map((sales, index) => (
+                  index < incomestatement1.length - 1 && (
+                    <div className="wight">{(((incomestatement1[index + 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
+                  )
+                )))}
+              </td>
 
-            <td >
-              Gross Margin
-              {incomestatement1.map((grossmargin) => (
-                <div className="wight">{((grossmargin.gross_profit / grossmargin.sales) * 100).toFixed(2)} % </div>
-              ))}
-            </td>
-
-
-            <td>
-              Ebitda Margin
-              {incomestatement1.map((ebitdamargin) => (
-                <div className="wight">{((ebitdamargin.ebitda / ebitdamargin.sales) * 100).toFixed(2)} % </div>
-              ))}
-            </td>
-
-            <td>
-              Net Margin
-              {incomestatement1.map((netmargin) => (
-                <div className="wight2">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
-              ))}
-            </td>
+              <td >
+                Gross Margin
+                {incomestatement1.map((grossmargin) => (
+                  <div className="wight">{((grossmargin.gross_profit / grossmargin.sales) * 100).toFixed(2)} % </div>
+                ))}
+              </td>
 
 
-            <td>
-              Current Ratio
-              {balancesheet1.slice(1).map((currentratio) => (
-                <div className="wight">{((currentratio.assets.current_assets.total_current_assets / currentratio.liabilities.current_liabilities.total_current_liabilities)).toFixed(1)}  </div>
-              ))}
-            </td>
+              <td>
+                Ebitda Margin
+                {incomestatement1.map((ebitdamargin) => (
+                  <div className="wight">{((ebitdamargin.ebitda / ebitdamargin.sales) * 100).toFixed(2)} % </div>
+                ))}
+              </td>
+
+              <td>
+                Net Margin
+                {incomestatement1.map((netmargin) => (
+                  <div className="wight2">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
+                ))}
+              </td>
 
 
-            <td>
-              Leverage Ratio
-              {balancesheet1.slice(1).map((leverageratio) => (
-                <div className="wight">{((leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt) / (leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt + leverageratio.assets.total_assets - leverageratio.liabilities.total_liabilities) * 100).toFixed(1)}%  </div>
-              ))}
-            </td>
+              <td>
+                Current Ratio
+                {balancesheet1.slice(1).map((currentratio) => (
+                  <div className="wight">{((currentratio.assets.current_assets.total_current_assets / currentratio.liabilities.current_liabilities.total_current_liabilities)).toFixed(1)}  </div>
+                ))}
+              </td>
 
 
-          </tr>
-        </table>)}
-      </div>
+              <td>
+                Leverage Ratio
+                {balancesheet1.slice(1).map((leverageratio) => (
+                  <div className="wight">{((leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt) / (leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt + leverageratio.assets.total_assets - leverageratio.liabilities.total_liabilities) * 100).toFixed(1)}%  </div>
+                ))}
+              </td>
+
+
+            </tr>
+          </table>)}
 
 
 
-      {/* <div className="index__roe">
+
+        </div>
+
+
+
+        {/* <div className="index__roe">
           <p>ROE</p>
           {incomestatement1.map((income, index) => {
             const netincome = income.net_income;
@@ -91,7 +97,7 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
         </div> */}
 
 
-      {/* <div className="index__roa">
+        {/* <div className="index__roa">
           <p>ROA</p>
           {incomestatement1.map((income) => {
             const netincome = income.net_income;
@@ -102,7 +108,7 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
         </div> */}
 
 
-      {/* 
+        {/* 
         <div className="index__current-ratio">
           <p>Net income</p>
           {incomestatement1.map((roa) => (
@@ -117,7 +123,7 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
           ))}
         </div> */}
 
-      {/* <div className="index__balance-dates">
+        {/* <div className="index__balance-dates">
           <p>Date balance_sheet</p>
           {balancesheet1.slice(0).reverse().map((date1) => (
             <div>{date1.fiscal_date}  </div>
@@ -127,7 +133,7 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
 
 
 
-      {/* 
+        {/* 
       <p>{m1}
       </p>
       <p>{s1}</p>
@@ -141,9 +147,9 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
       <p>{v2}</p> */}
 
 
-
-    </>
-  );
+</div>
+      </>
+      );
 }
 
-export default Stock1;
+      export default Stock1;

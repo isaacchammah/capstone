@@ -1,74 +1,74 @@
-@use '../../partials/mixins' as *;
-@use '../../partials/globals' as *;
-@use '../../partials/variables' as *;
-@use '../../partials/typography' as *;
+// @use '../../partials/mixins' as *;
+// @use '../../partials/globals' as *;
+// @use '../../partials/variables' as *;
+// @use '../../partials/typography' as *;
 
 
 
-.stock-name {
-    width: 70%;
-    text-align: center
-}
+// .stock-name {
+//     text-align: center
+// }
 
-.description {
-    @include td-p3-body-small;
-    width: 70%;
-    text-align: justify;
-    font-family: Arial;
-    align-items: center;
-}
-
-
-
-img {
-    height: 10vh;
-    width: auto;
-}
-
-.float {
-    float: left;
-}
+// .description {
+//     @include td-p3-body-small;
+//     width: 50%;
+//     text-align: justify;
+//     font-family: Arial;
+//     align-items: center;
+    
+// }
 
 
-.App {
-    @include td-p3-body-small;
 
-    width: 50%;
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// img {
+//     height: 10vh;
+//     width: auto;
+// }
 
-table {
-    border: 2px solid forestgreen;
-    width: 800px;
-    height: 200px;
-}
+// .float {
+//     float: left;
+// }
 
-th {
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: space-around;
-}
 
-td {
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-}
+// .App {
+//     @include td-p3-body-small;
 
-table {
-    height: 1%;
-}
+//     width: 50%;
+//     height: 30vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
 
-.wight {
-    width: 81.84px;
-    text-align: center;
-}
+// table {
+//     border: 2px solid forestgreen;
+//     width: 800px;
+//     height: 200px;
+// }
 
-.wight2 {
-    width: 81.84px;
-    text-align: center;
-    padding-left: 2%;
-}
+// th {
+//     border-bottom: 1px solid black;
+//     display: flex;
+//     justify-content: space-around;
+// }
+
+// td {
+//     text-align: center;
+//     display: flex;
+//     justify-content: space-around;
+// }
+
+// table {
+//     height: 1%;
+// }
+
+// .wight {
+//     width: 81.84px;
+//     text-align: center;
+// }
+
+// .wight2 {
+//     width: 81.84px;
+//     text-align: center;
+//     padding-left: 2%;
+// }

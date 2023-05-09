@@ -9,6 +9,7 @@ import Stock2 from "../../components/Stock2/Stock2";
 import { render } from "react-dom";
 import { motion } from "framer-motion";
 
+
 // import covariance from "compute-covariance/lib";
 
 function Stocks() {
@@ -314,7 +315,6 @@ function Stocks() {
     return (
         <>
             <div className="stocks">
-                <motion.div whileHover={{ scale: 1.05}} whileTap={{ scale: 1 }}>
 
                     <div className="Stock1">
                         <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
@@ -322,6 +322,8 @@ function Stocks() {
                         <input type="text" id="symbol" name="symbol" value={symbolInput2} onChange={(e) => setSymbolInput2(e.target.value)} />
 
                         <button className="button" onClick={handleButtonClick}>Submit</button>
+                        {/* <motion.div whileHover={{ scale: 1.05}} whileTap={{ scale: 1 }}> */}
+
                         <Stock1
                             profile1={profile1}
                             logo1={logo1}
@@ -333,9 +335,10 @@ function Stocks() {
                             fullArray2={fullArray2}
                             showTable={showTable}
                         ></Stock1>
+                          {/* </motion.div> */}
                     </div>
 
-                </motion.div>
+              
 
 
                 <div>
@@ -357,8 +360,9 @@ function Stocks() {
                         showTable2={showTable2}
                     ></Stock2>
                 </div>
+                </div >
 
-                {/* <Results
+                <Results
                 profile1={profile1}
                 logo1={logo1}
                 incomestatement1={incomestatement1}
@@ -370,10 +374,9 @@ function Stocks() {
                 s2={s2}
                 v2={v2}
                 fullArray2={fullArray2}
-            ></Results> */}
+            ></Results>
 
 
-            </div >
 
 
             <Link to="/results">

@@ -4,10 +4,7 @@ import "../Results/Results.scss"
 
 
 function Results({ logo1, profile1, m1, s1 }) {
-  const [logo1Local, setLogo1] = useState('');
-  useEffect(() => {
-    setLogo1(logo1)
-  }, [logo1])
+
   const series = [
     {
       name: profile1,
@@ -72,7 +69,7 @@ function Results({ logo1, profile1, m1, s1 }) {
       opacity: 1,
       image: {
         src: [
-          logo1Local,
+          logo1,
           'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
           'https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.jpg',
           'https://thumbs.dreamstime.com/blog/2018/11/essential-tips-organizing-your-portfolio-29167-image42264873.jpg',
