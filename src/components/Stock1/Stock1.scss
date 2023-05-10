@@ -7,17 +7,63 @@
 
 .description {
     @include td-p2-body-medium;
+    font-size: 15px;
     width: 100%;
     text-align: justify;
     font-family: Arial;
     align-items: center;
     line-height: 2;
     padding: 1rem;
-    columns: 2;
-    column-gap: 20px;
+    // columns: 2;
+    // column-gap: 20px;
+
+    --max-lines: 10;
+
+    overflow: hidden;
+    --line-height: 1.34;
+    max-height: calc(var(--max-lines)*1rem*var(--line-height));
+    overflow: hidden;
+    position: relative;
+
+}
+
+.description:has(+ .expand-btn:not(:checked))::before {
+    content: "";
+    position: absolute;
+    height: calc(1rem*var(--line-height));
+    width: 100%;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, $primary-white);
 }
 
 
+.expand-btn {
+    appearance: none;
+    border: 1px solid black;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    margin-top: 1rem;
+
+}
+
+.expand-btn:hover {
+    background-color: #CCC;
+
+}
+
+.expand-btn::before {
+    content: "Expand";
+}
+
+.expand-btn:checked::before {
+    content: "Collapse";
+}
+
+.description:has(+ .expand-btn:checked) {
+    max-height: none;
+}
 
 img {
     height: 8vh;

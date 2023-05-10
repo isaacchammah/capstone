@@ -3,9 +3,57 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 
+
+
+
+@keyframes {}
+
+:root {
+    --clr-1: #052b2f;
+    --clr-2: #073438;
+    --clr-3: #0e4b50;
+    --clr-4: #2d8f85;
+    --clr-5: #637c54;
+
+}
+
 .card {
     border: .0625rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0rem .25rem .25rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0rem .25rem .25rem rgba(52, 20, 158, 0.2);
     border-radius: .3125rem;
-    width: 50%;
+    width: 80%;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.indexes {
+    background-color: $secondary-cloud;
+    padding: 1rem
+}
+
+.graph {
+    background-color: aliceblue;
+
+    padding: 0.8rem;
+    padding-top: 0rem;
+}
+
+.graph__title {
+    margin-left: 25%;
+}
+
+
+.etf {
+    display: flex;
 }

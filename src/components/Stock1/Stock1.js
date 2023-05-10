@@ -2,6 +2,7 @@ import React from "react";
 import "../Stock1/Stock1.scss";
 import DataTable from "react-data-table-component";
 import { Fade } from "react-awesome-reveal";
+import { Checkbox } from "@geist-ui/core";
 
 
 
@@ -25,7 +26,10 @@ const assets=balancesheet1.slice(1).map((roa) =>
 
 
         <div className="float">  <img src={logo1} /> </div>
+
         <p className="description">{profile1.description}</p>
+        <input className="expand-btn" type="checkbox"></input>
+
         <h3>{profile1.industry}</h3>
         <h6><a href={profile1.website}>{profile1.website}</a></h6>
 
