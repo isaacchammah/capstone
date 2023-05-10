@@ -5,21 +5,32 @@ import { Fade } from "react-awesome-reveal";
 
 
 
-function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, m2, s2, v2, fullArray2, showTable }) {
+function Stock1({ profile1, logo1, incomestatement1, balancesheet1,  showTable1 }) {
+
+
+const assets=balancesheet1.slice(1).map((roa) => 
+  {(roa.assets.total_assets).toFixed(1)} )
+
+
+  // const roa = assets/netincome
+
+  
+
+
 
   return (
     <>
-    <div className = "stock">
+      <div className="stock">
         <h1 className="stock-name">{profile1.name}</h1>
 
 
         <div className="float">  <img src={logo1} /> </div>
         <p className="description">{profile1.description}</p>
-        <p3>{profile1.industry}</p3>
+        <h3>{profile1.industry}</h3>
         <h6><a href={profile1.website}>{profile1.website}</a></h6>
 
         <div className="App">
-          {showTable && (<table>
+          {showTable1 && (<table>
             <tr className="table">
 
               <th> Index/Date {incomestatement1.map((date) => (
@@ -108,8 +119,8 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
         </div> */}
 
 
-        {/* 
-        <div className="index__current-ratio">
+
+        {/* <div className="index__current-ratio">
           <p>Net income</p>
           {incomestatement1.map((roa) => (
             <div>{((roa.net_income)).toFixed(1)}  </div>
@@ -147,9 +158,9 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, m1, s1, v1, 
       <p>{v2}</p> */}
 
 
-</div>
-      </>
-      );
+      </div>
+    </>
+  );
 }
 
-      export default Stock1;
+export default Stock1;

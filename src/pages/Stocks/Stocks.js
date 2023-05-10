@@ -1,72 +1,64 @@
 import Stock1 from "../../components/Stock1/Stock1";
-import Results from "../Results/Results";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { mean, variance, std, covariance } from 'mathjs'
 import { Link } from 'react-router-dom';
 import "../Stocks/Stocks.scss"
 import Stock2 from "../../components/Stock2/Stock2";
-import { render } from "react-dom";
-import { motion } from "framer-motion";
+import Stock3 from "../../components/Stock3/Stock3";
 
 
 // import covariance from "compute-covariance/lib";
 
-function Stocks() {
+function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
+    setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
+    setLogo3, setM3, setS3, logo3, m3, s3,setDescription3 }) {
 
-    const [showTable, setShowTable] = useState(false);
 
+    // const [symbol, setSymbol] = useState([]);
+    // const [NewArray, setNewArray] = useState([]);
+    // const [NewArray2, setNewArray2] = useState([]);
+    // const [symbol2, setSymbol2] = useState([]);
+    // const [fullArray2, setFullArray2] = useState([]);
+
+
+    // data from Stock1
     const [symbolInput1, setSymbolInput1] = useState('');
-    const [symbol, setSymbol] = useState([]);
+    const [symbolInput2, setSymbolInput2] = useState('');
+    const [showTable1, setShowTable1] = useState(false);
     const [profile1, setProfile1] = useState([]);
-    const [logo1, setLogo1] = useState([]);
     const [incomestatement1, setIncomeStatement1] = useState([]);
     const [balancesheet1, setBalanceSheet1] = useState([]);
     const [prices1, setPrices1] = useState([]);
-    const [NewArray, setNewArray] = useState([]);
-    const [m1, setM1] = useState();
     const [v1, setV1] = useState([]);
-    const [s1, setS1] = useState([]);
-    const [symbolInput2, setSymbolInput2] = useState('');
 
-
-    const [showTable2, setShowTable2] = useState(false);
     const [symbolInput3, setSymbolInput3] = useState('');
-    const [symbol2, setSymbol2] = useState([]);
+    const [symbolInput4, setSymbolInput4] = useState('');
+    const [showTable2, setShowTable2] = useState(false);
     const [profile2, setProfile2] = useState([]);
-    const [logo2, setLogo2] = useState([]);
     const [incomestatement2, setIncomeStatement2] = useState([]);
     const [balancesheet2, setBalanceSheet2] = useState([]);
     const [prices2, setPrices2] = useState([]);
-    const [NewArray2, setNewArray2] = useState([]);
-    const [m2, setM2] = useState();
     const [v2, setV2] = useState([]);
-    const [s2, setS2] = useState([]);
-    const [symbolInput4, setSymbolInput4] = useState('');
+
+    const [symbolInput5, setSymbolInput5] = useState('');
+    const [symbolInput6, setSymbolInput6] = useState('');
+    const [showTable3, setShowTable3] = useState(false);
+    const [profile3, setProfile3] = useState([]);
+    const [incomestatement3, setIncomeStatement3] = useState([]);
+    const [balancesheet3, setBalanceSheet3] = useState([]);
+    const [prices3, setPrices3] = useState([]);
+    const [v3, setV3] = useState([]);
 
 
 
 
-    const [fullArray2, setFullArray2] = useState([]);
+
+    const handleButtonClick1 = () => {
+
+        setShowTable1(true);
 
 
-
-
-    const handleButtonClick = () => {
-
-        setShowTable(true);
-
-        // axios.get('https://api.twelvedata.com/stocks')
-        //     .then(response => {
-        //         console.log(response.data);
-        //         setSymbol(response.data);
-
-        //         // const dataArray = Object.values(response.data);
-        //         // const usStocks = dataArray.filter(stock => stock.country === "United States").map(stock => ({
-        //         //   symbol: stock.symbol
-        //         // }));
-        //         // console.log(usStocks);
-        //     });
 
         const url = 'https://api.twelvedata.com/';
         const html1 = 'profile'
@@ -80,6 +72,17 @@ function Stocks() {
                 console.log(response.data);
                 setProfile1(response.data);
             },)
+
+
+        axios.get(code1)
+            .then(response => {
+                console.log(response.data.name);
+                setDescription1(response.data.name);
+            },)
+
+
+
+
 
         const html2 = 'logo'
         const code2 = url + html2 + text + symbolInput1 + keyText + key
@@ -132,7 +135,6 @@ function Stocks() {
                 console.log(newArray); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
-
                 setM1(mean(newArray) * 100
                     // * parseFloat(symbolInput2)
                 );
@@ -145,49 +147,13 @@ function Stocks() {
                 console.log(setS1);
 
             });
+    };
 
 
-
-
-        const html6 = 'avgprice'
-        const datarange1 = `&interval=1month&outputsize=120&`
-        const code6 = url + html6 + text + 'dis' + datarange1 + keyText + key
-
-        axios.get(code6)
-            .then(response => {
-                console.log(response.data.values);
-                setPrices1(response.data.values);
-
-                const newArray2 = response.data.values.reduce((acc, price, index, array) => {
-                    if (index !== 0) {
-                        const prevPrice = array[index - 1].avgprice;
-                        const currPrice = price.avgprice;
-                        const returnVal = (currPrice - prevPrice) / prevPrice;
-                        acc.push(returnVal);
-                    }
-                    return acc;
-                }, []);
-
-                setFullArray2(newArray2)
-
-                setM1(mean(newArray2));
-                console.log(setM2)
-
-                setV1(variance(newArray2));
-                console.log(setV2);
-
-                setS1(std(newArray2));
-                console.log(setS2);
-
-            });
-
-    }
 
     const handleButtonClick2 = () => {
 
         setShowTable2(true);
-
-
 
         const url = 'https://api.twelvedata.com/'
         const html1 = 'profile'
@@ -200,6 +166,12 @@ function Stocks() {
             .then(response => {
                 console.log(response.data);
                 setProfile2(response.data);
+            },)
+
+        axios.get(code1)
+            .then(response => {
+                console.log(response.data.name);
+                setDescription2(response.data.name);
             },)
 
         const html2 = 'logo'
@@ -267,19 +239,71 @@ function Stocks() {
 
             });
 
+    }
 
 
+    const handleButtonClick3 = () => {
 
-        const html6 = 'avgprice'
-        const datarange1 = `&interval=1month&outputsize=120&`
-        const code6 = url + html6 + text + 'dis' + datarange1 + keyText + key
+        setShowTable3(true);
 
-        axios.get(code6)
+        const url = 'https://api.twelvedata.com/'
+        const html1 = 'profile'
+        const text = '?symbol='
+        const keyText = '&apikey='
+        const key = 'c3617d0506fd466d9401ac352b69f038';
+        const code1 = url + html1 + text + symbolInput5 + keyText + key
+
+        axios.get(code1)
+            .then(response => {
+                console.log(response.data);
+                setProfile3(response.data);
+            },)
+
+        axios.get(code1)
+            .then(response => {
+                console.log(response.data.name);
+                setDescription3(response.data.name);
+            },)
+
+        const html2 = 'logo'
+        const code2 = url + html2 + text + symbolInput5 + keyText + key
+
+        axios.get(code2)
+            .then(response => {
+                console.log(response.data.url);
+                setLogo3(response.data.url);
+            },)
+
+        const html3 = 'income_statement'
+        const code3 = url + html3 + text + symbolInput5 + keyText + key
+        console.log(code3)
+        axios.get(code3)
+            .then(response => {
+                console.log(response.data.income_statement);
+                setIncomeStatement3(response.data.income_statement.reverse());
+            },)
+
+        const html4 = 'balance_sheet'
+        const code4 = url + html4 + text + symbolInput5 + keyText + key
+
+        axios.get(code4)
+            .then(response => {
+                console.log(response.data.balance_sheet);
+                setBalanceSheet3(response.data.balance_sheet.reverse());
+                console.log(setBalanceSheet1)
+            },)
+
+        const html5 = 'avgprice'
+        const datarange = `&interval=1month&outputsize=120&`
+        const code5 = url + html5 + text + symbolInput5 + datarange + keyText + key
+
+        axios.get(code5)
             .then(response => {
                 console.log(response.data.values);
-                setPrices1(response.data.values);
+                setPrices3(response.data.values);
 
-                const newArray2 = response.data.values.reduce((acc, price, index, array) => {
+                const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
+                const newArray = reversedArray.reduce((acc, price, index, array) => {
                     if (index !== 0) {
                         const prevPrice = array[index - 1].avgprice;
                         const currPrice = price.avgprice;
@@ -289,56 +313,76 @@ function Stocks() {
                     return acc;
                 }, []);
 
-                setFullArray2(newArray2)
+                console.log(newArray); // The new array containing the returns from the prices, with the first price being the most recent
+                ;
 
-                setM2(mean(newArray2));
-                console.log(setM2)
 
-                setV2(variance(newArray2));
-                console.log(setV2);
+                setM3(mean(newArray) * 100
+                    // * parseFloat(symbolInput4)
+                );
+                console.log(setM3)
 
-                setS2(std(newArray2));
-                console.log(setS2);
+                setV3(variance(newArray));
+                console.log(setV3);
+
+                setS3(std(newArray) * 100);
+                console.log(setS3);
 
             });
 
     }
 
+  
+
+    //   const [symbols, setSymbols] = useState([]);
 
 
-
-
-
+    //   useEffect(() => {
+    //     if (symbols.length === 0) {
+    //       axios.get('https://api.twelvedata.com/stocks?source=docs&country=united_states')
+    //         .then(response => {
+    //           const symbols = response.data.data.map(stock => ({ symbol: stock.symbol, name:stock.name}));
+    //           console.log(symbols);
+    //           setSymbols(symbols);
+    //         });
+    //     }
+    //   }, [symbols]);
 
 
 
     return (
         <>
+
+
+
+
+
+
+
+
             <div className="stocks">
 
-                    <div className="Stock1">
-                        <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
+                <div className="Stock1">
+                    <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
 
-                        <input type="text" id="symbol" name="symbol" value={symbolInput2} onChange={(e) => setSymbolInput2(e.target.value)} />
+                    <input type="text" id="symbol" name="symbol" value={symbolInput2} onChange={(e) => setSymbolInput2(e.target.value)} />
 
-                        <button className="button" onClick={handleButtonClick}>Submit</button>
-                        {/* <motion.div whileHover={{ scale: 1.05}} whileTap={{ scale: 1 }}> */}
+                    <button className="button" onClick={handleButtonClick1}>Submit</button>
+                    {/* <motion.div whileHover={{ scale: 1.05}} whileTap={{ scale: 1 }}> */}
 
-                        <Stock1
-                            profile1={profile1}
-                            logo1={logo1}
-                            incomestatement1={incomestatement1}
-                            balancesheet1={balancesheet1}
-                            m1={m1}
-                            s1={s1}
-                            v1={v1}
-                            fullArray2={fullArray2}
-                            showTable={showTable}
-                        ></Stock1>
-                          {/* </motion.div> */}
-                    </div>
+                    <Stock1
+                        profile1={profile1}
+                        logo1={logo1}
+                        incomestatement1={incomestatement1}
+                        balancesheet1={balancesheet1}
+                        m1={m1}
+                        s1={s1}
+                        v1={v1}
+                        showTable1={showTable1}
+                    ></Stock1>
+                </div>
 
-              
+
 
 
                 <div>
@@ -356,25 +400,35 @@ function Stocks() {
                         m2={m2}
                         s2={s2}
                         v2={v2}
-                        fullArray2={fullArray2}
                         showTable2={showTable2}
                     ></Stock2>
                 </div>
-                </div >
+            </div >
 
-                <Results
-                profile1={profile1}
-                logo1={logo1}
-                incomestatement1={incomestatement1}
-                balancesheet1={balancesheet1}
-                m1={m1}
-                s1={s1}
-                v1={v1}
-                m2={m2}
-                s2={s2}
-                v2={v2}
-                fullArray2={fullArray2}
-            ></Results>
+
+
+            <div>
+                    <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+
+                    <input type="text" id="symbol" name="symbol" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+
+                    <button className="button" onClick={handleButtonClick3}>Submit</button>
+
+                    <Stock3
+                        profile3={profile3}
+                        logo3={logo3}
+                        incomestatement3={incomestatement3}
+                        balancesheet3={balancesheet3}
+                        m3={m3}
+                        s3={s3}
+                        v3={v3}
+                        showTable3={showTable3}
+                    ></Stock3>
+                </div>
+
+
+
+
 
 
 

@@ -13,6 +13,8 @@
     align-items: center;
     line-height: 2;
     padding: 1rem;
+    columns: 2;
+    column-gap: 20px;
 }
 
 
@@ -22,12 +24,9 @@ img {
     width: auto;
     border-radius: 100%;
     top: 15px;
-    position: relative;
+    //  margin-left: 48%  ;
 }
 
-.float {
-    float: left;
-}
 
 
 .App {

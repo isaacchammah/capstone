@@ -2,3 +2,10 @@
 @use '../../partials/globals' as *;
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
+
+.card {
+    border: .0625rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0rem .25rem .25rem rgba(0, 0, 0, 0.2);
+    border-radius: .3125rem;
+    width: 50%;
+}

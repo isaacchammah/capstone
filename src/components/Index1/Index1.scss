@@ -1,0 +1,21 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/globals' as *;
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+
+
+
+
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5em;
+  }
+
+  .index-card__name {@include td-h1-page-header}
+
+  .index-card__text {@include td-p1-body-large}
+
+  .index-card__subheader {@include td-h2-subheader}
+
+  .index-card__bullet-points{@include td-p1-body-large}

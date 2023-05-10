@@ -3,25 +3,25 @@ import ReactApexChart from "react-apexcharts";
 import "../Results/Results.scss"
 
 
-function Results({ logo1, profile1, m1, s1 }) {
+function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3 }) {
 
   const series = [
     {
-      name: profile1,
+      name: description1,
       data: [
         [s1, m1]
       ]
     },
     {
-      name: 'Instagram',
+      name: description2,
       data: [
-        [2, 1.5]
+        [s2, m2]
       ]
     },
     {
-      name: 'Meta',
+      name: description3,
       data: [
-        [1.5, 1.5]
+        [s3, m3]
       ]
     },
     {
@@ -70,8 +70,8 @@ function Results({ logo1, profile1, m1, s1 }) {
       image: {
         src: [
           logo1,
-          'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
-          'https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.jpg',
+          logo2,
+          logo3,
           'https://thumbs.dreamstime.com/blog/2018/11/essential-tips-organizing-your-portfolio-29167-image42264873.jpg',
           'https://the5ers.com/wp-content/uploads/2019/09/DOW_JONES_logo_2013.png'
         ],
@@ -120,9 +120,21 @@ function Results({ logo1, profile1, m1, s1 }) {
   };
 
   return (
+    <>
     <div id="chart">
-      <ReactApexChart options={options} series={series} type="scatter" height={350} />
+      <ReactApexChart  className="results-graph" options={options} series={series} type="scatter" height={350} width={1000} />
     </div>
+
+<div>
+<p>{m1}</p>
+<p>{s1}</p>
+<p>{m2}</p>
+<p>{s2}</p>
+<p>{m3}</p>
+<p>{s3}</p>
+
+</div>
+</>
   );
 }
 
