@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.40.0",
     "axios": "^1.4.0",
+    "calculate-correlation": "^1.2.3",
     "classcat": "^5.0.4",
     "compute-covariance": "^1.0.1",
     "downshift": "^7.6.0",

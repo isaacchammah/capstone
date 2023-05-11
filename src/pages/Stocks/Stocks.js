@@ -12,7 +12,7 @@ import Stock3 from "../../components/Stock3/Stock3";
 
 function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
-    setLogo3, setM3, setS3, logo3, m3, s3,setDescription3 }) {
+    setLogo3, setM3, setS3, logo3, m3, s3, setDescription3 }) {
 
 
     // const [symbol, setSymbol] = useState([]);
@@ -31,7 +31,10 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     const [balancesheet1, setBalanceSheet1] = useState([]);
     const [prices1, setPrices1] = useState([]);
     const [v1, setV1] = useState([]);
+    const [newArray1, setNewArray1] = useState([]);
 
+
+    // data from Stock2
     const [symbolInput3, setSymbolInput3] = useState('');
     const [symbolInput4, setSymbolInput4] = useState('');
     const [showTable2, setShowTable2] = useState(false);
@@ -40,7 +43,10 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     const [balancesheet2, setBalanceSheet2] = useState([]);
     const [prices2, setPrices2] = useState([]);
     const [v2, setV2] = useState([]);
+    const [newArray2, setNewArray2] = useState([]);
 
+
+    // data from Stock3
     const [symbolInput5, setSymbolInput5] = useState('');
     const [symbolInput6, setSymbolInput6] = useState('');
     const [showTable3, setShowTable3] = useState(false);
@@ -80,10 +86,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setDescription1(response.data.name);
             },)
 
-
-
-
-
         const html2 = 'logo'
         const code2 = url + html2 + text + symbolInput1 + keyText + key
 
@@ -122,7 +124,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setPrices1(response.data.values);
 
                 const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
-                const newArray = reversedArray.reduce((acc, price, index, array) => {
+                const newArray1 = reversedArray.reduce((acc, price, index, array) => {
                     if (index !== 0) {
                         const prevPrice = array[index - 1].avgprice;
                         const currPrice = price.avgprice;
@@ -132,19 +134,114 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     return acc;
                 }, []);
 
-                console.log(newArray); // The new array containing the returns from the prices, with the first price being the most recent
+                console.log(newArray1); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
-                setM1(mean(newArray) * 100
+                setM1(mean(newArray1) * 100
                     // * parseFloat(symbolInput2)
                 );
                 console.log(setM1)
 
-                setV1(variance(newArray));
+                setV1(variance(newArray1));
                 console.log(setV1);
 
-                setS1(std(newArray) * 100);
+                setS1(std(newArray1) * 100);
                 console.log(setS1);
+
+
+setNewArray1(newArray1)
+
+//////////////////////////////////////
+setShowTable2(true);
+
+const url = 'https://api.twelvedata.com/'
+const html1 = 'profile'
+const text = '?symbol='
+const keyText = '&apikey='
+const key = 'c3617d0506fd466d9401ac352b69f038';
+const code1 = url + html1 + text + symbolInput3 + keyText + key
+
+axios.get(code1)
+    .then(response => {
+        console.log(response.data);
+        setProfile2(response.data);
+    },)
+
+axios.get(code1)
+    .then(response => {
+        console.log(response.data.name);
+        setDescription2(response.data.name);
+    },)
+
+const html2 = 'logo'
+const code2 = url + html2 + text + symbolInput3 + keyText + key
+
+axios.get(code2)
+    .then(response => {
+        console.log(response.data.url);
+        setLogo2(response.data.url);
+    },)
+
+const html3 = 'income_statement'
+const code3 = url + html3 + text + symbolInput3 + keyText + key
+console.log(code3)
+axios.get(code3)
+    .then(response => {
+        console.log(response.data.income_statement);
+        setIncomeStatement2(response.data.income_statement.reverse());
+    },)
+
+const html4 = 'balance_sheet'
+const code4 = url + html4 + text + symbolInput3 + keyText + key
+
+axios.get(code4)
+    .then(response => {
+        console.log(response.data.balance_sheet);
+        setBalanceSheet2(response.data.balance_sheet.reverse());
+        console.log(setBalanceSheet1)
+    },)
+
+const html5 = 'avgprice'
+const datarange = `&interval=1month&outputsize=120&`
+const code5 = url + html5 + text + symbolInput3 + datarange + keyText + key
+
+axios.get(code5)
+    .then(response => {
+        console.log(response.data.values);
+        setPrices2(response.data.values);
+
+        const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
+        const newArray2 = reversedArray.reduce((acc, price, index, array) => {
+            if (index !== 0) {
+                const prevPrice = array[index - 1].avgprice;
+                const currPrice = price.avgprice;
+                const returnVal = (currPrice - prevPrice) / prevPrice;
+                acc.push(returnVal);
+            }
+            return acc;
+        }, []);
+
+        console.log(newArray2); // The new array containing the returns from the prices, with the first price being the most recent
+        ;
+
+
+        setM2(mean(newArray2) * 100
+            // * parseFloat(symbolInput4)
+        );
+        console.log(setM2)
+
+        setV2(variance(newArray2));
+        console.log(setV2);
+
+        setS2(std(newArray2) * 100);
+        console.log(setS2);
+
+        setNewArray2(newArray2)
+
+
+
+    });
+
 
             });
     };
@@ -153,91 +250,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     const handleButtonClick2 = () => {
 
-        setShowTable2(true);
-
-        const url = 'https://api.twelvedata.com/'
-        const html1 = 'profile'
-        const text = '?symbol='
-        const keyText = '&apikey='
-        const key = 'c3617d0506fd466d9401ac352b69f038';
-        const code1 = url + html1 + text + symbolInput3 + keyText + key
-
-        axios.get(code1)
-            .then(response => {
-                console.log(response.data);
-                setProfile2(response.data);
-            },)
-
-        axios.get(code1)
-            .then(response => {
-                console.log(response.data.name);
-                setDescription2(response.data.name);
-            },)
-
-        const html2 = 'logo'
-        const code2 = url + html2 + text + symbolInput3 + keyText + key
-
-        axios.get(code2)
-            .then(response => {
-                console.log(response.data.url);
-                setLogo2(response.data.url);
-            },)
-
-        const html3 = 'income_statement'
-        const code3 = url + html3 + text + symbolInput3 + keyText + key
-        console.log(code3)
-        axios.get(code3)
-            .then(response => {
-                console.log(response.data.income_statement);
-                setIncomeStatement2(response.data.income_statement.reverse());
-            },)
-
-        const html4 = 'balance_sheet'
-        const code4 = url + html4 + text + symbolInput3 + keyText + key
-
-        axios.get(code4)
-            .then(response => {
-                console.log(response.data.balance_sheet);
-                setBalanceSheet2(response.data.balance_sheet.reverse());
-                console.log(setBalanceSheet1)
-            },)
-
-        const html5 = 'avgprice'
-        const datarange = `&interval=1month&outputsize=120&`
-        const code5 = url + html5 + text + symbolInput3 + datarange + keyText + key
-
-        axios.get(code5)
-            .then(response => {
-                console.log(response.data.values);
-                setPrices2(response.data.values);
-
-                const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
-                const newArray = reversedArray.reduce((acc, price, index, array) => {
-                    if (index !== 0) {
-                        const prevPrice = array[index - 1].avgprice;
-                        const currPrice = price.avgprice;
-                        const returnVal = (currPrice - prevPrice) / prevPrice;
-                        acc.push(returnVal);
-                    }
-                    return acc;
-                }, []);
-
-                console.log(newArray); // The new array containing the returns from the prices, with the first price being the most recent
-                ;
-
-
-                setM2(mean(newArray) * 100
-                    // * parseFloat(symbolInput4)
-                );
-                console.log(setM2)
-
-                setV2(variance(newArray));
-                console.log(setV2);
-
-                setS2(std(newArray) * 100);
-                console.log(setS2);
-
-            });
+   
 
     }
 
@@ -332,7 +345,21 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     }
 
-  
+
+    const pMean = m1 + m2
+
+    const calculateCorrelation = require("calculate-correlation");
+
+    const correlation = calculateCorrelation (newArray1, newArray2)
+
+
+    console.log("this is the portfolio mean", pMean)
+
+    console.log("this is the portfolio CORREL", correlation)
+
+
+
+
 
     //   const [symbols, setSymbols] = useState([]);
 
@@ -368,7 +395,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     <input type="text" id="symbol" name="symbol" value={symbolInput2} onChange={(e) => setSymbolInput2(e.target.value)} />
 
                     <button className="button" onClick={handleButtonClick1}>Submit</button>
-                    {/* <motion.div whileHover={{ scale: 1.05}} whileTap={{ scale: 1 }}> */}
 
                     <Stock1
                         profile1={profile1}
@@ -408,23 +434,23 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
             <div>
-                    <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Enter the stock ticker" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
 
-                    <input type="text" id="symbol" name="symbol" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+                <input type="text" id="symbol" name="symbol" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
 
-                    <button className="button" onClick={handleButtonClick3}>Submit</button>
+                <button className="button" onClick={handleButtonClick3}>Submit</button>
 
-                    <Stock3
-                        profile3={profile3}
-                        logo3={logo3}
-                        incomestatement3={incomestatement3}
-                        balancesheet3={balancesheet3}
-                        m3={m3}
-                        s3={s3}
-                        v3={v3}
-                        showTable3={showTable3}
-                    ></Stock3>
-                </div>
+                <Stock3
+                    profile3={profile3}
+                    logo3={logo3}
+                    incomestatement3={incomestatement3}
+                    balancesheet3={balancesheet3}
+                    m3={m3}
+                    s3={s3}
+                    v3={v3}
+                    showTable3={showTable3}
+                ></Stock3>
+            </div>
 
 
 
