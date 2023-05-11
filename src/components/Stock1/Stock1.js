@@ -148,19 +148,6 @@ const assets=balancesheet1.slice(1).map((roa) =>
 
 
 
-        {/* 
-      <p>{m1}
-      </p>
-      <p>{s1}</p>
-
-      <p>{v1}</p>
-
-      <p>{m2}
-      </p>
-      <p>{s2}</p>
-
-      <p>{v2}</p> */}
-
 
       </div>
     </>
