@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import "../Results/Results.scss"
 
 
-function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3 }) {
+function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName }) {
 
   const series = [
     {
@@ -25,15 +25,15 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       ]
     },
     {
-      name: 'Your portifolio',
+      name: "O",
       data: [
-        [1, 2]
+        [0, 0]
       ]
     },
     {
-      name: 'Down-jones',
+      name: indexName,
       data: [
-        [0.4, 0.5],
+        [risk, mean]
       ]
     }
   ];
@@ -52,7 +52,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         show: false
       }
     },
-    colors: ['blue'],
+    colors: ['BLACK'],
     xaxis: {
       tickAmount: 5,
       min: 0,
@@ -72,8 +72,8 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           logo1,
           logo2,
           logo3,
+          'https://the5ers.com/wp-content/uploads/2019/09/DOW_JONES_logo_2013.png',
           'https://thumbs.dreamstime.com/blog/2018/11/essential-tips-organizing-your-portfolio-29167-image42264873.jpg',
-          'https://the5ers.com/wp-content/uploads/2019/09/DOW_JONES_logo_2013.png'
         ],
         width: 40,
         height: 40
@@ -121,20 +121,22 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
   return (
     <>
-    <div id="chart">
-      <ReactApexChart  className="results-graph" options={options} series={series} type="scatter" height={350} width={1000} />
-    </div>
+      <div id="chart">
+        <ReactApexChart className="results-graph" options={options} series={series} type="scatter" height={350} width={750} />
+      </div>
 
-<div>
-<p>{m1}</p>
-<p>{s1}</p>
-<p>{m2}</p>
-<p>{s2}</p>
-<p>{m3}</p>
-<p>{s3}</p>
+      <div>
+        <p>{m1}</p>
+        <p>{s1}</p>
+        <p>{m2}</p>
+        <p>{s2}</p>
+        <p>{m3}</p>
+        <p>{s3}</p>
+        <p>{mean}</p>
+        <p>{risk}</p>
 
-</div>
-</>
+      </div>
+    </>
   );
 }
 

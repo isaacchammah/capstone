@@ -2,7 +2,7 @@ import Results from "../Results/Results";
 import axios from "axios";
 import { useState } from "react";
 import { mean, variance, std, covariance, re } from 'mathjs'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { render } from "react-dom";
 import { motion } from "framer-motion";
 import ReactApexChart from "react-apexcharts";
@@ -20,7 +20,7 @@ import "../Indexes/Indexes.scss"
 import Index2 from "../../components/Index2/Index2";
 
 
-function Indexes({ mD, sD, setDM, setDS, mS, sS, setSM, setSS }) {
+function Indexes({ mD, sD, setDM, setDS, mS, sS, setSM, setSS, mean, setMean, risk, setRisk, indexName, setIndexName }) {
 
 
     const [pricesD, setPricesD] = useState([]);
@@ -78,15 +78,15 @@ function Indexes({ mD, sD, setDM, setDS, mS, sS, setSM, setSS }) {
                 const average = sum / teste.length;
 
 
-                setDM(average);
+                setDM((average)*100);
 
                 // setDM(mean(newArrayD));
                 // console.log(setDM)
 
-                setDV(variance(test));
+                setDV(variance(teste)*100);
                 console.log(setDV);
 
-                setDS(std(test));
+                setDS(std(teste)*100);
                 console.log(setDS);
 
                 ////////////////////////////////////////////////////
@@ -127,15 +127,15 @@ function Indexes({ mD, sD, setDM, setDS, mS, sS, setSM, setSS }) {
                 const average = sum / teste2.length;
 
 
-                setSM(average);
+                setSM((average)*100);
 
                 // setDM(mean(newArrayD));
                 // console.log(setDM)
 
-                setSV(variance(teste2));
+                setSV(variance(teste2)*100);
                 console.log(setSV);
 
-                setSS(std(teste2));
+                setSS(std(teste2)*100);
                 console.log(setSS);
 
             })
@@ -145,99 +145,138 @@ function Indexes({ mD, sD, setDM, setDS, mS, sS, setSM, setSS }) {
     console.log(mS)
     console.log(sD)
     console.log(sS)
-/////USENAVIGATE
-////SET STATE
-///NAVIGATE
+    /////USENAVIGATE
+    ////SET STATE
+    ///NAVIGATE
+
+    const navigate = useNavigate();
+
+
+    const handleButton1Click = () => {
+        const indexName= "DOW JONES"
+        setIndexName(indexName)
+        setMean(mD);
+        setRisk(sD);
+        console.log(`setMean1 is now ${mean}`);
+        navigate('/');
+
+    };
+
+    const handleButton2Click = () => {
+        const indexName= "S&P 500"
+        setIndexName(indexName)
+        setMean(mS); 
+        setRisk(sD);
+        console.log(`setMean2 is now ${mean}`);
+        navigate('/');
+
+    };
+
+
+
+
 
     return (
         <>
-            <button className="button" onClick={handleButtonClick}>Submit</button>
-            <div className="etf">
-                <div className="indexes">
-                    <section className="card">
-                        <Index1 />
-                        <div className="graph">
-                            <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+            <Link to="/">
 
-                            <LineChart
-                                width={450}
-                                height={200}
-                                data={reverseD}
-                                style={{ backgroundColor: "black" }}
+                <button onClick={handleButton1Click}>CHOOSE DOW JONES</button>
 
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5
-                                }}
-                                animationDuration={100000} // set animation duration to 1000ms (1 second)
+                </Link>
 
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="datetime" stroke="white"
-                                    label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
-                                />
-                                <YAxis domain={[0, 'dataMax']}
-                                    tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 100}
-                                    stroke="white" value="Points" position="insideLeft"
-                                    label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
-                                />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
-                            </LineChart>
-                        </div>
-                    </section>
+                <Link to="/">
+
+                    <button onClick={handleButton2Click}>CHOOSE S&P500</button>
+                </Link>
+
+
+                <button className="button" onClick={handleButtonClick}>Submit</button>
+                <div className="etf">
+                    <div className="indexes">
+                        <section className="card">
+                            <Index1 />
+                            <div className="graph">
+                                <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+
+                                <LineChart
+                                    width={450}
+                                    height={200}
+                                    data={reverseD}
+                                    style={{ backgroundColor: "black" }}
+
+                                    margin={{
+                                        top: 5,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5
+                                    }}
+                                    animationDuration={100000} // set animation duration to 1000ms (1 second)
+
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="datetime" stroke="white"
+                                        label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
+                                    />
+                                    <YAxis domain={[0, 'dataMax']}
+                                        tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 100}
+                                        stroke="white" value="Points" position="insideLeft"
+                                        label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
+                                    />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
+                                </LineChart>
+                            </div>
+                        </section>
+                    </div>
+
+
+                    <div className="indexes">
+                        <section className="card">
+                            <Index2 />
+                            <div className="graph">
+                                <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+
+                                <LineChart
+                                    width={450}
+                                    height={200}
+                                    data={reverseS}
+                                    style={{ backgroundColor: "black" }}
+
+                                    margin={{
+                                        top: 5,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5
+                                    }}
+                                    animationDuration={100000} // set animation duration to 1000ms (1 second)
+
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="datetime" stroke="white"
+                                        label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
+                                    />
+                                    <YAxis domain={[0, 'dataMax']}
+                                        tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 10}
+                                        stroke="white" value="Points" position="insideLeft"
+                                        label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
+                                    />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
+                                </LineChart>
+                            </div>
+                        </section>
+                    </div>
                 </div>
 
 
-                <div className="indexes">
-                    <section className="card">
-                        <Index2 />
-                        <div className="graph">
-                            <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
-                            <LineChart
-                                width={450}
-                                height={200}
-                                data={reverseS}
-                                style={{ backgroundColor: "black" }}
-
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5
-                                }}
-                                animationDuration={100000} // set animation duration to 1000ms (1 second)
-
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="datetime" stroke="white"
-                                    label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
-                                />
-                                <YAxis domain={[0, 'dataMax']}
-                                    tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 })*10}
-                                    stroke="white" value="Points" position="insideLeft"
-                                    label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
-                                />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
-                            </LineChart>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
-
-
-        </>
-    );
+            </>
+            );
 }
 
-export default Indexes;
+            export default Indexes;
 
 
 // spy - s&p500
