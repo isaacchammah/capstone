@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import "../Results/Results.scss"
 
 
-function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName }) {
+function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName, stockPortfolioMean, stockPortfoliRisk }) {
 
   const series = [
     {
@@ -25,9 +25,9 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       ]
     },
     {
-      name: "O",
+      name: "Your Portfloio",
       data: [
-        [0, 0]
+        [stockPortfoliRisk, stockPortfolioMean]
       ]
     },
     {
@@ -126,14 +126,14 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       </div>
 
       <div>
-        <p>{m1}</p>
-        <p>{s1}</p>
-        <p>{m2}</p>
-        <p>{s2}</p>
-        <p>{m3}</p>
-        <p>{s3}</p>
-        <p>{mean}</p>
-        <p>{risk}</p>
+        <p>M1 {m1}</p>
+        <p>S1 {s1}</p>
+        <p>M2 {m2}</p>
+        <p>S2 {s2}</p>
+        <p>M3 {m3}</p>
+        <p>S3 {s3}</p>
+        <p>MI{mean}</p>
+        <p>SI {risk}</p>
 
       </div>
     </>
