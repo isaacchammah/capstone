@@ -7,6 +7,9 @@ import "../Stocks/Stocks.scss"
 import Stock2 from "../../components/Stock2/Stock2";
 import Stock3 from "../../components/Stock3/Stock3";
 import number2 from "../../assets/Images/number 2.webp";
+import riskreturn from "../../assets/Images/risk return.gif";
+import Swal from "sweetalert2";
+
 
 
 
@@ -14,7 +17,8 @@ import number2 from "../../assets/Images/number 2.webp";
 function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
     setLogo3, setM3, setS3, logo3, m3, s3, setDescription3,
-    setStockPortfolioRisk, setStockPortfolioMean
+    setStockPortfolioRisk, setStockPortfolioMean,
+    setShowResults
 }) {
 
 
@@ -120,11 +124,11 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code15)
             .then(response => {
-                 
 
-                    console.log(response.data.values);
-                    setPrices1(response.data.values);
-                
+
+                console.log(response.data.values);
+                setPrices1(response.data.values);
+
 
                 const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
                 const newArray1 = reversedArray.reduce((acc, price, index, array) => {
@@ -293,7 +297,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     return acc;
                 }, []);
 
-                console.log("new array 3!!!!!!",newArray3); // The new array containing the returns from the prices, with the first price being the most recent
+                console.log("new array 3!!!!!!", newArray3); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
 
@@ -312,15 +316,24 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
             });
     };
 
+    const scrollToTop = (id) => {
+        const element = document.getElementById("results");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    scrollToTop("scroll");
+
 
 
     const handleButtonClickWeights = () => {
 
         const pMean = ((m1 * parseFloat(symbolInput2) + m2 * parseFloat(symbolInput4) + m3 * parseFloat(symbolInput6)) / 100)
 
-        setStockPortfolioMean (pMean)
+        setStockPortfolioMean(pMean)
 
-        
+
         console.log("this is the portfolio mean", pMean)
 
         const calculateCorrelation = require("calculate-correlation");
@@ -349,23 +362,32 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         const pstandard = (
             ((parseFloat(symbolInput2) / 100) ** 2 * v1 +
-              (parseFloat(symbolInput4) / 100) ** 2 * v2 +
-              (parseFloat(symbolInput6) / 100) ** 2 * v3 +
-              2 * ((parseFloat(symbolInput2) / 100) * (parseFloat(symbolInput4) / 100) * v1 ** 0.5 * v2 ** 0.5 * correlation12) +
-              2 * ((parseFloat(symbolInput2) / 100) * (parseFloat(symbolInput6) / 100) * v1 ** 0.5 * v3 ** 0.5 * correlation13) +
-              2 * ((parseFloat(symbolInput4) / 100) * (parseFloat(symbolInput6) / 100) * v2 ** 0.5 * v3 ** 0.5 * correlation23)) ** 0.5
-          ) * 100;
+                (parseFloat(symbolInput4) / 100) ** 2 * v2 +
+                (parseFloat(symbolInput6) / 100) ** 2 * v3 +
+                2 * ((parseFloat(symbolInput2) / 100) * (parseFloat(symbolInput4) / 100) * v1 ** 0.5 * v2 ** 0.5 * correlation12) +
+                2 * ((parseFloat(symbolInput2) / 100) * (parseFloat(symbolInput6) / 100) * v1 ** 0.5 * v3 ** 0.5 * correlation13) +
+                2 * ((parseFloat(symbolInput4) / 100) * (parseFloat(symbolInput6) / 100) * v2 ** 0.5 * v3 ** 0.5 * correlation23)) ** 0.5
+        ) * 100;
 
-          setStockPortfolioRisk(pstandard)
+        setStockPortfolioRisk(pstandard)
 
-console.log(v1)
-console.log(v2)
-console.log(v3)
+        console.log(v1)
+        console.log(v2)
+        console.log(v3)
 
 
-            
+
 
         console.log("this is the portfolio SD!!!!!!!!!!!!!!!", pstandard)
+
+        setShowResults(true);
+        scrollToTop("scroll");
+
+        Swal.fire({
+            title: 'Calculating your portfolio using the following formula:',
+            html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 390px; height: 150px; border-radius:0 " />',
+            confirmButtonText: 'OK'
+        });
 
 
     }
@@ -375,6 +397,13 @@ console.log(v3)
 
 
 
+    // function checkStocksLength(newArray1, newArray2, newArray3) {
+    //     if (newArray1.length !== newArray2.length || newArray1.length !== newArray3.length || newArray2.length !== newArray3.length) {
+    //       alert("The lengths of the arrays are not equal. Please try again.");
+    //       return false;
+    //     }
+    //     return true;
+    //   }
 
 
 
@@ -399,12 +428,19 @@ console.log(v3)
 
     return (
         <>
-              <div class="box"></div>
+            <div className="box" id="stocks"></div>
 
 
             <div className="info-stocks">
                 <img className="number-stocks" src={number2} alt='numer-two' />
                 <p className="instruction-stocks">Select 3 stocks to create your portfolio</p>
+            </div>
+
+            <div className="stock-inputs">
+                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
+                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
+                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+
             </div>
 
             <div>   <button className="button-85" onClick={handleButtonClick1}>Select stocks</button></div>
@@ -415,7 +451,6 @@ console.log(v3)
 
                 <div className="stock1">
 
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
 
 
                     <Stock1
@@ -429,7 +464,6 @@ console.log(v3)
                         showTable1={showTable1}
                     ></Stock1>
 
-                    <input type="text" id="symbol" name="symbol" value={symbolInput2} placeholder="Weight 1" onChange={(e) => setSymbolInput2(e.target.value)} />
 
                 </div>
 
@@ -437,7 +471,6 @@ console.log(v3)
 
 
                 <div className="stock2">
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
 
 
 
@@ -451,7 +484,6 @@ console.log(v3)
                         v2={v2}
                         showTable2={showTable2}
                     ></Stock2>
-                    <input type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="Weight 2" onChange={(e) => setSymbolInput4(e.target.value)} />
 
 
 
@@ -459,29 +491,41 @@ console.log(v3)
 
 
 
-            <div className="stock3">
-
-            <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+                <div className="stock3">
 
 
-                <Stock3
-                    profile3={profile3}
-                    logo3={logo3}
-                    incomestatement3={incomestatement3}
-                    balancesheet3={balancesheet3}
-                    m3={m3}
-                    s3={s3}
-                    v3={v3}
-                    showTable3={showTable3}
-                ></Stock3>
 
-                <input type="text" id="symbol" name="symbol" placeholder="Weight 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+                    <Stock3
+                        profile3={profile3}
+                        logo3={logo3}
+                        incomestatement3={incomestatement3}
+                        balancesheet3={balancesheet3}
+                        m3={m3}
+                        s3={s3}
+                        v3={v3}
+                        showTable3={showTable3}
+                    ></Stock3>
 
-            </div>
-            
+
+                </div>
+               
+
             </div >
-            <div>   <button className="button-85" onClick={handleButtonClickWeights}>Create my portfolio</button></div>
+<h3 className="select" >Now, select the % you want to invest in each stock</h3>
+            <div className="stock-inputs">
 
+<input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
+
+<input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="% Weight stock 1" onChange={(e) => setSymbolInput4(e.target.value)} />
+
+<input className="stock-weight" type="text" id="symbol" name="symbol" placeholder=" % Weight stock 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+</div>
+
+            <div>
+                <button className="button-85" onClick={handleButtonClickWeights}>
+                    Create my portfolio
+                </button>
+            </div>
         </>
     );
 }

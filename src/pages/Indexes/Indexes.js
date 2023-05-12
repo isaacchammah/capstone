@@ -20,6 +20,7 @@ import "../Indexes/Indexes.scss"
 import Index2 from "../../components/Index2/Index2";
 import number1 from "../../assets/Images/number 1.webp";
 import Index3 from "../../components/Index3/Index3";
+import wave2 from "../../assets/Images/waves 4.png";
 
 
 
@@ -27,7 +28,10 @@ import Index3 from "../../components/Index3/Index3";
 
 
 
-function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN }) {
+
+function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN,
+    setShowStocks
+}) {
 
     //DOW
     const [pricesD, setPricesD] = useState([]);
@@ -217,16 +221,25 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     ////SET STATE
     ///NAVIGATE
 
-    const navigate = useNavigate();
+    const scrollToStocks = (id) => {
+        const element = document.getElementById("stocks");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
+    scrollToStocks("scroll");
 
     const handleButton1Click = () => {
+
         const indexName = "DOW JONES"
         setIndexName(indexName)
         setMean(mD);
         setRisk(sD);
         console.log(`setMean1 is now ${mean}`);
-        // navigate('/');
+
+        setShowStocks(true);
+        scrollToStocks("scroll");
 
     };
 
@@ -236,17 +249,23 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         setMean(mS);
         setRisk(sS);
         console.log(`setMean2 is now ${mean}`);
-        // navigate('/');
+
+        setShowStocks(true);
+        scrollToStocks("scroll");
 
     };
 
     const handleButton3Click = () => {
-        const indexName = "S&P 500"
+        const indexName = "NASDAQ"
         setIndexName(indexName)
         setMean(mN);
         setRisk(sN);
-        console.log(`setMean2 is now ${mean}`);
-        // navigate('/');
+        console.log(`setMean2 is now ${mean}`)
+
+        setShowStocks(true);
+        scrollToStocks("scroll");
+
+
 
     };
 
@@ -256,15 +275,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     return (
         <>
-            {/* <Link to="/"> */}
 
-
-            {/* </Link> */}
-
-            {/* <Link to="/"> */}
-
-            {/* </Link> */}
-            {/* <button className="button" onClick={handleButtonClick}>Submit</button> */}
 
             <div className="info">
                 <img className="number" src={number1} alt='numer-one' />
@@ -308,8 +319,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
                         </div>
-                        <button className="button-27" onClick={handleButton1Click}>CHOOSE DOW JONES</button>
 
+                        <div className="button-27-container">
+                            <button className="button-27" onClick={handleButton1Click}>SELECT DOW JONES</button>
+                        </div>
                     </section>
                 </div>
 
@@ -348,8 +361,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Legend />
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
-                            <button className="button-27" onClick={handleButton2Click}>CHOOSE S&P500</button>
+                            <div className="button-27-container">
 
+                                <button className="button-27" onClick={handleButton2Click}>SELECT S&P500</button>
+                            </div>
                         </div>
                     </section>
                 </div>
@@ -390,8 +405,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Legend />
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
-                            <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
+                            <div className="button-27-container">
 
+                            <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
+</div>
                         </div>
                     </section>
                 </div>

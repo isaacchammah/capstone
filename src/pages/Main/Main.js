@@ -49,21 +49,36 @@ function Main() {
     const [stockPortfoliRisk, setStockPortfolioRisk] =  useState(null);
 
 
+    const [showStocks, setShowStocks] = useState(false);
+    const [showResults, setShowResults] = useState(false);
+
+
+    
+
 
     return (
         <>
-            <Indexes mD={mD} sD={sD} setMD={setMD} setSD={setSD} mean={mean} setMean={setMean} mS={mS} sS={sS} setSS={setSS} setMS={setMS} risk={risk} setRisk={setRisk} indexName={indexName} setIndexName={setIndexName} mN ={mN} setMN={setMN} sN={sN} setSN={setSN}    />
+            <Indexes mD={mD} sD={sD} setMD={setMD} setSD={setSD} mean={mean} setMean={setMean} mS={mS} sS={sS} setSS={setSS} setMS={setMS} risk={risk} setRisk={setRisk} indexName={indexName} setIndexName={setIndexName} mN ={mN} setMN={setMN} sN={sN} setSN={setSN} 
+            setShowStocks ={setShowStocks} 
+            />
+
+{showStocks && (
 
             <Stocks setLogo1={setLogo1} setM1={setM1} setS1={setS1} logo1={logo1} m1={m1} s1={s1} description1={description1} setDescription1={setDescription1}
                 setLogo2={setLogo2} setM2={setM2} setS2={setS2} logo2={logo2} m2={m2} s2={s2} description2={description2} setDescription2={setDescription2}
                 setLogo3={setLogo3} setM3={setM3} setS3={setS3} logo3={logo3} m3={m3} s3={s3} description3={description3} setDescription3={setDescription3} 
                 setStockPortfolioMean ={setStockPortfolioMean} setStockPortfolioRisk ={setStockPortfolioRisk}
-                />
+                setShowResults ={setShowResults}
+
+                /> )}
+
+{showResults && (
 
             <Results logo1={logo1} m1={m1} s1={s1} description1={description1} logo2={logo2} m2={m2} s2={s2} description2={description2}
                 logo3={logo3} m3={m3} s3={s3} description3={description3} mean={mean} risk={risk} indexName={indexName} 
                 stockPortfolioMean ={stockPortfolioMean} stockPortfoliRisk={stockPortfoliRisk}
-                />
+                /> )}
+
         </>
     );
 }

@@ -196,13 +196,10 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
   return (
     <>
-      <div class="box"></div>
 
-      <div className="wrapper">
-          <div className="wave"></div>
-        </div>
+    
 
-      <div className="info2">
+      <div className="info2" id= "results">
         <img className="number" src={number3} alt='numer-one' />
         <p className="instruction">Results, did you beat the market?</p>
       </div>
@@ -212,7 +209,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       </div>
 
 
-      <div className="app">
+      <div className="app2">
         <table className="table3">
           <tr className="table2">
 
@@ -261,7 +258,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         </table>
       </div>
 
-      <h1>
+      <h1 className="message">
       {message && <p>{message}</p>}
     </h1>
 
