@@ -26,9 +26,11 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                 <div className="float">  <img src={logo3} /> </div>
+                <p>{showTable3 &&("Industry:")} {profile3.industry}</p>
+        <h6>{showTable3 &&("Website:")}  <a  href={profile3.website}>{profile3.website}</a></h6>
                 <p className="description">{profile3.description}</p>
-                <h3>{profile3.industry}</h3>
-                <h6><a href={profile3.website}>{profile3.website}</a></h6>
+              
+                <input className="expand-btn" type="checkbox"></input>
 
                 <div className="App">
                     {showTable3 && (<table>

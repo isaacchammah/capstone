@@ -4,39 +4,149 @@
 @use '../../partials/typography' as *;
 
 
-.info-stocks {
-    display: flex;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    align-items: center;
-    justify-content: space-evenly;
-    
+
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 45%;
 }
 
-.number-stocks{margin-left: 25%};
+.button-85:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
 
 
-.instruction-stocks{margin-right: 40%;font-size: 24px; font-weight: 600}
+.box {
+  --size: 50px;
+  --p: 25px;
+  --R: 55.9px
+    /*sqrt(var(--size)*var(--size) + var(--p)*var(--p))*/
+  ;
+
+  height: 5.3rem;
+
+  -webkit-mask:
+    radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), rgb(25, 25, 28) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
+    radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, rgb(48, 43, 43) 101%) 50% calc(100% - var(--size))/calc(4*var(--size)) 100% repeat-x;
+  background: linear-gradient(90deg, rgb(237, 234, 234), rgb(15, 15, 15));
+  border: none;
+  animation: glow 20s infinite linear;
+}
+
+@keyframes glow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+
+.info-stocks {
+  display: flex;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.number-stocks {
+  margin-left: 25%
+}
+
+;
+
+
+.instruction-stocks {
+  margin-right: 40%;
+  font-size: 24px;
+  font-weight: 600
+}
 
 .stock-input {
-    height: 1rem;
-    border: solid .0625rem $primary-indigo;
-    border-radius: .25rem;
-    // background-color: $background-grey ;
-    padding-left: .5rem;
-    width: 11%;
+  height: 2rem;
+  border: solid .0625rem $primary-indigo;
+  border-radius: .25rem;
+  // background-color: $background-grey ;
+  padding-left: 1rem;
+  width: 20%;
 }
 
 .stocks {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    // background-image: linear-gradient(288deg, rgb(126, 144, 181) 1.5%, rgb(210, 218, 227) 10%);
+  margin-top: 3%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgb(193, 193, 193);
 
 }
 
-.Stock1 {
-    width: 50%;
-    margin: 0;
-    // background-image: linear-gradient(288deg, rgb(126, 144, 181) 1.5%, rgb(210, 218, 227) 10%);
+.stock1,
+.stock2,
+.stock3 {
+  width: 30%;
+  margin: 0;
 }

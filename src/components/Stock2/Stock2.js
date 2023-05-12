@@ -2,18 +2,20 @@ import "../Stock2/Stock2.scss"
 import React from "react";
 
 
-function Stock2({ profile2, logo2, incomestatement2, balancesheet2, m2, s2, v2, showTable2 }) {
+function Stock2({ profile2, logo2, incomestatement2, balancesheet2, showTable2 }) {
 
   return (
     <>
 
       <h1 className="stock-name">{profile2.name}</h1>
-      <h3>{profile2.industry}</h3>
-      <h6><a href={profile2.website}>{profile2.website}</a></h6>
+ 
 
        
       <div className="float">  <img src={logo2} /> </div>
+      <p>{showTable2 &&("Industry:")} {profile2.industry}</p>
+        <h6>{showTable2 &&("Website:")}  <a  href={profile2.website}>{profile2.website}</a></h6>
         <p className="description">{profile2.description}</p>
+        <input className="expand-btn" type="checkbox"></input>
 
       <div className="App">
         {showTable2 && (<table>
@@ -125,19 +127,6 @@ function Stock2({ profile2, logo2, incomestatement2, balancesheet2, m2, s2, v2, 
 
 
 
-
-      {/* 
-      <p>{m1}
-      </p>
-      <p>{s1}</p>
-
-      <p>{v1}</p>
-
-      <p>{m2}
-      </p>
-      <p>{s2}</p>
-
-      <p>{v2}</p> */}
 
 
 

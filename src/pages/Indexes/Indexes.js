@@ -308,7 +308,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
                         </div>
-                        <button onClick={handleButton1Click}>CHOOSE DOW JONES</button>
+                        <button className="button-27" onClick={handleButton1Click}>CHOOSE DOW JONES</button>
 
                     </section>
                 </div>
@@ -348,7 +348,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Legend />
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
-                            <button onClick={handleButton2Click}>CHOOSE S&P500</button>
+                            <button className="button-27" onClick={handleButton2Click}>CHOOSE S&P500</button>
 
                         </div>
                     </section>
@@ -390,7 +390,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                 <Legend />
                                 <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                             </LineChart>
-                            <button onClick={handleButton3Click}>CHOOSE NASDAQ</button>
+                            <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
 
                         </div>
                     </section>

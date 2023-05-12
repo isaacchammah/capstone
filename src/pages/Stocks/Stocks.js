@@ -10,7 +10,6 @@ import number2 from "../../assets/Images/number 2.webp";
 
 
 
-// import covariance from "compute-covariance/lib";
 
 function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
@@ -18,12 +17,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setStockPortfolioRisk, setStockPortfolioMean
 }) {
 
-
-    // const [symbol, setSymbol] = useState([]);
-    // const [NewArray, setNewArray] = useState([]);
-    // const [NewArray2, setNewArray2] = useState([]);
-    // const [symbol2, setSymbol2] = useState([]);
-    // const [fullArray2, setFullArray2] = useState([]);
 
 
     // data from Stock1
@@ -127,11 +120,11 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code15)
             .then(response => {
-                if (prices1.length === 120) {
+                 
 
                     console.log(response.data.values);
                     setPrices1(response.data.values);
-                }
+                
 
                 const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
                 const newArray1 = reversedArray.reduce((acc, price, index, array) => {
@@ -147,9 +140,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 console.log(newArray1); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
-                setM1(mean(newArray1) * 100
-                    // * parseFloat(symbolInput2)
-                );
+                setM1(mean(newArray1) * 100);
                 console.log(setM1)
 
                 setV1(variance(newArray1));
@@ -164,15 +155,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
-
-        //////////////////////////////////////
         setShowTable2(true);
 
-        // const url = 'https://api.twelvedata.com/'
-        // const html1 = 'profile'
-        // const text = '?symbol='
-        // const keyText = '&apikey='
-        // const key = 'c3617d0506fd466d9401ac352b69f038';
         const code21 = url + html1 + text + symbolInput3 + keyText + key
 
         axios.get(code21)
@@ -187,7 +171,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setDescription2(response.data.name);
             },)
 
-        // const html2 = 'logo'
         const code22 = url + html2 + text + symbolInput3 + keyText + key
 
         axios.get(code22)
@@ -196,7 +179,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setLogo2(response.data.url);
             },)
 
-        // const html3 = 'income_statement'
         const code23 = url + html3 + text + symbolInput3 + keyText + key
         console.log(code23)
         axios.get(code23)
@@ -205,7 +187,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setIncomeStatement2(response.data.income_statement.reverse());
             },)
 
-        // const html4 = 'balance_sheet'
         const code24 = url + html4 + text + symbolInput3 + keyText + key
 
         axios.get(code24)
@@ -215,8 +196,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 console.log(setBalanceSheet1)
             },)
 
-        // const html5 = 'avgprice'
-        // const datarange = `&interval=1month&outputsize=120&`
         const code25 = url + html5 + text + symbolInput3 + datarange + keyText + key
 
         axios.get(code25)
@@ -239,9 +218,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 ;
 
 
-                setM2(mean(newArray2) * 100
-                    // * parseFloat(symbolInput4)
-                );
+                setM2(mean(newArray2) * 100);
                 console.log(setM2)
 
                 setV2(variance(newArray2));
@@ -257,17 +234,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
             });
 
 
-
-
-        ///////////////////////
-
         setShowTable3(true);
 
-        // const url = 'https://api.twelvedata.com/'
-        // const html1 = 'profile'
-        // const text = '?symbol='
-        // const keyText = '&apikey='
-        // const key = 'c3617d0506fd466d9401ac352b69f038';
         const code31 = url + html1 + text + symbolInput5 + keyText + key
 
         axios.get(code31)
@@ -282,7 +250,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setDescription3(response.data.name);
             },)
 
-        // const html2 = 'logo'
         const code32 = url + html2 + text + symbolInput5 + keyText + key
 
         axios.get(code32)
@@ -291,7 +258,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setLogo3(response.data.url);
             },)
 
-        // const html3 = 'income_statement'
         const code33 = url + html3 + text + symbolInput5 + keyText + key
         console.log(code33)
         axios.get(code33)
@@ -300,7 +266,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 setIncomeStatement3(response.data.income_statement.reverse());
             },)
 
-        // const html4 = 'balance_sheet'
         const code34 = url + html4 + text + symbolInput5 + keyText + key
 
         axios.get(code34)
@@ -310,8 +275,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 console.log(setBalanceSheet1)
             },)
 
-        // const html5 = 'avgprice'
-        // const datarange = `&interval=1month&outputsize=120&`
         const code35 = url + html5 + text + symbolInput5 + datarange + keyText + key
 
         axios.get(code35)
@@ -334,9 +297,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 ;
 
 
-                setM3(mean(newArray3) * 100
-                    // * parseFloat(symbolInput4)
-                );
+                setM3(mean(newArray3) * 100);
                 console.log(setM3)
 
                 setV3(variance(newArray3));
@@ -397,17 +358,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
           setStockPortfolioRisk(pstandard)
 
-
-
-
-
 console.log(v1)
 console.log(v2)
 console.log(v3)
 
 
-                
-
+            
 
         console.log("this is the portfolio SD!!!!!!!!!!!!!!!", pstandard)
 
@@ -443,33 +399,23 @@ console.log(v3)
 
     return (
         <>
+              <div class="box"></div>
+
 
             <div className="info-stocks">
                 <img className="number-stocks" src={number2} alt='numer-two' />
                 <p className="instruction-stocks">Select 3 stocks to create your portfolio</p>
             </div>
 
+            <div>   <button className="button-85" onClick={handleButtonClick1}>Select stocks</button></div>
+
             <div className="stocks">
 
-                <div>
-                    {shouldShowTryAgain && <p>Try again</p>}
-                </div>
+
+
+                <div className="stock1">
 
                 <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
-
-
-
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
-
-
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
-
-
-                <div>   <button className="button" onClick={handleButtonClick1}>Submit</button></div>
-
-
-                <div className="Stock1">
-
 
 
                     <Stock1
@@ -490,10 +436,10 @@ console.log(v3)
 
 
 
-                <div>
+                <div className="stock2">
+                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
 
 
-                    {/* <button className="button" onClick={handleButtonClick2}>Submit</button> */}
 
                     <Stock2
                         profile2={profile2}
@@ -510,14 +456,13 @@ console.log(v3)
 
 
                 </div>
-            </div >
 
 
 
-            <div>
+            <div className="stock3">
 
+            <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
 
-                {/* <button className="button" onClick={handleButtonClick3}>Submit</button> */}
 
                 <Stock3
                     profile3={profile3}
@@ -533,7 +478,9 @@ console.log(v3)
                 <input type="text" id="symbol" name="symbol" placeholder="Weight 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
 
             </div>
-            <div>   <button className="button" onClick={handleButtonClickWeights}>Let the magic beggins!!!</button></div>
+            
+            </div >
+            <div>   <button className="button-85" onClick={handleButtonClickWeights}>Create my portfolio</button></div>
 
         </>
     );

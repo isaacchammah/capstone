@@ -23,15 +23,12 @@ const assets=balancesheet1.slice(1).map((roa) =>
     <>
       <div className="stock">
         <h1 className="stock-name">{profile1.name}</h1>
-
-
+     
         <div className="float">  <img src={logo1} /> </div>
-
+        <p>{showTable1 &&("Industry:")} {profile1.industry}</p>
+        <h6>{showTable1 &&("Website:")}  <a  href={profile1.website}>{profile1.website}</a></h6>
         <p className="description">{profile1.description}</p>
         <input className="expand-btn" type="checkbox"></input>
-
-        <h3>{profile1.industry}</h3>
-        <h6><a href={profile1.website}>{profile1.website}</a></h6>
 
         <div className="App">
           {showTable1 && (<table>
@@ -144,10 +141,6 @@ const assets=balancesheet1.slice(1).map((roa) =>
             <div>{date1.fiscal_date}  </div>
           ))}
         </div> */}
-
-
-
-
 
       </div>
     </>
