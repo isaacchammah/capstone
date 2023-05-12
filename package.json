@@ -31,6 +31,7 @@
     "react-popper": "^2.3.0",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.9",
     "react-table": "^7.8.0",
     "react-use": "^17.4.0",
     "recharts": "^2.6.0",

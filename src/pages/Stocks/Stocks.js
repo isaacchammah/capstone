@@ -2,13 +2,15 @@ import Stock1 from "../../components/Stock1/Stock1";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { mean, variance, std, covariance } from 'mathjs'
-import { Link } from 'react-router-dom';
 import "../Stocks/Stocks.scss"
 import Stock2 from "../../components/Stock2/Stock2";
 import Stock3 from "../../components/Stock3/Stock3";
 import number2 from "../../assets/Images/number 2.webp";
 import riskreturn from "../../assets/Images/risk return.gif";
 import Swal from "sweetalert2";
+import { Link } from 'react-scroll';
+import data from "../../data.json";
+
 
 
 
@@ -314,16 +316,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
             });
+
+
+
     };
 
-    const scrollToTop = (id) => {
-        const element = document.getElementById("results");
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
-    scrollToTop("scroll");
 
 
 
@@ -381,7 +379,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         console.log("this is the portfolio SD!!!!!!!!!!!!!!!", pstandard)
 
         setShowResults(true);
-        scrollToTop("scroll");
 
         Swal.fire({
             title: 'Calculating your portfolio using the following formula:',
@@ -394,36 +391,30 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
+    const [formError1, setFormError1] = useState(null)
+    const [formError2, setFormError2] = useState(null)
+    const [formError3, setFormError3] = useState(null)
 
 
 
-    // function checkStocksLength(newArray1, newArray2, newArray3) {
-    //     if (newArray1.length !== newArray2.length || newArray1.length !== newArray3.length || newArray2.length !== newArray3.length) {
-    //       alert("The lengths of the arrays are not equal. Please try again.");
-    //       return false;
-    //     }
-    //     return true;
-    //   }
+    function checkStocksLength(Array1, Array2, Array3) 
+    { console.log(Array1.length, Array2.length, Array3.length)
+        if (Array1.length !== 119) {
+            setFormError1("error")
+        }
+        if (Array2.length !== 119) {
+            setFormError2("error")
+        }
+        if (Array3.length !== 119) {
+            setFormError3("error")
+        }
+    }
 
 
-
-
-
-    //   const [symbols, setSymbols] = useState([]);
-
-
-    //   useEffect(() => {
-    //     if (symbols.length === 0) {
-    //       axios.get('https://api.twelvedata.com/stocks?source=docs&country=united_states')
-    //         .then(response => {
-    //           const symbols = response.data.data.map(stock => ({ symbol: stock.symbol, name:stock.name}));
-    //           console.log(symbols);
-    //           setSymbols(symbols);
-    //         });
-    //     }
-    //   }, [symbols]);
-
-    const shouldShowTryAgain = prices1.length !== 120;
+    
+useEffect (() =>{
+    checkStocksLength(newArray1, newArray2, newArray3)
+},[newArray1, newArray2, newArray3]);
 
 
     return (
@@ -437,9 +428,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
             </div>
 
             <div className="stock-inputs">
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
-                <input className="stock-input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+                <input className={`stock-input ${formError1}`} type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
+                <input className={`stock-input ${formError2}`} type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
+                <input className={`stock-input ${formError3}`} type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
 
             </div>
 
@@ -508,23 +499,27 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
                 </div>
-               
+
 
             </div >
-<h3 className="select" >Now, select the % you want to invest in each stock</h3>
+            <h3 className="select" >Now, select the % you want to invest in each stock</h3>
             <div className="stock-inputs">
 
-<input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
+                <input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
 
-<input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="% Weight stock 1" onChange={(e) => setSymbolInput4(e.target.value)} />
+                <input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="% Weight stock 2" onChange={(e) => setSymbolInput4(e.target.value)} />
 
-<input className="stock-weight" type="text" id="symbol" name="symbol" placeholder=" % Weight stock 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
-</div>
+                <input className="stock-weight" type="text" id="symbol" name="symbol" placeholder=" % Weight stock 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+            </div>
 
             <div>
-                <button className="button-85" onClick={handleButtonClickWeights}>
-                    Create my portfolio
-                </button>
+                <Link to="results" smooth={true} >
+
+                    <button className="button-85" onClick={handleButtonClickWeights}>
+
+                        Create my portfolio
+                    </button>
+                </Link>
             </div>
         </>
     );

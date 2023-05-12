@@ -4,7 +4,7 @@
 @use '../../partials/typography' as *;
 
 .chart{margin:0 10rem;}
-.results-graph{ background-color: rgb(24, 24, 24)}
+.results-graph{ background-color: rgb(51, 51, 51)}
 
 
 .info2 {
@@ -28,7 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10rem 0;
+    padding: 8rem 0;
 }
 
 .table3 {
@@ -78,3 +78,4 @@ table {
   }
    
   .message{font-size: 50px;}
+  .message2{padding: 1% 10% 0 ;}

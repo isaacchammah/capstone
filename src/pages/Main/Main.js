@@ -53,7 +53,6 @@ function Main() {
     const [showResults, setShowResults] = useState(false);
 
 
-    
 
 
     return (

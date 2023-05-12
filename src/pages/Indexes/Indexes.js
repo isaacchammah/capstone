@@ -2,7 +2,6 @@ import Results from "../Results/Results";
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { mean, variance, std, covariance, re } from 'mathjs'
-import { Link, useNavigate } from 'react-router-dom';
 import { render } from "react-dom";
 import { motion } from "framer-motion";
 import ReactApexChart from "react-apexcharts";
@@ -21,6 +20,8 @@ import Index2 from "../../components/Index2/Index2";
 import number1 from "../../assets/Images/number 1.webp";
 import Index3 from "../../components/Index3/Index3";
 import wave2 from "../../assets/Images/waves 4.png";
+import { Link } from 'react-scroll';
+
 
 
 
@@ -30,7 +31,7 @@ import wave2 from "../../assets/Images/waves 4.png";
 
 
 function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN,
-    setShowStocks
+    setShowStocks,
 }) {
 
     //DOW
@@ -221,14 +222,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     ////SET STATE
     ///NAVIGATE
 
-    const scrollToStocks = (id) => {
-        const element = document.getElementById("stocks");
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
-    scrollToStocks("scroll");
 
     const handleButton1Click = () => {
 
@@ -239,9 +233,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean1 is now ${mean}`);
 
         setShowStocks(true);
-        scrollToStocks("scroll");
-
     };
+
+    
+
 
     const handleButton2Click = () => {
         const indexName = "S&P 500"
@@ -251,7 +246,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean2 is now ${mean}`);
 
         setShowStocks(true);
-        scrollToStocks("scroll");
 
     };
 
@@ -263,7 +257,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean2 is now ${mean}`)
 
         setShowStocks(true);
-        scrollToStocks("scroll");
 
 
 
@@ -277,7 +270,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         <>
 
 
-            <div className="info">
+            <div className="info" id="indexes">
                 <img className="number" src={number1} alt='numer-one' />
                 <p className="instruction">Select the market index you intend to beat</p>
             </div>
@@ -321,7 +314,11 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                         </div>
 
                         <div className="button-27-container">
-                            <button className="button-27" onClick={handleButton1Click}>SELECT DOW JONES</button>
+
+                            <Link to="stocks" smooth={true} >
+                                <button className="button-27" onClick={handleButton1Click}>SELECT DOW JONES</button>
+                            </Link>
+
                         </div>
                     </section>
                 </div>
@@ -363,7 +360,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                             </LineChart>
                             <div className="button-27-container">
 
-                                <button className="button-27" onClick={handleButton2Click}>SELECT S&P500</button>
+                                <Link to="stocks" smooth={true}>
+                                    <button className="button-27" onClick={handleButton2Click}>SELECT S&P500</button>
+                                </Link>
+
                             </div>
                         </div>
                     </section>
@@ -407,8 +407,11 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                             </LineChart>
                             <div className="button-27-container">
 
-                            <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
-</div>
+                                <Link to="stocks" smooth={true}>
+                                    <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
+                                </Link>
+
+                            </div>
                         </div>
                     </section>
                 </div>

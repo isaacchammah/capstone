@@ -144,7 +144,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           logo2,
           logo3,
           'https://colourlex.com/wp-content/uploads/2021/02/Emerald-green-painted-swatch-300x300.jpg.webp',
-          'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'        ],
+          'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'],
         width: 40,
         height: 40
       }
@@ -178,28 +178,51 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
 
   const [message, setMessage] = useState("");
+  const [message2, setMessage2] = useState("");
+
 
   useEffect(() => {
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
-      setMessage("YOU BEAT THE MARKET");
+      setMessage("YOU BEAT THE MARKET!" );
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
-      setMessage("YOU DID NOT BEAT THE MARKET");
+      setMessage("YOU DID NOT BEAT THE MARKET!");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
-      setMessage("YOU ALMOST BEAT THE MARKET");
+      setMessage("YOU DID A GOOD JOB!");
     } else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
-      setMessage("YOU ALMOST BEAT THE MARKET");
+      setMessage("YOU DID AN OK JOB!");
     }
   })
 
+
+  useEffect(() => {
+
+    if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
+      setMessage2("As you can see above your portfolio had a return of" + " " 
+      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
+      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"lower than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+    } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
+      setMessage2("As you can see above your portfolio had a return of" + " " 
+      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
+      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"higher than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+    } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
+      setMessage2("As you can see above your portfolio had a return of" + " " 
+      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
+      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"higher than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%")    } 
+      else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
+      setMessage2("As you can see above your portfolio had a return of" + " " 
+      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
+      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"lower than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+    }
+  })
 
 
   return (
     <>
 
-    
 
-      <div className="info2" id= "results">
+
+      <div className="info2" id="results">
         <img className="number" src={number3} alt='numer-one' />
         <p className="instruction">Results, did you beat the market?</p>
       </div>
@@ -246,7 +269,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
             </td>
 
             <td>
-              Your portfolio  
+              Your portfolio
               <div>{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
               <div>{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
             </td>
@@ -259,8 +282,12 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       </div>
 
       <h1 className="message">
-      {message && <p>{message}</p>}
-    </h1>
+        {message && <p>{message}</p>}
+      </h1>
+
+      <h2 className="message2">
+        {message2 && <p>{message2}</p>}
+      </h2>
 
 
 
