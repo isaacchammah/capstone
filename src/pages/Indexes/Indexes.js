@@ -1,6 +1,6 @@
 import Results from "../Results/Results";
 import axios from "axios";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { mean, variance, std, covariance, re } from 'mathjs'
 import { render } from "react-dom";
 import { motion } from "framer-motion";
@@ -222,6 +222,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     ////SET STATE
     ///NAVIGATE
 
+  
 
 
     const handleButton1Click = () => {
@@ -233,9 +234,12 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean1 is now ${mean}`);
 
         setShowStocks(true);
+
+        
+
     };
 
-    
+
 
 
     const handleButton2Click = () => {
@@ -246,6 +250,9 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean2 is now ${mean}`);
 
         setShowStocks(true);
+
+     
+
 
     };
 
@@ -258,6 +265,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         setShowStocks(true);
 
+      
 
 
     };
@@ -268,158 +276,175 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     return (
         <>
+            <div className="index-page">
 
 
-            <div className="info" id="indexes">
-                <img className="number" src={number1} alt='numer-one' />
-                <p className="instruction">Select the market index you intend to beat</p>
-            </div>
-            <div className="etf">
-
-                <div className="indexes">
-
-                    <section className="card">
-                        <Index1 />
-                        <div className="graph">
-                            <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
-
-                            <LineChart
-                                width={450}
-                                height={200}
-                                data={reverseD}
-                                style={{ backgroundColor: "black" }}
-
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5
-                                }}
-                                animationDuration={100000} // set animation duration to 1000ms (1 second)
-
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="datetime" stroke="white"
-                                    label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
-                                />
-                                <YAxis domain={[0, 'dataMax']}
-                                    tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 100}
-                                    stroke="white" value="Points" position="insideLeft"
-                                    label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
-                                />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
-                            </LineChart>
-                        </div>
-
-                        <div className="button-27-container">
-
-                            <Link to="stocks" smooth={true} >
-                                <button className="button-27" onClick={handleButton1Click}>SELECT DOW JONES</button>
-                            </Link>
-
-                        </div>
-                    </section>
+                <div className="info" id="indexes">
+                    <img className="number" src={number1} alt='numer-one' />
+                    <p className="instruction">Select the market index you intend to beat</p>
                 </div>
+                <div className="etf">
 
+                    <div className="indexes">
 
-                <div className="indexes">
-                    <section className="card">
-                        <Index2 />
-                        <div className="graph">
-                            <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+                        <section className="card">
+                            <Index1 />
 
-                            <LineChart
-                                width={450}
-                                height={200}
-                                data={reverseS}
-                                style={{ backgroundColor: "black" }}
+                            <div className="graph-button">
 
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5
-                                }}
-                                animationDuration={100000} // set animation duration to 1000ms (1 second)
+                                <div className="graph">
+                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="datetime" stroke="white"
-                                    label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
-                                />
-                                <YAxis domain={[0, 'dataMax']}
-                                    tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 10}
-                                    stroke="white" value="Points" position="insideLeft"
-                                    label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
-                                />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
-                            </LineChart>
-                            <div className="button-27-container">
+                                    <LineChart
+                                        width={400}
+                                        height={200}
+                                        data={reverseD}
+                                        style={{ backgroundColor: "black" }}
 
-                                <Link to="stocks" smooth={true}>
-                                    <button className="button-27" onClick={handleButton2Click}>SELECT S&P500</button>
-                                </Link>
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 20,
+                                            bottom: 5
+                                        }}
+                                        animationDuration={100000} // set animation duration to 1000ms (1 second)
 
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="datetime" stroke="white"
+                                            label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
+                                        />
+                                        <YAxis domain={[0, 'dataMax']}
+                                            tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 100}
+                                            stroke="white" value="Points" position="insideLeft"
+                                            label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
+                                        />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
+                                    </LineChart>
+                                </div>
+
+                                <div >
+
+                                    <Link to="stocks" smooth={true} >
+                                        <button className="button-855"  onClick={handleButton1Click}>SELECT DOW JONES</button>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    </section>
-                </div>
+                        </section>
+                    </div>
 
 
-                <div className="indexes">
-                    <section className="card">
-                        <Index3 />
-                        <div className="graph">
-                            <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+                    <div className="indexes">
+                        <section className="card">
+                            <Index2 />
 
-                            <LineChart
-                                width={450}
-                                height={200}
-                                data={reverseN}
-                                style={{ backgroundColor: "black" }}
+                            <div className="graph-button">
 
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5
-                                }}
-                                animationDuration={100000} // set animation duration to 1000ms (1 second)
+                                <div className="graph">
+                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="datetime" stroke="white"
-                                    label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
-                                />
-                                <YAxis domain={[0, 400]}
-                                    tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 37.4
-                                    }
-                                    stroke="white" value="Points" position="insideLeft"
-                                    label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
-                                />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
-                            </LineChart>
-                            <div className="button-27-container">
+                                    <LineChart
+                                        width={400}
+                                        height={200}
+                                        data={reverseS}
+                                        style={{ backgroundColor: "black" }}
 
-                                <Link to="stocks" smooth={true}>
-                                    <button className="button-27" onClick={handleButton3Click}>CHOOSE NASDAQ</button>
-                                </Link>
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 20,
+                                            bottom: 5
+                                        }}
+                                        animationDuration={100000} // set animation duration to 1000ms (1 second)
 
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="datetime" stroke="white"
+                                            label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
+                                        />
+                                        <YAxis domain={[0, 'dataMax']}
+                                            tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 10}
+                                            stroke="white" value="Points" position="insideLeft"
+                                            label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
+                                        />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
+                                    </LineChart>
+                                    <div className="button-85-container">
+
+                                        <Link to="stocks" smooth={true}>
+                                            <button className="button-855" onClick={handleButton2Click}>SELECT S&P500</button>
+                                        </Link>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </section>
-                </div>
+                        </section>
+                    </div>
 
+
+                    <div className="indexes">
+                        <section className="card">
+                            <Index3 />
+                            <div className="graph-button">
+
+                                <div className="graph">
+                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+
+                                    <LineChart
+                                        width={400}
+                                        height={200}
+                                        data={reverseN}
+                                        style={{ backgroundColor: "black" }}
+
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 20,
+                                            bottom: 5
+                                        }}
+                                        animationDuration={100000} // set animation duration to 1000ms (1 second)
+
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="datetime" stroke="white"
+                                            label={{ value: 'Date', angle: 0, position: 'insideBottomRight', fill: '#2E66E5', offset: -10 }}
+                                        />
+                                        <YAxis domain={[0, 400]}
+                                            tickFormatter={(tick) => tick.toLocaleString(undefined, { maximumFractionDigits: 0 }) * 37.4
+                                            }
+                                            stroke="white" value="Points" position="insideLeft"
+                                            label={{ value: 'Points', angle: -90, position: 'insideLeft', fill: '#2E66E5', offset: -8 }}
+                                        />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
+                                    </LineChart>
+                                    <div className="button-85-container">
+
+                                        <Link to="stocks" smooth={true}>
+                                            <button className="button-855" onClick={handleButton3Click}>SELECT NASDAQ</button>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+
+                </div>
 
             </div>
 
-
+            <div class="custom-shape-divider-bottom-1684027880">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
 
         </>
     );
