@@ -12,7 +12,7 @@ function Index3({  }) {
 
  <h1 className="index-card__name"> NASDAQ</h1> 
  <p className="index-card__text">
- Nasdaq is a global electronic marketplace for buying and selling securities. Its name was originally an acronym for "National Association of Securities Dealers Automated Quotations"—Nasdaq started as a subsidiary of the National Association of Securities Dealers (NASD), now known as the Financial Industry Regulatory Authority (FINRA). Nasdaq was launched after the Securities and Exchange Commission (SEC) urged NASD to automate the market for securities not listed on an exchange. The result was the first electronic trading system. Nasdaq opened for business on Feb. 8, 1971.
+ Nasdaq is a global electronic marketplace for buying and selling securities. Its name was originally an acronym for "National Association of Securities Dealers Automated Quotations"—Nasdaq started as a subsidiary of the National Association of Securities Dealers (NASD), now known as the Financial Industry Regulatory Authority (FINRA). Nasdaq was launched after the Securities and Exchange Commission (SEC) urged NASD to automate the market for securities not listed on an exchange. It was the first electronic trading system. Nasdaq opened for business on Feb. 8, 1971.
  </p>
 
 <h4 className="index-card__subheader" >Key takeaways </h4>

@@ -13,15 +13,16 @@ ul {
 }
 
 .index-card {
-    background-color: aliceblue;
-    padding: 1rem
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    // height: 40vh;
 }
 
 .index-card__name {
     margin: 0;
     // font-size: 150px;
     color: rgba(225, 225, 225, 0);
-    background-image: url("https://images.unsplash.com/photo-1593959734793-6e92d102da1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-image: url("https://i.pinimg.com/564x/7f/36/31/7f3631338b510f536dd3626dda7551be.jpg");
     background-repeat: repeat;
     background-clip: text;
     animation: animate 15s ease-in-out infinite;
@@ -29,6 +30,7 @@ ul {
     text-transform: uppercase;
     font-weight: 900;
     padding-bottom: 1rem;
+    font-size: 32px;
 }
 
 .index-card__text {

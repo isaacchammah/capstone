@@ -2,6 +2,7 @@ import Stocks from "../../pages/Stocks/Stocks";
 import Results from "../../pages/Results/Results";
 import Indexes from "../../pages/Indexes/Indexes";
 import { useState, useEffect } from "react";
+import "../../pages/Main/Main.scss"
 
 
 function Main() {
@@ -52,6 +53,9 @@ function Main() {
     const [showStocks, setShowStocks] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
+//
+const [l, setL] = useState(false);
+
 
 
 
@@ -67,7 +71,7 @@ function Main() {
                 setLogo2={setLogo2} setM2={setM2} setS2={setS2} logo2={logo2} m2={m2} s2={s2} description2={description2} setDescription2={setDescription2}
                 setLogo3={setLogo3} setM3={setM3} setS3={setS3} logo3={logo3} m3={m3} s3={s3} description3={description3} setDescription3={setDescription3} 
                 setStockPortfolioMean ={setStockPortfolioMean} setStockPortfolioRisk ={setStockPortfolioRisk}
-                setShowResults ={setShowResults}
+                setShowResults ={setShowResults} l={l}
 
                 /> )}
 

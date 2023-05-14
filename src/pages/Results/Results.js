@@ -45,7 +45,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
   const options = {
 
     title: {
-      text: 'RISK X RETURN',
+      text: 'VOLATILITY X RETURN',
       align: 'center',
       style: {
         fontSize: '24px',
@@ -67,17 +67,21 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
 
     chart: {
-      height: 1000,
+      height: '100%', 
+      sparkline: {
+        enabled: false
+      },
+      width: '100%',
       type: 'scatter',
       animations: {
-        enabled: false,
+        enabled: true,
 
       },
       zoom: {
-        enabled: false,
+        enabled: true,
       },
       toolbar: {
-        show: false
+        show: true
       }
     },
     colors: ['GRAY', 'orange', 'RED', 'GREEN', 'PINK'],
@@ -91,7 +95,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         color: 'WHITE',
       },
       title: {
-        text: 'Risk',
+        text: 'Volatility',
         style: {
           fontSize: '20px',
           fontFamily: 'Arial',
@@ -120,9 +124,10 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         },
       },
       labels: {
+        
         style: {
           colors: ['white'],
-          fontSize: '15px'
+          fontSize: '15px',
         },
         formatter: function (value) {
           return value.toFixed(2) + "%";
@@ -131,7 +136,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
     },
 
     markers: {
-      size: 20
+      size: 30
     },
 
 
@@ -145,8 +150,8 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           logo3,
           'https://colourlex.com/wp-content/uploads/2021/02/Emerald-green-painted-swatch-300x300.jpg.webp',
           'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'],
-        width: 40,
-        height: 40
+        width: 60,
+        height: 60,
       }
     },
 
@@ -184,7 +189,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
   useEffect(() => {
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
-      setMessage("YOU BEAT THE MARKET!" );
+      setMessage("YOU BEAT THE MARKET!");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
       setMessage("YOU DID NOT BEAT THE MARKET!");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
@@ -198,87 +203,42 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
   useEffect(() => {
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
-      setMessage2("As you can see above your portfolio had a return of" + " " 
-      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
-      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"lower than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+      setMessage2("As you can see above your portfolio had a return of" + " "
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
-      setMessage2("As you can see above your portfolio had a return of" + " " 
-      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
-      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"higher than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+      setMessage2("As you can see above your portfolio had a return of" + " "
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
-      setMessage2("As you can see above your portfolio had a return of" + " " 
-      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
-      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"higher than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%")    } 
-      else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
-      setMessage2("As you can see above your portfolio had a return of" + " " 
-      + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" +" "+ parseFloat(mean).toFixed(2)  + "%"+
-      " "+ "and your risk was"+" "+ parseFloat(stockPortfoliRisk).toFixed(2)+"%"+" " +"lower than the market's risk of "+" "+ parseFloat(risk).toFixed(2)+" "+"%");
+      setMessage2("As you can see above your portfolio had a return of" + " "
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%")
+    }
+    else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
+      setMessage2("As you can see above your portfolio had a return of" + " "
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     }
   })
 
 
   return (
     <>
-
+      <div class="custom-shape-divider-top-1684027924">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
 
 
       <div className="info2" id="results">
         <img className="number" src={number3} alt='numer-one' />
-        <p className="instruction">Results, did you beat the market?</p>
+        <p className="instruction">Did you beat the market?</p>
       </div>
 
       <div id="chart" className="chart">
         <ReactApexChart className="results-graph" options={options} series={series} type="scatter" height={550} width={1250} />
-      </div>
-
-
-      <div className="app2">
-        <table className="table3">
-          <tr className="table2">
-
-            <th> Assets/Values
-              <div>Risk</div>
-              <div>Return</div>
-
-            </th>
-          </tr>
-          <tr>
-
-            <td>
-              {description1}
-              <div> {parseFloat(s1).toFixed(2)}%</div>
-              <div>{parseFloat(m1).toFixed(2)}%</div>
-            </td>
-
-            <td>
-              {description2}
-              <div> {parseFloat(s2).toFixed(2)}%</div>
-              <div>{parseFloat(m2).toFixed(2)}%</div>
-            </td>
-
-            <td>
-              {description3}
-              <div> {parseFloat(s3).toFixed(2)}%</div>
-              <div>{parseFloat(m3).toFixed(2)}%</div>
-            </td>
-
-            <td>
-              {indexName}
-              <div> {parseFloat(risk).toFixed(2)}%</div>
-              <div>{parseFloat(mean).toFixed(2)}%</div>
-            </td>
-
-            <td>
-              Your portfolio
-              <div>{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
-              <div>{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
-            </td>
-
-
-
-
-          </tr>
-        </table>
       </div>
 
       <h1 className="message">
@@ -288,6 +248,58 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       <h2 className="message2">
         {message2 && <p>{message2}</p>}
       </h2>
+
+      <div className="app2">
+        <table className="table3">
+          <tr className="table2">
+
+            <th>
+              <div className="results-wight">Assets/Values</div>
+              <div className="results-wight">Volatility</div>
+              <div className="results-wight">Return</div>
+
+            </th>
+          </tr>
+          <tr>
+
+            <td>
+              <div className="results-wight">      {description1} </div>
+              <div className="results-wight"> {parseFloat(s1).toFixed(2)}%</div>
+              <div className="results-wight">{parseFloat(m1).toFixed(2)}%</div>
+            </td>
+
+            <td>
+              <div className="results-wight">  {description2} </div>
+              <div className="results-wight"> {parseFloat(s2).toFixed(2)}%</div>
+              <div className="results-wight">{parseFloat(m2).toFixed(2)}%</div>
+            </td>
+
+            <td>
+              <div className="results-wight">  {description3} </div>
+              <div className="results-wight"> {parseFloat(s3).toFixed(2)}%</div>
+              <div className="results-wight">{parseFloat(m3).toFixed(2)}%</div>
+            </td>
+
+            <td>
+              <div className="results-wight">    {indexName} </div>
+              <div className="results-wight"> {parseFloat(risk).toFixed(2)}%</div>
+              <div className="results-wight">{parseFloat(mean).toFixed(2)}%</div>
+            </td>
+
+            <td>
+              <div className="results-wight">   Your portfolio </div>
+              <div className="results-wight">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
+              <div className="results-wight">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
+            </td>
+
+
+
+
+          </tr>
+        </table>
+      </div>
+
+ 
 
 
 

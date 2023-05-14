@@ -6,16 +6,15 @@ import { Checkbox } from "@geist-ui/core";
 
 
 
-function Stock1({ profile1, logo1, incomestatement1, balancesheet1,  showTable1 }) {
+function Stock1({ profile1, logo1, incomestatement1, balancesheet1, showTable1 }) {
 
 
-const assets=balancesheet1.slice(1).map((roa) => 
-  {(roa.assets.total_assets).toFixed(1)} )
+  const assets = balancesheet1.slice(1).map((roa) => { (roa.assets.total_assets).toFixed(1) })
 
 
   // const roa = assets/netincome
 
-  
+
 
 
 
@@ -23,10 +22,10 @@ const assets=balancesheet1.slice(1).map((roa) =>
     <>
       <div className="stock">
         <h1 className="stock-name">{profile1.name}</h1>
-     
+
         <div className="float">  <img src={logo1} /> </div>
-        <p>{showTable1 &&("Industry:")} {profile1.industry}</p>
-        <h6>{showTable1 &&("Website:")}  <a  href={profile1.website}>{profile1.website}</a></h6>
+        <p>{showTable1 && ("Industry:")} {profile1.industry}</p>
+        <h6>{showTable1 && ("Website:")}  <a href={profile1.website}>{profile1.website}</a></h6>
         <p className="description">{profile1.description}</p>
         <input className="expand-btn" type="checkbox"></input>
 
@@ -34,14 +33,16 @@ const assets=balancesheet1.slice(1).map((roa) =>
           {showTable1 && (<table>
             <tr className="table">
 
-              <th> Index/Date {incomestatement1.map((date) => (
-                <div>{date.fiscal_date}</div>
-              ))}</th>
+              <th>
+                <div className="wight"> Index/Date </div>
+                {incomestatement1.map((date) => (
+                  <div className="wight">{date.fiscal_date}</div>
+                ))}</th>
             </tr>
             <tr>
 
               <td>
-                Sales growth
+                <div className="wight"> Sales growth </div>
                 {[<div className="wight">n/a</div>].concat(incomestatement1.map((sales, index) => (
                   index < incomestatement1.length - 1 && (
                     <div className="wight">{(((incomestatement1[index + 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
@@ -50,7 +51,7 @@ const assets=balancesheet1.slice(1).map((roa) =>
               </td>
 
               <td >
-                Gross Margin
+                <div className="wight"> Gross Margin</div>
                 {incomestatement1.map((grossmargin) => (
                   <div className="wight">{((grossmargin.gross_profit / grossmargin.sales) * 100).toFixed(2)} % </div>
                 ))}
@@ -58,22 +59,22 @@ const assets=balancesheet1.slice(1).map((roa) =>
 
 
               <td>
-                Ebitda Margin
+                <div className="wight"> Ebitda Margin</div>
                 {incomestatement1.map((ebitdamargin) => (
                   <div className="wight">{((ebitdamargin.ebitda / ebitdamargin.sales) * 100).toFixed(2)} % </div>
                 ))}
               </td>
 
               <td>
-                Net Margin
+                <div className="wight"> Net Margin </div>
                 {incomestatement1.map((netmargin) => (
-                  <div className="wight2">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
+                  <div className="wight">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
                 ))}
               </td>
 
 
               <td>
-                Current Ratio
+                <div className="wight"> Current Ratio  </div>
                 {balancesheet1.slice(1).map((currentratio) => (
                   <div className="wight">{((currentratio.assets.current_assets.total_current_assets / currentratio.liabilities.current_liabilities.total_current_liabilities)).toFixed(1)}  </div>
                 ))}
@@ -81,7 +82,7 @@ const assets=balancesheet1.slice(1).map((roa) =>
 
 
               <td>
-                Leverage Ratio
+                <div className="wight"> Leverage Ratio </div>
                 {balancesheet1.slice(1).map((leverageratio) => (
                   <div className="wight">{((leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt) / (leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt + leverageratio.assets.total_assets - leverageratio.liabilities.total_liabilities) * 100).toFixed(1)}%  </div>
                 ))}

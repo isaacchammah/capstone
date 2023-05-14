@@ -36,14 +36,16 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
                     {showTable3 && (<table>
                         <tr className="table">
 
-                            <th> Index/Date {incomestatement3.map((date) => (
-                                <div>{date.fiscal_date}</div>
+                            <th> 
+                            <div className="wight"> Index/Date </div>
+                                {incomestatement3.map((date) => (
+                                <div className="wight">{date.fiscal_date}</div>
                             ))}</th>
                         </tr>
                         <tr>
 
                             <td>
-                                Sales growth
+                            <div className="wight"> Sales growth </div>
                                 {[<div className="wight">n/a</div>].concat(incomestatement3.map((sales, index) => (
                                     index < incomestatement3.length - 1 && (
                                         <div className="wight">{(((incomestatement3[index + 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
@@ -52,7 +54,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
                             </td>
 
                             <td >
-                                Gross Margin
+                            <div className="wight"> Gross Margin</div>
                                 {incomestatement3.map((grossmargin) => (
                                     <div className="wight">{((grossmargin.gross_profit / grossmargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
@@ -60,14 +62,14 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                             <td>
-                                Ebitda Margin
+                            <div className="wight"> Ebitda Margin</div>
                                 {incomestatement3.map((ebitdamargin) => (
                                     <div className="wight">{((ebitdamargin.ebitda / ebitdamargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
                             </td>
 
                             <td>
-                                Net Margin
+                            <div className="wight"> Net Margin </div>
                                 {incomestatement3.map((netmargin) => (
                                     <div className="wight2">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
@@ -75,7 +77,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                             <td>
-                                Current Ratio
+                            <div className="wight"> Current Ratio  </div>
                                 {balancesheet3.slice(1).map((currentratio) => (
                                     <div className="wight">{((currentratio.assets.current_assets.total_current_assets / currentratio.liabilities.current_liabilities.total_current_liabilities)).toFixed(1)}  </div>
                                 ))}
@@ -83,7 +85,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                             <td>
-                                Leverage Ratio
+                            <div className="wight"> Leverage Ratio </div>
                                 {balancesheet3.slice(1).map((leverageratio) => (
                                     <div className="wight">{((leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt) / (leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt + leverageratio.assets.total_assets - leverageratio.liabilities.total_liabilities) * 100).toFixed(1)}%  </div>
                                 ))}

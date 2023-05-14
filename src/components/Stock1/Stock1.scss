@@ -49,16 +49,16 @@
 }
 
 .expand-btn:hover {
-    background-color: #CCC;
+    background-color: #ffffff;
 
 }
 
 .expand-btn::before {
-    content: "Expand";
+    content: "Read more";
 }
 
 .expand-btn:checked::before {
-    content: "Collapse";
+    content: "Read less";
 }
 
 .description:has(+ .expand-btn:checked) {
@@ -86,28 +86,29 @@ img {
 
 table {
     border: 2px solid rgb(34, 48, 139);
-    width: 800px;
+    width: 500px;
     height: 200px;
 }
 
 th {
     border-bottom: 1px solid black;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 td {
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 table {
     height: 1%;
+    width: 90%;
 }
 
 .wight {
-    width: 81.84px;
+    width: 5.6rem;
     text-align: center;
 }
 

@@ -67,6 +67,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     const handleButtonClick1 = () => {
 
+
+
         setShowTable1(true);
 
 
@@ -321,12 +323,15 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     };
 
-
+   
+     
 
 
 
     const handleButtonClickWeights = () => {
 
+
+        
         const pMean = ((m1 * parseFloat(symbolInput2) + m2 * parseFloat(symbolInput4) + m3 * parseFloat(symbolInput6)) / 100)
 
         setStockPortfolioMean(pMean)
@@ -397,8 +402,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
-    function checkStocksLength(Array1, Array2, Array3) 
-    { console.log(Array1.length, Array2.length, Array3.length)
+    function checkStocksLength(Array1, Array2, Array3) {
+        console.log(Array1.length, Array2.length, Array3.length)
         if (Array1.length !== 119) {
             setFormError1("error")
         }
@@ -411,15 +416,21 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     }
 
 
-    
-useEffect (() =>{
-    checkStocksLength(newArray1, newArray2, newArray3)
-},[newArray1, newArray2, newArray3]);
+
+    useEffect(() => {
+        checkStocksLength(newArray1, newArray2, newArray3)
+    }, [newArray1, newArray2, newArray3]);
 
 
     return (
         <>
-            <div className="box" id="stocks"></div>
+
+<div class="custom-shape-divider-top-1684027924">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+            <div id="stocks"></div>
 
 
             <div className="info-stocks">
@@ -428,9 +439,10 @@ useEffect (() =>{
             </div>
 
             <div className="stock-inputs">
-                <input className={`stock-input ${formError1}`} type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
-                <input className={`stock-input ${formError2}`} type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
-                <input className={`stock-input ${formError3}`} type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+                
+                <input className="form-field" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
+                <input className="form-field"  type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
+                <input className="form-field" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
 
             </div>
 
@@ -520,6 +532,11 @@ useEffect (() =>{
                         Create my portfolio
                     </button>
                 </Link>
+            </div>
+            <div class="custom-shape-divider-bottom-1684027880">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
             </div>
         </>
     );
