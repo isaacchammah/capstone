@@ -69,7 +69,7 @@ table {
 .box {
   --size: 50px;
   --p: 25px;
-  --R: 55.9px
+  --R: 55.9px;
   height: 5.3rem;
   -webkit-mask:
     radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), rgb(25, 25, 28) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
