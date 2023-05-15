@@ -2,8 +2,9 @@ import Stocks from "../../pages/Stocks/Stocks";
 import Results from "../../pages/Results/Results";
 import Indexes from "../../pages/Indexes/Indexes";
 import { useState, useEffect } from "react";
-import "../../pages/Main/Main.scss"
+import "../../pages/Main/Main.scss";
 import Home from "../Home/Home";
+
 
 function Main() {
 
@@ -72,7 +73,7 @@ function Main() {
             {showIndexes && (
 
                 <Indexes mD={mD} sD={sD} setMD={setMD} setSD={setSD} mean={mean} setMean={setMean} mS={mS} sS={sS} setSS={setSS} setMS={setMS} risk={risk} setRisk={setRisk} indexName={indexName} setIndexName={setIndexName} mN={mN} setMN={setMN} sN={sN} setSN={setSN}
-                    setShowStocks={setShowStocks} youName={yourName} 
+                    setShowStocks={setShowStocks} youName={yourName} showStocks={showStocks}
 
                 />)}
 

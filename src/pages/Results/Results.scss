@@ -13,33 +13,30 @@
   width: 110%;
 }
 
-
-.info2 {
+.results-header {
   display: flex;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   align-items: center;
   justify-content: space-evenly;
   padding-bottom: 1rem;
-  margin-left: 10%;
-
+  margin-left: 23%;
+  justify-content: flex-start;
 }
 
-.number {
+.results-header__number {
   margin-left: 25%
 }
 
-;
-
-
-.instruction {
-  margin-right: 60%;
+.results-header__subheader 
+{
+  margin-right: 10%;
   font-size: 24px;
-  font-weight: 600
+  font-weight: 600;
 }
 
 
-.app2 {
+.results__table {
   width: 100%;
   height: 30vh;
   display: flex;
@@ -48,7 +45,7 @@
   padding: 8rem 0;
 }
 
-.table3 {
+.results__table--color {
   border: 2px solid rgb(34, 48, 139);
   font-size: 23px;
 }
@@ -69,18 +66,11 @@ table {
   height: 1%;
 }
 
-
-
-
 .box {
   --size: 50px;
   --p: 25px;
   --R: 55.9px
-    /*sqrt(var(--size)*var(--size) + var(--p)*var(--p))*/
-  ;
-
   height: 5.3rem;
-
   -webkit-mask:
     radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), rgb(25, 25, 28) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
     radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, rgb(48, 43, 43) 101%) 50% calc(100% - var(--size))/calc(4*var(--size)) 100% repeat-x;
@@ -99,22 +89,22 @@ table {
   }
 }
 
-.message {
+.results-message {
   font-size: 50px;
 }
 
-.message2 {
+.results-message2 {
   padding: 1% 17% 0;
 text-align: center;
 font-size:x-large;
 }
 
-.results-wight {
+.results__table--weight {
   width: 15rem;
   text-align: center;
 }
 
-.results-wight2 {
+.results__table--weight2 {
   width: 15rem;
   text-align: center;
   background-color: pink;

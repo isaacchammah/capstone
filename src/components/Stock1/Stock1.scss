@@ -3,9 +3,7 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 
-
-
-.description {
+.stock__description {
     @include td-p2-body-medium;
     font-size: 15px;
     width: 100%;
@@ -14,20 +12,15 @@
     align-items: center;
     line-height: 2;
     padding: 1rem;
-    // columns: 2;
-    // column-gap: 20px;
-
     --max-lines: 10;
-
     overflow: hidden;
     --line-height: 1.34;
     max-height: calc(var(--max-lines)*1rem*var(--line-height));
     overflow: hidden;
     position: relative;
-
 }
 
-.description:has(+ .expand-btn:not(:checked))::before {
+.stock__description:has(+ .stock__input:not(:checked))::before {
     content: "";
     position: absolute;
     height: calc(1rem*var(--line-height));
@@ -38,49 +31,43 @@
 }
 
 
-.expand-btn {
+.stock__input {
     appearance: none;
     border: 1px solid black;
     padding: 0.5em;
     border-radius: 0.25em;
     cursor: pointer;
-    margin-top: 1rem;
-
+    margin: 1rem;
 }
 
-.expand-btn:hover {
+.stock__input:hover {
     background-color: #ffffff;
 
 }
 
-.expand-btn::before {
+.stock__input::before {
     content: "Read more";
 }
 
-.expand-btn:checked::before {
+.stock__input:checked::before {
     content: "Read less";
 }
 
-.description:has(+ .expand-btn:checked) {
+.stock__description:has(+ .stock__input:checked) {
     max-height: none;
 }
 
-img {
+.stock__image {
     height: 8vh;
     width: auto;
     border-radius: 100%;
     top: 15px;
-     margin-left: 0.5%  ;
-     aspect-ratio:16/16;
-     object-fit: contain;
-     
-
-
+    margin-left: 0.5%;
+    aspect-ratio: 16/16;
+    object-fit: contain;
 }
 
-
-
-.App {
+.stock__data {
     width: 100%;
     height: 20vh;
     display: flex;
@@ -108,17 +95,15 @@ td {
 }
 
 
-.wight {
+.stock__wight {
     width: 5rem;
     text-align: center;
 }
 
-.wights {
+.stock__wights {
     width: 5.55rem;
     text-align: center;
 }
-
-
 
 
 h1 {
@@ -154,9 +139,16 @@ h1 {
     }
 }
 
+.stock__website,
+.stock__industry {
+    padding-top: 0.5rem;
+    padding-left: 1rem
+}
 
-// .stock {
-//     // background-image: linear-gradient(288deg, rgb(126, 144, 181) 1.5%, rgb(210, 218, 227) 10%);
-// }
+.stock__image-container {
+    padding-left: 0.5rem;
+}
 
-.website, .industry{padding-top: 0.5rem; padding-left: 1rem}
+.readmore {
+    padding-left: 1rem
+}

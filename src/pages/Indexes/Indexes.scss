@@ -6,7 +6,7 @@
 
 .index-page{display: flex; flex-direction: column;}
 
-.info {
+.indexes-header {
     display: flex;
     background-color: #ffffff;
     color: white;
@@ -17,11 +17,11 @@
 
 }
 
-.number {
+.indexes-header__number {
     margin-left: 25%
 }
 
-.instruction {
+.indexes-header__subheader {
     margin-right: 30%;
     font-size: 24px;
     font-weight: 600; color:black;
@@ -30,7 +30,7 @@
 
 
 
-.indexes {
+.cards__index {
     background-color: white;
     width: 30%;
   border: solid rgba(0, 0, 0, 1);
@@ -42,29 +42,26 @@
 
 }
 
-.graph {
+.cards__graphs--color {
     background-color: rgb(255, 255, 255);
     padding: 0.8rem;
     padding-top: 0rem;
 }
 
-.graph__title {
+.cards__graph--title {
     margin-left: 25%;
 }
 
-
-.etf {
+ .cards {
     display: flex;
     justify-content: space-around
 }
 
 
-
-
 .button-85-container {margin-left: 5rem; padding: 1rem 0;}
 
 
-.custom-shape-divider-bottom-1684027880 {
+.up-wave {
     position: relative;
     bottom: 0;
     left: 0;
@@ -73,18 +70,18 @@
     line-height: 0;
 }
 
-.custom-shape-divider-bottom-1684027880 svg {
+.up-wave svg {
     position: relative;
     display: block;
     width: calc(172% + 1.3px);
     height: 81px;
 }
 
-.custom-shape-divider-bottom-1684027880 .shape-fill {
+.up-wave .shape-fill {
     fill: #000000;
 }
 
-.graph-button {display: flex;display: flex;
+.cards__graph {display: flex;display: flex;
     flex-direction: column;
     align-items: center;}
 
@@ -160,3 +157,27 @@
     border-radius: 10px;
   }
   
+
+
+
+  
+.bottom-wave {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.bottom-wave svg {
+  position: relative;
+  display: block;
+  width: calc(172% + 1.3px);
+  height: 81px;
+}
+
+.bottom-wave .shape-fill {
+  fill: #000000;
+}
+

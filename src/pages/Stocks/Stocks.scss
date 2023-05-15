@@ -6,7 +6,7 @@
 
 
 
-.button-85 {
+.stock-button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -26,7 +26,7 @@
   font-size: 20px;
 }
 
-.button-85:before {
+.stock-button:before {
   content: "";
   background: linear-gradient(45deg,
       #ff0000,
@@ -47,12 +47,12 @@
   -webkit-filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
+  animation: glowing-stock-button 20s linear infinite;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
-@keyframes glowing-button-85 {
+@keyframes glowing-stock-button {
   0% {
     background-position: 0 0;
   }
@@ -66,7 +66,7 @@
   }
 }
 
-.button-85:after {
+.stock-button:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -79,7 +79,7 @@
 }
 
 
-.custom-shape-divider-top-1684027924 {
+.top-wave {
   position: relative;
   top: 0;
   left: 0;
@@ -88,39 +88,44 @@
   line-height: 0;
 }
 
-.custom-shape-divider-top-1684027924 svg {
+.top-wave svg {
   position: relative;
   display: block;
   width: calc(172% + 1.3px);
   height: 81px;
 }
 
-.custom-shape-divider-top-1684027924 .shape-fill {
+.top-wave .shape-fill {
   fill: #000000;
 }
 
 
-.info-stocks {
+.stocks-header {
   display: flex;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   align-items: center;
-  justify-content: space-evenly;
-
+padding-left: 9.5rem;
 }
 
-.number-stocks {
+.stocks-header__numbers {
   margin-left: 25%
 }
 
 ;
 
 
-.instruction-stocks {
-  margin-right: 40%;
+.stocks__instruction{
+  margin-right: 30%;
   font-size: 24px;
-  font-weight: 600
+  font-weight: 600;
+  color: black;
+  width: 100%;
 }
+
+
+.stock-weights__inputs{display: flex;    justify-content: space-around;padding: 2rem 0;}
+
 
 .stock-input {
 
@@ -145,7 +150,7 @@
   
 }
   
-.stocks {
+.stocks-cards {
   margin-top: 3%;
   padding: 2rem;
   display: flex;
@@ -155,9 +160,9 @@
 
 }
 
-.stock1,
-.stock2,
-.stock3 {
+.stocks-cards__stock1,
+.stocks-cards__stock2,
+.stocks-cards__stock3 {
 
   
     background-color: white;
@@ -174,7 +179,7 @@
 
 
 
-.stock-inputs {display: flex;    justify-content: space-around;padding: 2rem 0;}
+.tickers {display: flex;    justify-content: space-around;padding: 2rem 0;}
 
 .swal2-styled.swal2-confirm {
   display:none;
@@ -186,7 +191,7 @@
   font-size: 1em;
 }
 
-.select{padding: 1% 0% 0% 35%;}
+.stock-weights{padding: 1% 0% 0% 35%;}
 
 // .error  {border-color: #ff0000; }
 
@@ -210,7 +215,7 @@
   fill: #000000;
 }
 
-.form-field, .stock-weight {
+.tickers__input, .stock-weights__input {
   border: none;
   outline: none;
   background: none;

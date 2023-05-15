@@ -25,6 +25,7 @@
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-async": "^10.0.1",
+    "react-autosuggest": "^10.1.0",
     "react-awesome-reveal": "^4.2.3",
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",

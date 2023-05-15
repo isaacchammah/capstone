@@ -1,9 +1,6 @@
 import React from "react";
 import "../Index1/Index1.scss"
 
-
-
-
 function Index1({ }) {
 
     return (
@@ -16,15 +13,13 @@ function Index1({ }) {
 
                 <h4 className="index-card__subheader" >Key takeaways </h4>
 
-                <ul className="index-card__bullet-points">
+                <ul className="index-card__takeaways">
                     <li>The Dow Jones Industrial Average is a widely-watched benchmark index in the U.S. for blue-chip stocks.</li>
                     <li>The index was created by Charles Dow in 1896 to serve as a proxy for the broader U.S. economy.</li>
                     <li>The DJIA's composition can change over time based on economic trends.</li>
                     <li>The Dow Divisor is a constant that was created to address the simple average issue.</li>
                 </ul>
             </section>
-
-
 
         </>
     );

@@ -12,18 +12,12 @@ import { Link } from 'react-scroll';
 import data from "../../data.json";
 
 
-
-
-
-
 function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
     setLogo3, setM3, setS3, logo3, m3, s3, setDescription3,
     setStockPortfolioRisk, setStockPortfolioMean,
     setShowResults, pName
 }) {
-
-
 
     // data from Stock1
     const [symbolInput1, setSymbolInput1] = useState('');
@@ -36,7 +30,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     const [v1, setV1] = useState([]);
     const [newArray1, setNewArray1] = useState([]);
 
-
     // data from Stock2
     const [symbolInput3, setSymbolInput3] = useState('');
     const [symbolInput4, setSymbolInput4] = useState('');
@@ -47,7 +40,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     const [prices2, setPrices2] = useState([]);
     const [v2, setV2] = useState([]);
     const [newArray2, setNewArray2] = useState([]);
-
 
     // data from Stock3
     const [symbolInput5, setSymbolInput5] = useState('');
@@ -61,17 +53,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     const [newArray3, setNewArray3] = useState([]);
 
 
-
-
-
-
     const handleButtonClick1 = () => {
 
-
-
         setShowTable1(true);
-
-
 
         const url = 'https://api.twelvedata.com/';
         const html1 = 'profile'
@@ -85,7 +69,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 console.log(response.data);
                 setProfile1(response.data);
             },)
-
 
         axios.get(code11)
             .then(response => {
@@ -125,10 +108,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         const datarange = `&interval=1month&outputsize=120&`
         const code15 = url + html5 + text + symbolInput1 + datarange + keyText + key
 
-
         axios.get(code15)
             .then(response => {
-
 
                 console.log(response.data.values);
                 setPrices1(response.data.values);
@@ -160,8 +141,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                 setNewArray1(newArray1)
             })
-
-
 
         setShowTable2(true);
 
@@ -237,10 +216,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                 setNewArray2(newArray2)
 
-
-
             });
-
 
         setShowTable3(true);
 
@@ -304,7 +280,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 console.log("new array 3!!!!!!", newArray3); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
-
                 setM3(mean(newArray3) * 100);
                 console.log(setM3)
 
@@ -316,15 +291,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                 setNewArray3(newArray3)
 
-
             });
 
-
-
     };
-
-   
-     
 
 
 
@@ -333,10 +302,10 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         const sum = parseInt(symbolInput2) + parseInt(symbolInput4) + parseInt(symbolInput6);
 
         if (sum !== 100) {
-          alert("The sum of the values in the inputs must be equal to 100.");
-          return;
+            alert("The sum of the values in the inputs must be equal to 100.");
+            return;
         }
-        
+
         const pMean = ((m1 * parseFloat(symbolInput2) + m2 * parseFloat(symbolInput4) + m3 * parseFloat(symbolInput6)) / 100)
 
         setStockPortfolioMean(pMean)
@@ -367,7 +336,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         console.log("this is the portfolio CORREL", correlation23)
 
-
         const pstandard = (
             ((parseFloat(symbolInput2) / 100) ** 2 * v1 +
                 (parseFloat(symbolInput4) / 100) ** 2 * v2 +
@@ -382,10 +350,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         console.log(v1)
         console.log(v2)
         console.log(v3)
-
-
-
-
         console.log("this is the portfolio SD!!!!!!!!!!!!!!!", pstandard)
 
         setShowResults(true);
@@ -395,20 +359,11 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
             html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 390px; height: 150px; border-radius:0 " />',
             confirmButtonText: 'OK'
         });
-
-
-   
-    
-
     }
-
-
 
     const [formError1, setFormError1] = useState(null)
     const [formError2, setFormError2] = useState(null)
     const [formError3, setFormError3] = useState(null)
-
-
 
     function checkStocksLength(Array1, Array2, Array3) {
         console.log(Array1.length, Array2.length, Array3.length)
@@ -423,51 +378,42 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         }
     }
 
-
-
     useEffect(() => {
         checkStocksLength(newArray1, newArray2, newArray3)
     }, [newArray1, newArray2, newArray3]);
 
 
-
-
-   
-
-
-
-
     return (
         <>
 
-<div class="custom-shape-divider-top-1684027924">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-    </svg>
-</div>
+            <div class="top-wave">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
             <div id="stocks"></div>
 
 
-            <div className="info-stocks">
-                <img className="number-stocks" src={number2} alt='numer-two' />
-                <p className="instruction-stocks">Select 3 stocks to create {pName}'s portfolio</p>
+            <div className="stocks-header">
+                <img className="stocks-header__numbers" src={number2} alt='numer-two' />
+                <p className="stocks__instruction">Select 3 stocks to create {pName}'s portfolio</p>
             </div>
 
-            <div className="stock-inputs">
-                
-                <input className="form-field" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
-                <input className="form-field"  type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
-                <input className="form-field" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
+            <div className="tickers">
+
+                <input className="tickers__input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
+                <input className="tickers__input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
+                <input className="tickers__input" type="text" id="symbol" name="symbol" placeholder="Ticker 3" value={symbolInput5} onChange={(e) => setSymbolInput5(e.target.value)} />
 
             </div>
 
-            <div>   <button className="button-85" onClick={handleButtonClick1}>Select stocks</button></div>
+            <div>   <button className="stock-button" onClick={handleButtonClick1}>Select stocks</button></div>
 
-            <div className="stocks">
+            <div className="stocks-cards">
 
 
 
-                <div className="stock1">
+                <div className="stocks-cards__stock1">
 
 
 
@@ -488,7 +434,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
-                <div className="stock2">
+                <div className="stocks-cards__stock2">
 
 
 
@@ -509,7 +455,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
-                <div className="stock3">
+                <div className="stocks-cards__stock3">
 
 
 
@@ -529,20 +475,20 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
             </div >
-            <h3 className="select" >Now, select the % you want to invest in each stock</h3>
-            <div className="stock-inputs">
+            <h3 className="stock-weights" >Now, select the % you want to invest in each stock</h3>
+            <div className="stock-weights__inputs">
 
-                <input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
+                <input className="stock-weights__input" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
 
-                <input className="stock-weight" type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="% Weight stock 2" onChange={(e) => setSymbolInput4(e.target.value)} />
+                <input className="stock-weights__input" type="text" id="symbol" name="symbol" value={symbolInput4} placeholder="% Weight stock 2" onChange={(e) => setSymbolInput4(e.target.value)} />
 
-                <input className="stock-weight" type="text" id="symbol" name="symbol" placeholder=" % Weight stock 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
+                <input className="stock-weights__input" type="text" id="symbol" name="symbol" placeholder=" % Weight stock 3" value={symbolInput6} onChange={(e) => setSymbolInput6(e.target.value)} />
             </div>
 
             <div>
                 <Link to="results" smooth={true} >
 
-                    <button className="button-85" onClick={handleButtonClickWeights}>
+                    <button className="stock-button " onClick={handleButtonClickWeights}>
 
                         Create my portfolio
                     </button>

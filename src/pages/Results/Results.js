@@ -137,7 +137,9 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
     },
 
     markers: {
-      size: 30
+      size: 30,
+      strokeColors: ['GRAY', 'orange', 'RED', 'GREEN', 'PINK']
+
     },
 
 
@@ -153,6 +155,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'],
         width: 60,
         height: 60,
+     
       }
     },
 
@@ -233,64 +236,64 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       </div>
 
 
-      <div className="info2" id="results">
-        <img className="number" src={number3} alt='numer-one' />
-        <p className="instruction">Did {pName} beat the market?</p>
+      <div className="results-header" id="results">
+        <img className="results-header__number" src={number3} alt='numer-one' />
+        <p className="results-header__subheader">Did {pName} beat the market?</p>
       </div>
 
       <div id="chart" className="chart">
         <ReactApexChart className="results-graph" options={options} series={series} type="scatter" height={550} width={1250} />
       </div>
 
-      <h1 className="message">
+      <h1 className="results-message">
         {message && <p>{message}</p>}
       </h1>
 
-      <p className="message2">
+      <p className="results-message2">
         {message2 && <p>{message2}</p>}
       </p>
 
-      <div className="app2">
-        <table className="table3">
-          <tr className="table2">
+      <div className="results__table">
+        <table className="results__table--color">
+          <tr>
 
             <th>
-              <div className="results-wight">Assets/Values</div>
-              <div className="results-wight">Volatility</div>
-              <div className="results-wight">Return</div>
+              <div className="results__table--weight">Assets/Values</div>
+              <div className="results__table--weight">Volatility</div>
+              <div className="results__table--weight">Return</div>
 
             </th>
           </tr>
           <tr>
 
             <td>
-              <div className="results-wight">      {description1} </div>
-              <div className="results-wight"> {parseFloat(s1).toFixed(2)}%</div>
-              <div className="results-wight">{parseFloat(m1).toFixed(2)}%</div>
+              <div className="results__table--weight">      {description1} </div>
+              <div className="results__table--weight"> {parseFloat(s1).toFixed(2)}%</div>
+              <div className="results__table--weight">{parseFloat(m1).toFixed(2)}%</div>
             </td>
 
             <td>
-              <div className="results-wight">  {description2} </div>
-              <div className="results-wight"> {parseFloat(s2).toFixed(2)}%</div>
-              <div className="results-wight">{parseFloat(m2).toFixed(2)}%</div>
+              <div className="results__table--weight">  {description2} </div>
+              <div className="results__table--weight"> {parseFloat(s2).toFixed(2)}%</div>
+              <div className="results__table--weight">{parseFloat(m2).toFixed(2)}%</div>
             </td>
 
             <td>
-              <div className="results-wight">  {description3} </div>
-              <div className="results-wight"> {parseFloat(s3).toFixed(2)}%</div>
-              <div className="results-wight">{parseFloat(m3).toFixed(2)}%</div>
+              <div className="results__table--weight">  {description3} </div>
+              <div className="results__table--weight"> {parseFloat(s3).toFixed(2)}%</div>
+              <div className="results__table--weight">{parseFloat(m3).toFixed(2)}%</div>
             </td>
 
             <td>
-              <div className="results-wight">    {indexName} </div>
-              <div className="results-wight"> {parseFloat(risk).toFixed(2)}%</div>
-              <div className="results-wight">{parseFloat(mean).toFixed(2)}%</div>
+              <div className="results__table--weight">    {indexName} </div>
+              <div className="results__table--weight"> {parseFloat(risk).toFixed(2)}%</div>
+              <div className="results__table--weight">{parseFloat(mean).toFixed(2)}%</div>
             </td>
 
             <td>
-              <div className="results-wight2">   {pName}'s portfolio </div>
-              <div className="results-wight2">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
-              <div className="results-wight2">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
+              <div className="results__table--weight2">   {pName}'s portfolio </div>
+              <div className="results__table--weight2">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
+              <div className="results__table--weight2">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
             </td>
 
 

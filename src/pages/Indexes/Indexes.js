@@ -30,7 +30,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 
 
 function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN,
-    setShowStocks, pName
+    setShowStocks, pName, showStocks
 }) {
 
     //DOW
@@ -61,7 +61,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     const keyText = '&apikey='
     const key = 'c3617d0506fd466d9401ac352b69f038';
     const html = 'avgprice'
-    const datarange1 = `&interval=1month&outputsize=192&`
+    const datarange1 = `&interval=1month&outputsize=200&`
 
     const code = url + html + text + dow + datarange1 + keyText + key
     console.log(code)
@@ -162,7 +162,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         //////////NASDAQ
         const nas = "QQQ"
 
-        const datarange2 = `&interval=1month&outputsize=120&`
+        const datarange2 = `&interval=1month&outputsize=127&`
 
         const code3 = url + html + text + nas + datarange2 + keyText + key
 
@@ -234,8 +234,8 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         console.log(`setMean1 is now ${mean}`);
         setShowStocks(true);
 
-    };
 
+    };
 
 
 
@@ -278,7 +278,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     return (
         <>
-            <div class="custom-shape-divider-top-1684027924">
+            <div className="up-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
@@ -286,21 +286,21 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
             <div className="index-page">
 
 
-                <div className="info" id="indexes">
-                    <img className="number" src={number1} alt='numer-one' />
-                    <p className="instruction">Select the market index you intend to beat</p>
+                <div className="indexes-header" id="indexes">
+                    <img className="indexes-header__number" src={number1} alt='numer-one' />
+                    <p className="indexes-header__subheader">Select the market index you intend to beat</p>
                 </div>
-                <div className="etf">
+                <div className="cards">
 
-                    <div className="indexes">
+                    <div className="cards__index">
 
-                        <section className="card">
+                        <section>
                             <Index1 />
 
-                            <div className="graph-button">
+                            <div className="cards__graph">
 
-                                <div className="graph">
-                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+                                <div className="cards__graphs--color">
+                                    <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
                                     <LineChart
                                         width={400}
@@ -334,7 +334,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
                                 <div >
 
-                                    <Link to="stocks" smooth={true} offset={-50} duration={500} >
+                                    <Link to="stocks" smooth={true} offset={-50} duration={500} delay={1000}>
                                         <button className="button-855" onClick={handleButton1Click}>Select DOW JONES</button>
                                     </Link>
                                 </div>
@@ -343,14 +343,14 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                     </div>
 
 
-                    <div className="indexes">
-                        <section className="card">
+                    <div className="cards__index">
+                        <section>
                             <Index2 />
 
-                            <div className="graph-button">
+                            <div className="cards__graph">
 
-                                <div className="graph">
-                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+                                <div className="cards__graphs--color">
+                                    <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
                                     <LineChart
                                         width={400}
@@ -393,13 +393,13 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                     </div>
 
 
-                    <div className="indexes">
-                        <section className="card">
+                    <div className="cards__index">
+                        <section>
                             <Index3 />
-                            <div className="graph-button">
+                            <div className="cards__graph">
 
-                                <div className="graph">
-                                    <h3 className="graph__title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
+                                <div className="cards__graphs--color">
+                                    <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
                                     <LineChart
                                         width={400}
@@ -447,7 +447,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
             </div>
 
-            <div class="custom-shape-divider-bottom-1684027880">
+            <div className="bottom-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
                 </svg>
