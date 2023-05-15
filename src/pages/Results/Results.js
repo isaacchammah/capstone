@@ -5,7 +5,7 @@ import number3 from "../../assets/Images/number 3.webp";
 
 
 
-function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName, stockPortfolioMean, stockPortfoliRisk }) {
+function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName, stockPortfolioMean, stockPortfoliRisk, pName }) {
 
   const series = [
     {
@@ -34,7 +34,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       ]
     },
     {
-      name: "Your Portfloio",
+      name: pName+"'s Portfolio",
       data: [
         [stockPortfoliRisk, stockPortfolioMean]
 
@@ -67,7 +67,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
 
     chart: {
-      height: '100%', 
+      height: '100%',
       sparkline: {
         enabled: false
       },
@@ -88,7 +88,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
     xaxis: {
       tickAmount: 5,
       min: 0,
-      max: 20,
+      max: "auto",
       style: {
         fontSize: '20px',
         fontFamily: 'Arial',
@@ -108,7 +108,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           fontSize: '15px'
         },
         formatter: function (value) {
-          return value + "%";
+          return value.toFixed(2) + "%";
         },
       },
     },
@@ -122,9 +122,10 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           fontFamily: 'Arial',
           color: 'white',
         },
+        
       },
       labels: {
-        
+
         style: {
           colors: ['white'],
           fontSize: '15px',
@@ -234,7 +235,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
       <div className="info2" id="results">
         <img className="number" src={number3} alt='numer-one' />
-        <p className="instruction">Did you beat the market?</p>
+        <p className="instruction">Did {pName} beat the market?</p>
       </div>
 
       <div id="chart" className="chart">
@@ -245,9 +246,9 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         {message && <p>{message}</p>}
       </h1>
 
-      <h2 className="message2">
+      <p className="message2">
         {message2 && <p>{message2}</p>}
-      </h2>
+      </p>
 
       <div className="app2">
         <table className="table3">
@@ -287,9 +288,9 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
             </td>
 
             <td>
-              <div className="results-wight">   Your portfolio </div>
-              <div className="results-wight">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
-              <div className="results-wight">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
+              <div className="results-wight2">   {pName}'s portfolio </div>
+              <div className="results-wight2">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
+              <div className="results-wight2">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
             </td>
 
 
@@ -299,7 +300,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         </table>
       </div>
 
- 
+
 
 
 

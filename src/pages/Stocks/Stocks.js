@@ -20,7 +20,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setLogo2, setM2, setS2, logo2, m2, s2, setDescription2,
     setLogo3, setM3, setS3, logo3, m3, s3, setDescription3,
     setStockPortfolioRisk, setStockPortfolioMean,
-    setShowResults
+    setShowResults, pName
 }) {
 
 
@@ -330,7 +330,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     const handleButtonClickWeights = () => {
 
+        const sum = parseInt(symbolInput2) + parseInt(symbolInput4) + parseInt(symbolInput6);
 
+        if (sum !== 100) {
+          alert("The sum of the values in the inputs must be equal to 100.");
+          return;
+        }
         
         const pMean = ((m1 * parseFloat(symbolInput2) + m2 * parseFloat(symbolInput4) + m3 * parseFloat(symbolInput6)) / 100)
 
@@ -392,6 +397,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         });
 
 
+   
+    
+
     }
 
 
@@ -422,6 +430,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     }, [newArray1, newArray2, newArray3]);
 
 
+
+
+   
+
+
+
+
     return (
         <>
 
@@ -435,7 +450,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
             <div className="info-stocks">
                 <img className="number-stocks" src={number2} alt='numer-two' />
-                <p className="instruction-stocks">Select 3 stocks to create your portfolio</p>
+                <p className="instruction-stocks">Select 3 stocks to create {pName}'s portfolio</p>
             </div>
 
             <div className="stock-inputs">

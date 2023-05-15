@@ -26,8 +26,8 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                 <div className="float">  <img src={logo3} /> </div>
-                <p>{showTable3 &&("Industry:")} {profile3.industry}</p>
-        <h6>{showTable3 &&("Website:")}  <a  href={profile3.website}>{profile3.website}</a></h6>
+                <p className="industry">{showTable3 &&("Industry:")} {profile3.industry}</p>
+                <p className="website">{showTable3 && ("Website:")}  <a href={profile3.website}>{profile3.website}</a></p>
                 <p className="description">{profile3.description}</p>
               
                 <input className="expand-btn" type="checkbox"></input>
@@ -45,7 +45,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
                         <tr>
 
                             <td>
-                            <div className="wight"> Sales growth </div>
+                            <div className="wights"> Sales growth </div>
                                 {[<div className="wight">n/a</div>].concat(incomestatement3.map((sales, index) => (
                                     index < incomestatement3.length - 1 && (
                                         <div className="wight">{(((incomestatement3[index + 1].sales / sales.sales) - 1) * 100).toFixed(2)}% </div>
@@ -54,7 +54,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
                             </td>
 
                             <td >
-                            <div className="wight"> Gross Margin</div>
+                            <div className="wights"> Gross Margin</div>
                                 {incomestatement3.map((grossmargin) => (
                                     <div className="wight">{((grossmargin.gross_profit / grossmargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
@@ -62,22 +62,22 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                             <td>
-                            <div className="wight"> Ebitda Margin</div>
+                            <div className="wights"> Ebitda Margin</div>
                                 {incomestatement3.map((ebitdamargin) => (
                                     <div className="wight">{((ebitdamargin.ebitda / ebitdamargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
                             </td>
 
                             <td>
-                            <div className="wight"> Net Margin </div>
+                            <div className="wights"> Net Margin </div>
                                 {incomestatement3.map((netmargin) => (
-                                    <div className="wight2">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
+                                    <div className="wight">{((netmargin.net_income / netmargin.sales) * 100).toFixed(2)} % </div>
                                 ))}
                             </td>
 
 
                             <td>
-                            <div className="wight"> Current Ratio  </div>
+                            <div className="wights"> Current Ratio  </div>
                                 {balancesheet3.slice(1).map((currentratio) => (
                                     <div className="wight">{((currentratio.assets.current_assets.total_current_assets / currentratio.liabilities.current_liabilities.total_current_liabilities)).toFixed(1)}  </div>
                                 ))}
@@ -85,7 +85,7 @@ function Stock3({ profile3, logo3, incomestatement3, balancesheet3, showTable3 }
 
 
                             <td>
-                            <div className="wight"> Leverage Ratio </div>
+                            <div className="wights"> Leverage Ratio </div>
                                 {balancesheet3.slice(1).map((leverageratio) => (
                                     <div className="wight">{((leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt) / (leverageratio.liabilities.current_liabilities.short_term_debt + leverageratio.liabilities.non_current_liabilities.long_term_debt + leverageratio.assets.total_assets - leverageratio.liabilities.total_liabilities) * 100).toFixed(1)}%  </div>
                                 ))}

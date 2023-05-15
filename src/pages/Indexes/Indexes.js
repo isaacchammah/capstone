@@ -1,6 +1,6 @@
 import Results from "../Results/Results";
 import axios from "axios";
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { mean, variance, std, covariance, re } from 'mathjs'
 import { render } from "react-dom";
 import { motion } from "framer-motion";
@@ -19,8 +19,7 @@ import "../Indexes/Indexes.scss"
 import Index2 from "../../components/Index2/Index2";
 import number1 from "../../assets/Images/number 1.webp";
 import Index3 from "../../components/Index3/Index3";
-import wave2 from "../../assets/Images/waves 4.png";
-import { Link } from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 
 
@@ -31,7 +30,7 @@ import { Link } from 'react-scroll';
 
 
 function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN,
-    setShowStocks,
+    setShowStocks, pName
 }) {
 
     //DOW
@@ -222,22 +221,25 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     ////SET STATE
     ///NAVIGATE
 
-  
 
 
-    const handleButton1Click = () => {
 
-        const indexName = "DOW JONES"
-        setIndexName(indexName)
+    const handleButton1Click = (event) => {
+        event.preventDefault();
+
+        const indexName = "DOW JONES";
+        setIndexName(indexName);
         setMean(mD);
         setRisk(sD);
         console.log(`setMean1 is now ${mean}`);
-
         setShowStocks(true);
 
-        
-
     };
+
+
+
+
+
 
 
 
@@ -251,7 +253,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         setShowStocks(true);
 
-     
+
 
 
     };
@@ -265,7 +267,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         setShowStocks(true);
 
-      
+
 
 
     };
@@ -276,6 +278,11 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     return (
         <>
+            <div class="custom-shape-divider-top-1684027924">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
             <div className="index-page">
 
 
@@ -327,8 +334,8 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
                                 <div >
 
-                                    <Link to="stocks" smooth={true} >
-                                        <button className="button-855"  onClick={handleButton1Click}>SELECT DOW JONES</button>
+                                    <Link to="stocks" smooth={true} offset={-50} duration={500} >
+                                        <button className="button-855" onClick={handleButton1Click}>Select DOW JONES</button>
                                     </Link>
                                 </div>
                             </div>
@@ -376,7 +383,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                     <div className="button-85-container">
 
                                         <Link to="stocks" smooth={true}>
-                                            <button className="button-855" onClick={handleButton2Click}>SELECT S&P500</button>
+                                            <button className="button-855" onClick={handleButton2Click}>Select S&P500</button>
                                         </Link>
 
                                     </div>
@@ -426,7 +433,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                     <div className="button-85-container">
 
                                         <Link to="stocks" smooth={true}>
-                                            <button className="button-855" onClick={handleButton3Click}>SELECT NASDAQ</button>
+                                            <button className="button-855" onClick={handleButton3Click}>Select NASDAQ</button>
                                         </Link>
 
                                     </div>
@@ -448,9 +455,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         </>
     );
+
 }
 
 export default Indexes;
-
-
-// spy - s&p500

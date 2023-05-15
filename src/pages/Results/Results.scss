@@ -9,8 +9,8 @@
 
 .results-graph {
   background-color: rgb(51, 51, 51);
-  padding-left: 3rem;
-  width: 106%;
+  padding-left: 3.5rem;
+  width: 110%;
 }
 
 
@@ -21,6 +21,7 @@
   align-items: center;
   justify-content: space-evenly;
   padding-bottom: 1rem;
+  margin-left: 10%;
 
 }
 
@@ -32,7 +33,7 @@
 
 
 .instruction {
-  margin-right: 40%;
+  margin-right: 60%;
   font-size: 24px;
   font-weight: 600
 }
@@ -49,7 +50,7 @@
 
 .table3 {
   border: 2px solid rgb(34, 48, 139);
-  font-size: 25px;
+  font-size: 23px;
 }
 
 th {
@@ -104,9 +105,17 @@ table {
 
 .message2 {
   padding: 1% 17% 0;
+text-align: center;
+font-size:x-large;
 }
 
 .results-wight {
-  width: 20rem;
+  width: 15rem;
   text-align: center;
+}
+
+.results-wight2 {
+  width: 15rem;
+  text-align: center;
+  background-color: pink;
 }
