@@ -4,13 +4,21 @@ import DataTable from "react-data-table-component";
 import { Fade } from "react-awesome-reveal";
 import { Checkbox } from "@geist-ui/core";
 
+import { useState, useEffect } from "react";
 
 
 function Stock1({ profile1, logo1, incomestatement1, balancesheet1, showTable1 }) {
 
 
+  
+
   return (
     <>
+
+
+
+
+
       <div >
         <h1 >{profile1.name}</h1>
 
@@ -24,7 +32,8 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, showTable1 }
 
 
         <div className="stock__data">
-          {showTable1 && (<table>
+          {showTable1 && (<table 
+          >
             <tr className="stock__table">
 
               <th>

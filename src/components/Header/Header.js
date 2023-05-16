@@ -9,7 +9,7 @@ function Header() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(generateRandomIndexes);
-        }, 1000);
+        }, 1400);
 
         return () => clearInterval(interval);
     }, []);
@@ -26,6 +26,10 @@ function Header() {
             data[currentIndex[7]]?.symbol,
             data[currentIndex[8]]?.symbol,
             data[currentIndex[9]]?.symbol,
+            data[currentIndex[10]]?.symbol,
+            data[currentIndex[11]]?.symbol,
+      
+
 
 
         ]);
@@ -33,7 +37,7 @@ function Header() {
 
     const generateRandomIndexes = () => {
         const indexes = [];
-        while (indexes.length < 10) {
+        while (indexes.length < 12) {
             const randomIndex = Math.floor(Math.random() * data.length);
             if (!indexes.includes(randomIndex)) {
                 indexes.push(randomIndex);
@@ -42,7 +46,7 @@ function Header() {
         return indexes;
     };
 
-
+// date and time info
     var [date, setDate] = useState(new Date());
 
     useEffect(() => {

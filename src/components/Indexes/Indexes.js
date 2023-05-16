@@ -64,7 +64,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     const datarange1 = `&interval=1month&outputsize=200&`
 
     const code = url + html + text + dow + datarange1 + keyText + key
-    console.log(code)
 
     useEffect(() => {
 

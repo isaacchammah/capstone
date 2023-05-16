@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import "../Results/Results.scss";
 import number3 from "../../assets/Images/number 3.webp";
-
+import { Link } from "react-router-dom";
 
 
 function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName, stockPortfolioMean, stockPortfoliRisk, pName }) {
@@ -34,7 +34,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
       ]
     },
     {
-      name: pName+"'s Portfolio",
+      name: pName + "'s Portfolio",
       data: [
         [stockPortfoliRisk, stockPortfolioMean]
 
@@ -122,7 +122,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           fontFamily: 'Arial',
           color: 'white',
         },
-        
+
       },
       labels: {
 
@@ -155,7 +155,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'],
         width: 49,
         height: 49,
-     
+
       }
     },
 
@@ -302,11 +302,11 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           </tr>
         </table>
       </div>
-
-
-
-
-
+      <div className="results__button-container">
+        <Link to="/">
+          <button className="results__button" onClick={() => window.location.reload()}>Start again</button>
+        </Link>
+      </div>
     </>
   );
 }
