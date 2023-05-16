@@ -7,7 +7,7 @@ STYLE
 MODAL
 FUNCAO RISCO RETORNO COM 3 ACOES
 
-
+.
   //   const [symbols, setSymbols] = useState([]);
 
 
