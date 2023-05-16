@@ -242,7 +242,17 @@
   fill: #000000;
 }
 
-.tickers__input,
+.tickers__input {
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 2px solid black;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+
+
 .stock-weights__input {
   border: none;
   outline: none;
@@ -250,6 +260,7 @@
   border-bottom: 2px solid black;
   font-weight: 600;
   font-size: x-large;
+  text-align: center;
 }
 
 .stocks-card__error-message {color: red; text-align: center; font-weight: 600;}

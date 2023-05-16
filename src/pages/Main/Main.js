@@ -61,12 +61,24 @@ function Main() {
     const [showStocks, setShowStocks] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
+ var [date, setDate] = useState(new Date());
 
+  useEffect(() => {
+    var timer = setInterval(() => setDate(new Date()), 1000)
+    return function cleanup() {
+      clearInterval(timer)
+    }
 
+  });
 
 
     return (
         <>
+        <div className="date">
+        <p> Time : {date.toLocaleTimeString()}</p>
+        <p> Date : {date.toLocaleDateString()}</p>
+      </div>
+
 <ScrollToTopButton/>
             <Home setShowIndexes={setShowIndexes} setYourName={setYourName} yourName={yourName} setPName={setPName} />
 
