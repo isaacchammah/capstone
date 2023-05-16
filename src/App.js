@@ -4,14 +4,10 @@ import Main from "../src/pages/Main/Main"
 
 function App() {
 
-
   return (
     <>
       <Routes>
-       
-
         <Route path='/' element={<Main />} />
-
       </Routes>
     </>
   );

@@ -382,13 +382,15 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
- 
- 
+
+
 
 
 
     return (
         <>
+
+
 
 
 
@@ -448,7 +450,14 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                 <div className="stocks-cards__stock1">
 
-
+                    <div>
+                        {newArray1.length === 0 || newArray1.length === 119 ? null : (
+                            <div className="stocks-card__error-message">
+                                <p className="stocks-card__error-message1">This stock has been in the market for less than 10 years.</p>
+                                <p className="tocks-card__error-message2">Please select another stock.</p>
+                            </div>
+                        )}
+                    </div>
 
                     <Stock1
                         profile1={profile1}
@@ -469,7 +478,14 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                 <div className="stocks-cards__stock2">
 
-
+                    <div>
+                        {newArray2.length === 0 || newArray2.length === 119 ? null : (
+                            <div className="stocks-card__error-message">
+                                <p className="stocks-card__error-message1">This stock has been in the market for less than 10 years.</p>
+                                <p className="tocks-card__error-message2">Please select another stock.</p>
+                            </div>
+                        )}
+                    </div>
 
                     <Stock2
                         profile2={profile2}
@@ -491,6 +507,14 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 <div className="stocks-cards__stock3">
 
 
+                <div>
+                        {newArray3.length === 0 || newArray3.length === 119 ? null : (
+                            <div className="stocks-card__error-message">
+                                <p className="stocks-card__error-message1">This stock has been in the market for less than 10 years.</p>
+                                <p className="tocks-card__error-message2">Please select another stock.</p>
+                            </div>
+                        )}
+                    </div>
 
                     <Stock3
                         profile3={profile3}

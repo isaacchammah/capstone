@@ -16,7 +16,7 @@ function Stock1({ profile1, logo1, incomestatement1, balancesheet1, showTable1 }
 
         <div className="stock__image-container"><img className="stock__image" src={logo1} onError={(e) => e.target.src = 'path/to/blank/image'} /></div>
         <p className="stock__industry">{showTable1 && ("Industry:")} {profile1.industry}</p>
-        <p className="stock__website">{showTable1 && ("Website:")}  <a href={profile1.website}>{profile1.website}</a></p>
+        <p className="stock__website">{showTable1 && ("Website:")}  <a href={profile1.website} target="_blank">{profile1.website}</a></p>
         <p className="stock__description">{profile1.description}</p>
         <input className="stock__input" type="checkbox"></input>
 

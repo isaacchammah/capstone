@@ -4,6 +4,7 @@ import Indexes from "../../pages/Indexes/Indexes";
 import { useState, useEffect } from "react";
 import "../../pages/Main/Main.scss";
 import Home from "../Home/Home";
+import ScrollToTopButton from "../../components/ScrollToTopButton/ScrollToTopButton.js";
 
 
 function Main() {
@@ -66,7 +67,7 @@ function Main() {
 
     return (
         <>
-
+<ScrollToTopButton/>
             <Home setShowIndexes={setShowIndexes} setYourName={setYourName} yourName={yourName} setPName={setPName} />
 
 

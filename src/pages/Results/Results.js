@@ -137,7 +137,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
     },
 
     markers: {
-      size: 30,
+      size: 25,
       strokeColors: ['GRAY', 'orange', 'RED', 'GREEN', 'PINK']
 
     },
@@ -153,8 +153,8 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           logo3,
           'https://colourlex.com/wp-content/uploads/2021/02/Emerald-green-painted-swatch-300x300.jpg.webp',
           'https://m.media-amazon.com/images/I/31mQDZK7HeL.__AC_SX300_SY300_QL70_FMwebp_.jpg'],
-        width: 60,
-        height: 60,
+        width: 49,
+        height: 49,
      
       }
     },
@@ -209,20 +209,20 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
         + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
         + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
         + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%")
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%")
     }
     else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
         + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your risk was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     }
   })
 

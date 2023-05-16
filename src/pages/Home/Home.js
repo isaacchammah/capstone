@@ -3,7 +3,7 @@ import logo from "../../assets/Images/logo3.png";
 import number1 from "../../assets/Images/number 1.webp";
 import number2 from "../../assets/Images/number 2.webp";
 import number3 from "../../assets/Images/number 3.webp";
-import video from "../../assets/Videos/logo.mp4";
+import {Link} from 'react-scroll';
 
 function Home({ setShowIndexes, yourName, setYourName, setPName }) {
     const handleHome = () => {
@@ -13,6 +13,8 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
 
     return (
         <>
+
+
             <div>
                 <img className="home__logo" src={logo} alt='logo' />
                 <p className="home__header"> The financial simulator that allows you to select a market index and create a portfolio of three stocks. It uses data from the past 10 years to help you determine if your portfolio has outperformed the market.</p>
@@ -25,7 +27,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number1} alt='logo' />
                         <p className="hero-instructions__title">Select the market index you intend to beat</p>
                     </div>
-                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most market indexesin the US market. Your goal is to try to beat this market index creating a tock portfolio that has a higher return and a lower volatility</p>
+                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most market indexesin the US market. Your goal is to try to beat this market index creating a tock portfolio that has a higher return and a lower volatility.</p>
                 </div>
 
                 <div className="hero-instructions__instruction">
@@ -33,7 +35,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number2} alt='logo' />
                         <p className="hero-instructions__title">Select 3 stocks to create your portfolio</p>
                     </div>
-                    <p className="hero-instructions__description"> A stock represents a share in the ownership of a company, including a claim on the company's earnings and assets. Here you will select 3 stocks, have the chance to analyze their quantitative and qualitative data and decide the % you want to invest in each of them  </p>
+                    <p className="hero-instructions__description"> A stock represents a share in the ownership of a company, including a claim on the company's earnings and assets. Here you will select 3 stocks, have the chance to analyze their quantitative and qualitative data and decide the % you want to invest in each of them. Please select stocks that have been in the market for at leat 10 years  </p>
                 </div>
 
                 <div className="hero-instructions__instruction">
@@ -48,7 +50,10 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
 
             <div className="button">
                 <div className="button__container">
+                    
+                <Link to="indexes" smooth={true}>
                     <button className="button__home" style={{ width: "250px" }} onClick={handleHome}>Let's get started</button>
+                    </Link>
                 </div>
                 <input
                     className="form-field"
