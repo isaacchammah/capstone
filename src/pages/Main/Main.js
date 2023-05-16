@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import "../../pages/Main/Main.scss";
 import Home from "../../components/Home/Home";
 import ScrollToTopButton from "../../components/ScrollToTopButton/ScrollToTopButton.js";
+import Names from "../../components/Header/Header";
+import Header from "../../components/Header/Header";
 
 
 function Main() {
@@ -61,23 +63,15 @@ function Main() {
     const [showStocks, setShowStocks] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
- var [date, setDate] = useState(new Date());
-
-  useEffect(() => {
-    var timer = setInterval(() => setDate(new Date()), 1000)
-    return function cleanup() {
-      clearInterval(timer)
-    }
-
-  });
+ 
+  
 
 
     return (
         <>
-        <div className="date">
-        <p> Time : {date.toLocaleTimeString()}</p>
-        <p> Date : {date.toLocaleDateString()}</p>
-      </div>
+     
+        <Header/>
+     
 
 <ScrollToTopButton/>
             <Home setShowIndexes={setShowIndexes} setYourName={setYourName} yourName={yourName} setPName={setPName} />
