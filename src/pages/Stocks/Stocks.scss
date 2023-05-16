@@ -4,7 +4,19 @@
 @use '../../partials/typography' as *;
 
 
+.filter-input {
+  border-radius: 5px;
+  background-color: black;
+  font-size: 15px;
+}
 
+.filter-input::placeholder {
+  color: white
+}
+
+.filter-input:focus {
+  color: white
+}
 
 .stock-button {
   padding: 0.6em 2em;
@@ -22,7 +34,7 @@
   margin-left: 40%;
   height: 3rem;
   width: 17%;
-  padding-bottom:1% ;
+  padding-bottom: 1%;
   font-size: 20px;
 }
 
@@ -105,7 +117,7 @@
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   align-items: center;
-padding-left: 9.5rem;
+  padding-left: 9.5rem;
 }
 
 .stocks-header__numbers {
@@ -115,7 +127,7 @@ padding-left: 9.5rem;
 ;
 
 
-.stocks__instruction{
+.stocks__instruction {
   margin-right: 30%;
   font-size: 24px;
   font-weight: 600;
@@ -124,12 +136,16 @@ padding-left: 9.5rem;
 }
 
 
-.stock-weights__inputs{display: flex;    justify-content: space-around;padding: 2rem 0;}
+.stock-weights__inputs {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
 
 
 .stock-input {
 
- 
+
   padding: 5px 12px;
   font-size: 14px;
   line-height: 20px;
@@ -142,14 +158,15 @@ padding-left: 9.5rem;
   border-radius: 6px;
   outline: none;
   box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
-  :focus{
-      border-color: #0366d6;
-      outline: none;
-      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+
+  :focus {
+    border-color: #0366d6;
+    outline: none;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   }
-  
+
 }
-  
+
 .stocks-cards {
   margin-top: 3%;
   padding: 2rem;
@@ -164,11 +181,11 @@ padding-left: 9.5rem;
 .stocks-cards__stock2,
 .stocks-cards__stock3 {
 
-  
-    background-color: white;
-    width: 30%;
+
+  background-color: white;
+  width: 30%;
   border: solid rgba(0, 0, 0, 1);
-  border-width:thin;
+  border-width: thin;
   border-radius: .3125rem;
   height: auto;
   background-color: rgb(255, 255, 255);
@@ -179,10 +196,14 @@ padding-left: 9.5rem;
 
 
 
-.tickers {display: flex;    justify-content: space-around;padding: 2rem 0;}
+.tickers {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
 
 .swal2-styled.swal2-confirm {
-  display:none;
+  display: none;
   border: 0;
   border-radius: 0.25em;
   background: initial;
@@ -191,7 +212,13 @@ padding-left: 9.5rem;
   font-size: 1em;
 }
 
-.stock-weights{padding: 1% 0% 0% 35%;}
+.stockfilter {
+  padding-left: 6%;
+}
+
+.stock-weights {
+  padding: 1% 0% 0% 25%;
+}
 
 // .error  {border-color: #ff0000; }
 
@@ -215,7 +242,8 @@ padding-left: 9.5rem;
   fill: #000000;
 }
 
-.tickers__input, .stock-weights__input {
+.tickers__input,
+.stock-weights__input {
   border: none;
   outline: none;
   background: none;

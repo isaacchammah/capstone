@@ -3,12 +3,15 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 
-.form-field{    border: none;
+.form-field {
+    border: none;
     outline: none;
     background: none;
     border-bottom: 2px solid black;
     font-weight: 600;
-    font-size: x-large;}
+    font-size: x-large;
+    // color: red;
+}
 
 
 
@@ -183,7 +186,7 @@ element.style {
 
 .hero-instructions__numbers {
     margin-left: 42%;
-    padding-top: 1rem; 
+    padding-top: 1rem;
     width: 60px;
     height: 73.594px;
 }

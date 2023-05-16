@@ -9,7 +9,10 @@ import number2 from "../../assets/Images/number 2.webp";
 import riskreturn from "../../assets/Images/risk return.gif";
 import Swal from "sweetalert2";
 import { Link } from 'react-scroll';
-import data from "../../data.json";
+import data from "../../data/data.json"
+import Autosuggest from 'react-autosuggest';
+import filterimg from "../../assets/Images/filter.png"
+
 
 
 function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
@@ -18,6 +21,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
     setStockPortfolioRisk, setStockPortfolioMean,
     setShowResults, pName
 }) {
+
+
 
     // data from Stock1
     const [symbolInput1, setSymbolInput1] = useState('');
@@ -361,30 +366,31 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         });
     }
 
-    const [formError1, setFormError1] = useState(null)
-    const [formError2, setFormError2] = useState(null)
-    const [formError3, setFormError3] = useState(null)
+    const [filter, setFilter] = useState('');
 
-    function checkStocksLength(Array1, Array2, Array3) {
-        console.log(Array1.length, Array2.length, Array3.length)
-        if (Array1.length !== 119) {
-            setFormError1("error")
-        }
-        if (Array2.length !== 119) {
-            setFormError2("error")
-        }
-        if (Array3.length !== 119) {
-            setFormError3("error")
-        }
-    }
+    const maxDisplayedItems = 10;
 
-    useEffect(() => {
-        checkStocksLength(newArray1, newArray2, newArray3)
-    }, [newArray1, newArray2, newArray3]);
+    const filteredData = data.filter(
+        (item) =>
+            item.symbol.toLowerCase().includes(filter.toLowerCase()) ||
+            item.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value);
+    };
+
+
+
+ 
+ 
+
 
 
     return (
         <>
+
+
 
             <div class="top-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -399,7 +405,34 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 <p className="stocks__instruction">Select 3 stocks to create {pName}'s portfolio</p>
             </div>
 
+
+            <div className="stockfilter">
+                <h2>Stock Filter</h2>
+                <input className="filter-input"
+                    type="text"
+                    value={filter}
+                    onChange={handleFilterChange}
+                    placeholder="Filter by symbol or name"
+                />
+
+                {filter && filteredData.length > 0 ? (
+                    <ul>
+                        {filteredData.slice(0, maxDisplayedItems).map((item) => (
+                            <div key={item.symbol}>
+                                {item.name} - {item.symbol}
+                            </div>
+                        ))}
+                        {filteredData.length > maxDisplayedItems && (
+                            <h5>...and more</h5>
+                        )}
+                    </ul>
+                ) : null}
+                {filter && filteredData.length === 0 && <p>No matching stocks found.</p>}
+            </div>
+
+
             <div className="tickers">
+
 
                 <input className="tickers__input" type="text" id="symbol" name="symbol" placeholder="Ticker 1" value={symbolInput1} onChange={(e) => setSymbolInput1(e.target.value)} />
                 <input className="tickers__input" type="text" id="symbol" name="symbol" placeholder="Ticker 2" value={symbolInput3} onChange={(e) => setSymbolInput3(e.target.value)} />
@@ -475,7 +508,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
             </div >
-            <h3 className="stock-weights" >Now, select the % you want to invest in each stock</h3>
+            <h3 className="stock-weights" >Now, select the % you want to invest in each stock - it must add up to 100</h3>
             <div className="stock-weights__inputs">
 
                 <input className="stock-weights__input" type="text" id="symbol" name="symbol" value={symbolInput2} placeholder=" % Weight stock 1" onChange={(e) => setSymbolInput2(e.target.value)} />
