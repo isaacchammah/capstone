@@ -1,10 +1,10 @@
-import Stock1 from "../../components/Stock1/Stock1";
+import Stock1 from "../Stock1/Stock1";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { mean, variance, std, covariance } from 'mathjs'
-import "../Stocks/Stocks.scss"
-import Stock2 from "../../components/Stock2/Stock2";
-import Stock3 from "../../components/Stock3/Stock3";
+import "./Stocks.scss"
+import Stock2 from "../Stock2/Stock2";
+import Stock3 from "../Stock3/Stock3";
 import number2 from "../../assets/Images/number 2.webp";
 import riskreturn from "../../assets/Images/risk return.gif";
 import Swal from "sweetalert2";

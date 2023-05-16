@@ -1,9 +1,9 @@
-import Stocks from "../../pages/Stocks/Stocks";
-import Results from "../../pages/Results/Results";
-import Indexes from "../../pages/Indexes/Indexes";
+import Stocks from "../../components/Stocks/Stocks";
+import Results from "../../components/Results/Results";
+import Indexes from "../../components/Indexes/Indexes";
 import { useState, useEffect } from "react";
 import "../../pages/Main/Main.scss";
-import Home from "../Home/Home";
+import Home from "../../components/Home/Home";
 import ScrollToTopButton from "../../components/ScrollToTopButton/ScrollToTopButton.js";
 
 
