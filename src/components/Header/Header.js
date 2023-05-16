@@ -9,25 +9,31 @@ function Header() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(generateRandomIndexes);
-        }, 3000);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
         setCurrentNames([
-            data[currentIndex[0]]?.name,
-            data[currentIndex[1]]?.name,
-            data[currentIndex[2]]?.name,
-            data[currentIndex[3]]?.name,
-            data[currentIndex[4]]?.name
+            data[currentIndex[0]]?.symbol,
+            data[currentIndex[1]]?.symbol,
+            data[currentIndex[2]]?.symbol,
+            data[currentIndex[3]]?.symbol,
+            data[currentIndex[4]]?.symbol,
+            data[currentIndex[5]]?.symbol,
+            data[currentIndex[6]]?.symbol,
+            data[currentIndex[7]]?.symbol,
+            data[currentIndex[8]]?.symbol,
+            data[currentIndex[9]]?.symbol,
+
 
         ]);
     }, [currentIndex]);
 
     const generateRandomIndexes = () => {
         const indexes = [];
-        while (indexes.length < 5) {
+        while (indexes.length < 10) {
             const randomIndex = Math.floor(Math.random() * data.length);
             if (!indexes.includes(randomIndex)) {
                 indexes.push(randomIndex);
@@ -58,7 +64,7 @@ function Header() {
                     <div className="name" key={index}>{name}</div>
                 ))}
             </div>
-            <p> Date : {date.toLocaleDateString()}</p>
+            <p className='date'> Date : {date.toLocaleDateString()}</p>
         </div>
     );
 }
