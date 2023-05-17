@@ -44,7 +44,7 @@ Retrieve profile information for a specific symbol.
 
 **Endpoint:**
 
-```plaintext
+
 /profile?symbol=<SYMBOL>&apikey=<API_KEY>
 
 Example:
@@ -130,10 +130,6 @@ In these formulas, “w” represents the weight invested in each stock, “r”
 Throughout this project, I gained valuable experience in utilizing various React libraries and found that the documentation provided by these libraries is incredibly helpful. Additionally, I learned how to use math in React to calculate complex values such as stock correlation and standard deviation.
 
 I also developed a strong understanding of how to use state and props effectively, which allowed me to create dynamic and interactive components. Furthermore, I gained experience in creating advanced graphs in React, such as the scatterplot graph featured in the Results section of the project.
-
-
-
-
 
 #### Contributors
 
