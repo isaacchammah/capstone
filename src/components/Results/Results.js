@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import "../Results/Results.scss";
 import number3 from "../../assets/Images/number 3.webp";
@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 
 function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, logo3, description3, m3, s3, mean, risk, indexName, stockPortfolioMean, stockPortfoliRisk, pName }) {
 
+  const [message, setMessage] = useState("");
+  const [message2, setMessage2] = useState("");
+
+//scatterplot graph
   const series = [
     {
       name: description1,
@@ -186,11 +190,8 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
   };
 
 
-  const [message, setMessage] = useState("");
-  const [message2, setMessage2] = useState("");
-
-
   useEffect(() => {
+    //text displayed bellow the results graph
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
       setMessage("YOU BEAT THE MARKET!");
@@ -205,24 +206,25 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
 
   useEffect(() => {
+    //text displayed bellow the results graph
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%")
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%")
     }
     else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + "lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility of " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", its was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
     }
   })
 
@@ -234,7 +236,6 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
         </svg>
       </div>
-
 
       <div className="results-header" id="results">
         <img className="results-header__number" src={number3} alt='numer-one' />
@@ -296,12 +297,12 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
               <div className="results__table--weight2">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>
             </td>
 
-
-
-
           </tr>
         </table>
       </div>
+
+        <p className="results__text">Next time try using Diversification, which is a technique that reduces risk by allocating investments across various financial instruments, industries, and other categories. It aims to minimize losses by investing in different areas that would each react differently to the same event</p>
+
       <div className="results__button-container">
         <Link to="/">
           <button className="results__button" onClick={() => window.location.reload()}>Start again</button>

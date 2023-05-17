@@ -28,14 +28,12 @@
   margin-left: 25%
 }
 
-.results-header__subheader 
-{
+.results-header__subheader {
   margin-right: 10%;
   font-size: 24px;
   font-weight: 600;
   padding-left: 1rem;
 }
-
 
 .results__table {
   width: 100%;
@@ -64,17 +62,20 @@ td {
   align-items: center;
 }
 
-td:hover{background-color:#dfdede;}
+td:hover {
+  background-color: #dfdede;
+}
 
 table {
   height: 1%;
   width: 40rem;
-  transition: all 0.2s; /* Add smooth transition effect */
+  transition: all 0.2s;
+  /* Add smooth transition effect */
 }
 
-
 table:hover {
-  transform: scale(1.2); /* Increase the scale on hover (1.2 times) */
+  transform: scale(1.2);
+  /* Increase the scale on hover (1.2 times) */
   background-color: white;
 }
 
@@ -107,8 +108,8 @@ table:hover {
 
 .results-message2 {
   padding: 1% 17% 0;
-text-align: center;
-font-size:x-large;
+  text-align: center;
+  font-size: x-large;
 }
 
 .results__table--weight {
@@ -121,8 +122,6 @@ font-size:x-large;
   text-align: center;
   font-weight: 600;
 }
-
-
 
 .results__button {
   appearance: none;
@@ -181,10 +180,10 @@ font-size:x-large;
   display: none;
 }
 
-.results__button-container {margin-left:50%; margin-bottom: 1%; }
-
-
-
+.results__button-container {
+  margin-left: 47%;
+  margin-bottom: 1%;
+}
 
 .top-wave {
   position: relative;
@@ -206,11 +205,36 @@ font-size:x-large;
   fill: #000000;
 }
 
+.results__table--gray:hover {
+  background-color: gray;
+}
 
+.results__table--orange:hover {
+  background-color: orange;
+}
 
-.results__table--gray:hover{background-color: gray;}
-.results__table--orange:hover{background-color: orange;}
-.results__table--red:hover{background-color: red;}
-.results__table--green:hover{background-color: green;}
-.results__table--pink:hover{background-color: pink;}
+.results__table--red:hover {
+  background-color: red;
+}
 
+.results__table--green:hover {
+  background-color: green;
+}
+
+.results__table--pink:hover {
+  background-color: pink;
+}
+
+.results__text {
+  padding: 1% 0 0;
+  text-align: center;
+  font-size: medium;
+  margin-bottom: 1%;
+  border-width:thin;
+  border-radius: .3125rem;
+  height: auto;
+  box-shadow: 0 0 20px rgb(236, 236, 236);
+  width: 47%;
+  margin-left:26.5% ;
+
+}

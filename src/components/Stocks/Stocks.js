@@ -317,8 +317,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     };
 
-
-
     const handleButtonClickWeights = () => {
 
         //create my portfolio button
@@ -361,8 +359,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         //modal for image
         Swal.fire({
             title: 'Calculating your portfolio using the following formula:',
-            html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 450px; height: 170px; border-radius:0 " />',
-            confirmButtonText: 'OK'
+            html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 450px; height: 98.719px; border-radius:10 " />',
+            confirmButtonText: 'OK !',
+            confirmButtonColor: 'black', // Change the color of the button here
         });
     }
 

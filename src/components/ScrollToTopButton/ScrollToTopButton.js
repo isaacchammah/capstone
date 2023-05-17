@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 import './ScrollToTopButton.scss';
 
+//scroll to top icon, used the FaArrowUp library
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 

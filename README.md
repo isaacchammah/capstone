@@ -17,7 +17,7 @@ Run the following command to install the dependencies:
 *`npm install`* ; this will install all the dependencies needed to run the project
 
 Start the development server with the following command:
-### *`npm start`*
+##### *`npm start`*
 
 The application will be running at http://localhost:3000 in your browser. Any errors will be displayed in the console.
 
@@ -69,8 +69,6 @@ Please note that <SYMBOL>, <API_KEY>, <INTERVAL>, and <OUTPUT_SIZE> need to be r
 
 For more detailed information on the API endpoints and their parameters, refer to the TwelveData API documentation.
 
-
-
  ## Dependencies
 
 The project utilizes several libraries and APIs to provide a seamless user experience:
@@ -98,10 +96,15 @@ The project consists of a single page divided into four sections. Each section b
 For each stock the following accounting indexes were calculated:
 
 Sales growth: (Current period sales - Previous period sales) / Previous period sales
+
 Gross Margin: Gross profit/sales
+
 Ebitda Margin: Ebitda/Sales
+
 Net Margin: Net profit/Sales
+
 Current Ratio: Current assets/ Current liabilities
+
 Current Ratio: Financial debt / capital invested
 
 The portfolio’s expected return, variance, and standard deviation will be calculated using the following formulas:
@@ -131,11 +134,17 @@ Throughout this project, I gained valuable experience in utilizing various React
 
 I also developed a strong understanding of how to use state and props effectively, which allowed me to create dynamic and interactive components. Furthermore, I gained experience in creating advanced graphs in React, such as the scatterplot graph featured in the Results section of the project.
 
+## Next steps
+
+To enhance the user experience of the simulator, you can implement the option for the user to select a custom time period instead of the default 10 years.
+
+To further optimize the performance of the simulator, you can implement a backend to store information that has already been called in previous axios calls.
+
+Also putting the data file in the backend
 #### Contributors
 
-Mention the contributors
 
- Special thanks to Edward Baafi for his wonderful sugestions. 
+ Special thanks to Edward Baafi for his wonderful sugestions, you rock!
 
 
 *Happy Hacking!*

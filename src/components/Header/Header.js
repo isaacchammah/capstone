@@ -3,6 +3,8 @@ import data from '../../data/data.json';
 import '../Header/Header.scss'
 
 function Header() {
+
+    //stock symbols in the header 
     const [currentNames, setCurrentNames] = useState([]);
     const [currentIndex, setCurrentIndex] = useState([]);
 
@@ -14,6 +16,8 @@ function Header() {
         return () => clearInterval(interval);
     }, []);
 
+
+    //number of symbols displayed
     useEffect(() => {
         setCurrentNames([
             data[currentIndex[0]]?.symbol,
@@ -28,10 +32,6 @@ function Header() {
             data[currentIndex[9]]?.symbol,
             data[currentIndex[10]]?.symbol,
             data[currentIndex[11]]?.symbol,
-      
-
-
-
         ]);
     }, [currentIndex]);
 
@@ -46,29 +46,29 @@ function Header() {
         return indexes;
     };
 
-// date and time info
+    // date and time info
     var [date, setDate] = useState(new Date());
 
     useEffect(() => {
         const timer = setInterval(() => {
-          setDate(new Date());
+            setDate(new Date());
         }, 1000);
-    
+
         return function cleanup() {
-          clearInterval(timer);
+            clearInterval(timer);
         };
-      }, []); // Empty dependency array to run the effect only once
-  
+    }, []); // Empty dependency array to run the effect only once
+
 
     return (
         <div className="names-container">
             <p> Time : {date.toLocaleTimeString()}</p>
-            <div className="scrolling-names">
+            <div className="names-container__scrolling-names">
                 {currentNames.map((name, index) => (
                     <div className="name" key={index}>{name}</div>
                 ))}
             </div>
-            <p className='date'> Date : {date.toLocaleDateString()}</p>
+            <p className='names-container__date'> Date : {date.toLocaleDateString()}</p>
         </div>
     );
 }

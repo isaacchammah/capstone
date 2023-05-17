@@ -1,43 +1,37 @@
-.scrolling-names {
-    display: flex;
-    width:27%;
-    justify-content: space-between;
-    
-    animation: scroll 3s linear infinite;
-    display: flex;
-position: absolute;
-left: 39%;
-right: 30%;
-
+.names-container__scrolling-names {
+  display: flex;
+  width: 27%;
+  justify-content: space-between;
+  animation: scroll 3s linear infinite;
+  display: flex;
+  position: absolute;
+  left: 39%;
+  right: 30%;
 }
 
 .names-container {
-    display: flex;
-    margin: 0 2rem;
-    justify-content: space-between;
-    position: relative;
-
-    overflow: hidden;
-    background-color: black;
-    color:white    
-
+  display: flex;
+  margin: 0 2rem;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  color: white
 }
 
-
-
 .name {
-    margin-right: 20px;
-    // width: 100vw;
-    display: flex;
-    white-space: nowrap;
+  margin-right: 20px;
+  // width: 100vw;
+  display: flex;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
   }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+
+  100% {
+    transform: translateX(-100%);
   }
-  
+}

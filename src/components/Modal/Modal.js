@@ -2,6 +2,7 @@ import React from 'react';
 import "../Modal/Modal.scss"
 import closeIcon from "../../assets/Images/close.svg"
 
+//Used to display the accounting ratios when someone clicks on the "What are these numbers" button in the stocks section
 function Modal({ isOpen, onClose }) {
     if (!isOpen) {
         return null;
@@ -20,9 +21,7 @@ function Modal({ isOpen, onClose }) {
                     alt="Close"
                     onClick={handleModalClose}
                 />
-
                 <h1 className='modal__title'>Accounting Ratios</h1>
-
 
                 <div className="results__table">
                     <table className="modal-table">
@@ -77,10 +76,7 @@ function Modal({ isOpen, onClose }) {
                     </table>
                 </div>
                 <button className="modal__button" onClick={handleModalClose}>Close</button>
-
             </div>
-
-
         </div>
         
     );

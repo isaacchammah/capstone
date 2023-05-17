@@ -8,7 +8,11 @@
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   font-size: 15px;
- padding-left: .2%;
+  padding-left: .2%;
+  border-color: black;
+  outline: none;
+  border-style: solid;
+
 }
 
 .filter-input::placeholder {
@@ -19,7 +23,9 @@
   color: rgb(0, 0, 0)
 }
 
-.filter-input:not(focus){color: rgb(0, 0, 0);}
+.filter-input:not(focus) {
+  color: rgb(0, 0, 0);
+}
 
 .stock-button {
   padding: 0.6em 2em;
@@ -93,7 +99,6 @@
   border-radius: 10px;
 }
 
-
 .top-wave {
   position: relative;
   top: 0;
@@ -114,22 +119,18 @@
   fill: #000000;
 }
 
-
 .stocks-header {
   display: flex;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   align-items: center;
   padding-left: 9.5rem;
-  padding-bottom:1.5rem ;
+  padding-bottom: 1.5rem;
 }
 
 .stocks-header__numbers {
-  margin-left: 25%
+  margin-left: 25%;
 }
-
-;
-
 
 .stocks__instruction {
   margin-right: 30%;
@@ -140,17 +141,13 @@
   padding-left: 1rem;
 }
 
-
 .stock-weights__inputs {
   display: flex;
   justify-content: space-around;
   padding: 2rem 0;
 }
 
-
 .stock-input {
-
-
   padding: 5px 12px;
   font-size: 14px;
   line-height: 20px;
@@ -169,7 +166,6 @@
     outline: none;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   }
-
 }
 
 .stocks-cards {
@@ -179,14 +175,11 @@
   flex-direction: row;
   justify-content: space-evenly;
   background-color: rgb(255, 255, 255);
-
 }
 
 .stocks-cards__stock1,
 .stocks-cards__stock2,
 .stocks-cards__stock3 {
-
-
   background-color: white;
   width: 30.3%;
   border: solid rgba(0, 0, 0, 1);
@@ -195,21 +188,13 @@
   height: auto;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
-
 }
-
-
-
 
 .tickers {
   display: flex;
   justify-content: space-around;
   padding: 2rem 0;
 }
-
-
-
-
 
 .swal2-styled.swal2-confirm {
   display: none;
@@ -228,8 +213,6 @@
 .stock-weights {
   padding: 1% 0% 0% 25%;
 }
-
-// .error  {border-color: #ff0000; }
 
 .custom-shape-divider-bottom-1684027880 {
   position: relative;
@@ -260,8 +243,6 @@
   font-size: x-large;
 }
 
-
-
 .stock-weights__input {
   border: none;
   outline: none;
@@ -272,12 +253,23 @@
   text-align: center;
 }
 
-.stocks-card__error-message {color: red; text-align: center; font-weight: 600;}
+.stocks-card__error-message {
+  color: red;
+  text-align: center;
+  font-weight: 600;
+}
 
-.modal-button{    appearance: none;
+.modal-button {
+  appearance: none;
   border: 1px solid black;
   padding: 0.5em;
   border-radius: 0.25em;
   cursor: pointer;
-background-color: white;
-margin-left: 45%;}
+  background-color: white;
+  margin-left: 45%;
+}
+
+.my-button-class {
+  background-color: blue;
+  color: white;
+}

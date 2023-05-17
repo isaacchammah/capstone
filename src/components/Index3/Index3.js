@@ -7,7 +7,6 @@ function Index3({ }) {
 
       return (
             <>
-
                   <section className="index-card">
 
                         <h1 className="index-card__name"> NASDAQ</h1>
@@ -22,7 +21,6 @@ function Index3({ }) {
                                     .</li>
                               <li>It operates 29 markets, one clearinghouse, and five central securities depositories in the United States and Europe.</li>
                               <li>Most of the world's technology giants are listed on the Nasdaq.</li>
-
                         </ul>
                   </section>
 

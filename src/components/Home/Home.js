@@ -3,8 +3,9 @@ import logo from "../../assets/Images/logo3.png";
 import number1 from "../../assets/Images/number 1.webp";
 import number2 from "../../assets/Images/number 2.webp";
 import number3 from "../../assets/Images/number 3.webp";
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 
+//used  to set the users first letter into upper case
 function Home({ setShowIndexes, yourName, setYourName, setPName }) {
     const handleHome = () => {
         setShowIndexes(true);
@@ -13,8 +14,6 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
 
     return (
         <>
-
-
             <div>
                 <img className="home__logo" src={logo} alt='logo' />
                 <p className="home__header"> The financial simulator that allows you to select a market index and create a portfolio of three stocks. It uses data from the past 10 years to help you determine if your portfolio has outperformed the market.</p>
@@ -50,9 +49,9 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
 
             <div className="button">
                 <div className="button__container">
-                    
-                <Link to="indexes" smooth={true}>
-                    <button className="button__home" style={{ width: "250px" }} onClick={handleHome}>Let's get started</button>
+
+                    <Link to="indexes" smooth={true}>
+                        <button className="button__home" style={{ width: "250px" }} onClick={handleHome}>Let's get started</button>
                     </Link>
                 </div>
                 <input
@@ -65,7 +64,6 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                     onChange={(e) => setYourName(e.target.value)}
                 />
             </div>
-
 
             <div className="bottom-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

@@ -1,10 +1,6 @@
-import Results from "../Results/Results";
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
-import { mean, variance, std, covariance, re } from 'mathjs'
-import { render } from "react-dom";
-import { motion } from "framer-motion";
-import ReactApexChart from "react-apexcharts";
+import {  variance, std, } from 'mathjs'
 import {
     LineChart,
     Line,
@@ -21,16 +17,8 @@ import number1 from "../../assets/Images/number 1.webp";
 import Index3 from "../../components/Index3/Index3";
 import { Link, animateScroll as scroll } from 'react-scroll';
 
-
-
-
-
-
-
-
-
 function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, risk, setRisk, indexName, setIndexName, mN, setMN, sN, setSN,
-    setShowStocks, pName, showStocks
+    setShowStocks, 
 }) {
 
     //DOW
@@ -52,9 +40,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
     const [fullArrayN, setFullArrayN] = useState([]);
     const [reverseN, setReverseN] = useState([]);
 
-
-
-
     const url = 'https://api.twelvedata.com/';
     const text = '?symbol='
     const dow = 'DIA'
@@ -67,6 +52,9 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     useEffect(() => {
 
+        // Getting all the data from the 3 indexes and calculating the historical mean and standard deviation for each index 
+
+        //DOW JONES
         axios.get(code)
             .then(response => {
                 setPricesD(response.data.values);
@@ -91,17 +79,21 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                 }
                 const average = sum / teste.length;
 
+                //mean
+
                 setMD((average) * 100);
 
+                //varience
 
                 setDV(variance(teste) * 100);
 
+                //Standard deviation
+
                 setSD(std(teste) * 100);
 
-                ////////////////////////////////////////////////////
             })
 
-
+        //S&P 500
         const sp = "ivv"
 
 
@@ -132,19 +124,22 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                 }
                 const average = sum / teste2.length;
 
+                //mean
 
                 setMS((average) * 100);
 
-          
+                //varience
 
                 setSV(variance(teste2) * 100);
+
+                //Standard deviation
 
                 setSS(std(teste2) * 100);
 
             })
 
 
-        //////////NASDAQ
+        //NASDAQ
         const nas = "QQQ"
 
         const datarange2 = `&interval=1month&outputsize=127&`
@@ -176,12 +171,13 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                 }
                 const average = sum / teste2.length;
 
-
+                //Mean
                 setMN((average) * 100);
 
-
+                //Varience
                 setNV(variance(teste2) * 100);
 
+                //Standard deviation
                 setSN(std(teste2) * 100);
 
             })
@@ -189,7 +185,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
     }, []);
 
-  
+
     const handleButton1Click = () => {
         const indexName = "DOW JONES";
         setIndexName(indexName);
@@ -212,7 +208,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         setIndexName(indexName)
         setMean(mN);
         setRisk(sN);
-
         setShowStocks(true);
 
     };
@@ -226,7 +221,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
             </div>
             <div className="index-page">
 
-
                 <div className="indexes-header" id="indexes">
                     <img className="indexes-header__number" src={number1} alt='numer-one' />
                     <p className="indexes-header__subheader">Select the market index you intend to beat</p>
@@ -234,21 +228,16 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                 <div className="cards">
 
                     <div className="cards__index">
-
                         <section>
                             <Index1 />
-
                             <div className="cards__graph">
-
                                 <div className="cards__graphs--color">
                                     <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
-
                                     <LineChart
                                         width={400}
                                         height={200}
                                         data={reverseD}
                                         style={{ backgroundColor: "black" }}
-
                                         margin={{
                                             top: 5,
                                             right: 30,
@@ -256,7 +245,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                             bottom: 5
                                         }}
                                         animationDuration={100000} // set animation duration to 1000ms (1 second)
-
                                     >
                                         <CartesianGrid strokeDasharray="3 3" />
                                         <XAxis dataKey="datetime" stroke="white"
@@ -272,9 +260,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                         <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                                     </LineChart>
                                 </div>
-
-                                <div >
-
+                                <div>
                                     <Link to="stocks" smooth={true} offset={-50} duration={500} delay={1000}>
                                         <button className="button-855" onClick={handleButton1Click}>Select DOW JONES</button>
                                     </Link>
@@ -283,16 +269,12 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                         </section>
                     </div>
 
-
                     <div className="cards__index">
                         <section>
                             <Index2 />
-
                             <div className="cards__graph">
-
                                 <div className="cards__graphs--color">
                                     <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
-
                                     <LineChart
                                         width={400}
                                         height={200}
@@ -306,7 +288,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                             bottom: 5
                                         }}
                                         animationDuration={100000} // set animation duration to 1000ms (1 second)
-
                                     >
                                         <CartesianGrid strokeDasharray="3 3" />
                                         <XAxis dataKey="datetime" stroke="white"
@@ -332,13 +313,10 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                             </div>
                         </section>
                     </div>
-
-
                     <div className="cards__index">
                         <section>
                             <Index3 />
                             <div className="cards__graph">
-
                                 <div className="cards__graphs--color">
                                     <h3 className="cards__graph--title" style={{ color: "#black", marginBottom: "1rem" }}>Average Price Over Time</h3>
 
@@ -347,7 +325,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                         height={200}
                                         data={reverseN}
                                         style={{ backgroundColor: "black" }}
-
                                         margin={{
                                             top: 5,
                                             right: 30,
@@ -372,20 +349,16 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                                         <Line type="" dataKey="avgprice" stroke="#2E66E5" strokeWidth={3} dot={false} />
                                     </LineChart>
                                     <div className="button-85-container">
-
                                         <Link to="stocks" smooth={true}>
                                             <button className="button-855" onClick={handleButton3Click}>Select NASDAQ</button>
                                         </Link>
-
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
 
-
                 </div>
-
             </div>
 
             <div className="bottom-wave">
