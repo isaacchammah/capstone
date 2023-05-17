@@ -64,6 +64,7 @@ td {
 
 table {
   height: 1%;
+  width: 40rem;
 }
 
 .box {
@@ -170,3 +171,26 @@ font-size:x-large;
 }
 
 .results__button-container {margin-left:50%; margin-bottom: 1%; }
+
+
+
+
+.top-wave {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.top-wave svg {
+  position: relative;
+  display: block;
+  width: calc(172% + 1.3px);
+  height: 81px;
+}
+
+.top-wave .shape-fill {
+  fill: #000000;
+}

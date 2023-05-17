@@ -10,8 +10,7 @@ import riskreturn from "../../assets/Images/risk return.gif";
 import Swal from "sweetalert2";
 import { Link } from 'react-scroll';
 import data from "../../data/data.json"
-import Autosuggest from 'react-autosuggest';
-import filterimg from "../../assets/Images/filter.png"
+
 
 
 
@@ -71,13 +70,11 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code11)
             .then(response => {
-                console.log(response.data);
                 setProfile1(response.data);
             },)
 
         axios.get(code11)
             .then(response => {
-                console.log(response.data.name);
                 setDescription1(response.data.name);
             },)
 
@@ -86,16 +83,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code12)
             .then(response => {
-                console.log(response.data.url);
                 setLogo1(response.data.url);
             },)
 
         const html3 = 'income_statement'
         const code13 = url + html3 + text + symbolInput1 + keyText + key
-        console.log(code13)
         axios.get(code13)
             .then(response => {
-                console.log(response.data.income_statement);
                 setIncomeStatement1(response.data.income_statement.reverse());
             },)
 
@@ -104,9 +98,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code14)
             .then(response => {
-                console.log(response.data.balance_sheet);
                 setBalanceSheet1(response.data.balance_sheet.reverse());
-                console.log(setBalanceSheet1)
             },)
 
         const html5 = 'avgprice'
@@ -116,7 +108,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         axios.get(code15)
             .then(response => {
 
-                console.log(response.data.values);
+            
                 setPrices1(response.data.values);
 
 
@@ -131,17 +123,16 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     return acc;
                 }, []);
 
-                console.log(newArray1); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
                 setM1(mean(newArray1) * 100);
-                console.log(setM1)
+             
 
                 setV1(variance(newArray1));
-                console.log(setV1);
+             
 
                 setS1(std(newArray1) * 100);
-                console.log(setS1);
+            
 
 
                 setNewArray1(newArray1)
@@ -152,14 +143,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         const code21 = url + html1 + text + symbolInput3 + keyText + key
 
         axios.get(code21)
-            .then(response => {
-                console.log(response.data);
+            .then(response => {        
                 setProfile2(response.data);
             },)
 
         axios.get(code21)
-            .then(response => {
-                console.log(response.data.name);
+            .then(response => {             
                 setDescription2(response.data.name);
             },)
 
@@ -167,15 +156,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code22)
             .then(response => {
-                console.log(response.data.url);
                 setLogo2(response.data.url);
             },)
 
         const code23 = url + html3 + text + symbolInput3 + keyText + key
-        console.log(code23)
         axios.get(code23)
             .then(response => {
-                console.log(response.data.income_statement);
                 setIncomeStatement2(response.data.income_statement.reverse());
             },)
 
@@ -183,16 +169,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code24)
             .then(response => {
-                console.log(response.data.balance_sheet);
                 setBalanceSheet2(response.data.balance_sheet.reverse());
-                console.log(setBalanceSheet1)
             },)
 
         const code25 = url + html5 + text + symbolInput3 + datarange + keyText + key
 
         axios.get(code25)
             .then(response => {
-                console.log(response.data.values);
                 setPrices2(response.data.values);
 
                 const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
@@ -206,18 +189,14 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     return acc;
                 }, []);
 
-                console.log(newArray2); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
 
                 setM2(mean(newArray2) * 100);
-                console.log(setM2)
 
                 setV2(variance(newArray2));
-                console.log(setV2);
 
                 setS2(std(newArray2) * 100);
-                console.log(setS2);
 
                 setNewArray2(newArray2)
 
@@ -229,13 +208,11 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code31)
             .then(response => {
-                console.log(response.data);
                 setProfile3(response.data);
             },)
 
         axios.get(code31)
             .then(response => {
-                console.log(response.data.name);
                 setDescription3(response.data.name);
             },)
 
@@ -243,15 +220,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code32)
             .then(response => {
-                console.log(response.data.url);
                 setLogo3(response.data.url);
             },)
 
         const code33 = url + html3 + text + symbolInput5 + keyText + key
-        console.log(code33)
         axios.get(code33)
             .then(response => {
-                console.log(response.data.income_statement);
                 setIncomeStatement3(response.data.income_statement.reverse());
             },)
 
@@ -259,16 +233,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         axios.get(code34)
             .then(response => {
-                console.log(response.data.balance_sheet);
                 setBalanceSheet3(response.data.balance_sheet.reverse());
-                console.log(setBalanceSheet1)
             },)
 
         const code35 = url + html5 + text + symbolInput5 + datarange + keyText + key
 
         axios.get(code35)
             .then(response => {
-                console.log(response.data.values);
                 setPrices3(response.data.values);
 
                 const reversedArray = response.data.values.slice().reverse(); // Create a reversed copy of the array
@@ -282,17 +253,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     return acc;
                 }, []);
 
-                console.log("new array 3!!!!!!", newArray3); // The new array containing the returns from the prices, with the first price being the most recent
                 ;
 
                 setM3(mean(newArray3) * 100);
-                console.log(setM3)
 
                 setV3(variance(newArray3));
-                console.log(setV3);
 
                 setS3(std(newArray3) * 100);
-                console.log(setS3);
 
                 setNewArray3(newArray3)
 
@@ -316,30 +283,15 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         setStockPortfolioMean(pMean)
 
 
-        console.log("this is the portfolio mean", pMean)
-
         const calculateCorrelation = require("calculate-correlation");
 
         const correlation12 = calculateCorrelation(newArray1, newArray2)
 
-        console.log(newArray1)
-
-        console.log(newArray2)
-
-        console.log(newArray3)
-
-        console.log("this is the portfolio CORREL", correlation12)
-
-
         const correlation13 = calculateCorrelation(newArray1, newArray3)
-
-
-        console.log("this is the portfolio CORREL", correlation13)
 
 
         const correlation23 = calculateCorrelation(newArray2, newArray3)
 
-        console.log("this is the portfolio CORREL", correlation23)
 
         const pstandard = (
             ((parseFloat(symbolInput2) / 100) ** 2 * v1 +
@@ -352,10 +304,6 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         setStockPortfolioRisk(pstandard)
 
-        console.log(v1)
-        console.log(v2)
-        console.log(v3)
-        console.log("this is the portfolio SD!!!!!!!!!!!!!!!", pstandard)
 
         setShowResults(true);
 
@@ -394,9 +342,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
 
-            <div class="top-wave">
+            <div className="top-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                 </svg>
             </div>
             <div id="stocks"></div>
@@ -551,9 +499,9 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     </button>
                 </Link>
             </div>
-            <div class="custom-shape-divider-bottom-1684027880">
+            <div className="custom-shape-divider-bottom-1684027880">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
                 </svg>
             </div>
         </>

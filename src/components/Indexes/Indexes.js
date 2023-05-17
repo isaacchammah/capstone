@@ -69,7 +69,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         axios.get(code)
             .then(response => {
-                console.log(response.data.values);
                 setPricesD(response.data.values);
                 setReverseD(response.data.values.slice().reverse());
 
@@ -84,9 +83,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                     return acc;
                 }, []);
 
-                console.log(newArrayD); // The new array containing the returns from the prices, with the first price being the most recent
                 const teste = [...new Set(newArrayD)]
-                console.log(teste)
 
                 let sum = 0;
                 for (let i = 0; i < teste.length; i++) {
@@ -94,17 +91,12 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                 }
                 const average = sum / teste.length;
 
-
                 setMD((average) * 100);
 
-                // setDM(mean(newArrayD));
-                // console.log(setDM)
 
                 setDV(variance(teste) * 100);
-                console.log(setDV);
 
                 setSD(std(teste) * 100);
-                console.log(setSD);
 
                 ////////////////////////////////////////////////////
             })
@@ -118,7 +110,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         axios.get(code2)
             .then(response => {
-                console.log(response.data.values);
                 setPricesS(response.data.values);
                 setReverseS(response.data.values.slice().reverse());
 
@@ -133,9 +124,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                     return acc;
                 }, []);
 
-                console.log(newArrayS); // The new array containing the returns from the prices, with the first price being the most recent
                 const teste2 = [...new Set(newArrayS)]
-                console.log(teste2)
 
                 let sum = 0;
                 for (let i = 0; i < teste2.length; i++) {
@@ -146,14 +135,11 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
                 setMS((average) * 100);
 
-                // setDM(mean(newArrayD));
-                // console.log(setDM)
+          
 
                 setSV(variance(teste2) * 100);
-                console.log(setSV);
 
                 setSS(std(teste2) * 100);
-                console.log(setSS);
 
             })
 
@@ -168,7 +154,6 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
         axios.get(code3)
             .then(response => {
-                console.log(response.data.values);
                 setPricesN(response.data.values);
                 setReverseN(response.data.values.slice().reverse());
 
@@ -183,9 +168,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
                     return acc;
                 }, []);
 
-                console.log(newArrayN); // The new array containing the returns from the prices, with the first price being the most recent
                 const teste2 = [...new Set(newArrayN)]
-                console.log(teste2)
 
                 let sum = 0;
                 for (let i = 0; i < teste2.length; i++) {
@@ -196,51 +179,24 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
                 setMN((average) * 100);
 
-                // setDM(mean(newArrayD));
-                // console.log(setDM)
 
                 setNV(variance(teste2) * 100);
-                console.log(setNV);
 
                 setSN(std(teste2) * 100);
-                console.log(setSN);
 
             })
 
 
     }, []);
 
-    ///////////////
-
-    console.log(mD)
-    console.log(mS)
-    console.log(sD)
-    console.log(sS)
-    /////USENAVIGATE
-    ////SET STATE
-    ///NAVIGATE
-
-
-
-
-    const handleButton1Click = (event) => {
-        event.preventDefault();
-
+  
+    const handleButton1Click = () => {
         const indexName = "DOW JONES";
         setIndexName(indexName);
         setMean(mD);
         setRisk(sD);
-        console.log(`setMean1 is now ${mean}`);
         setShowStocks(true);
-
-
     };
-
-
-
-
-
-
 
 
     const handleButton2Click = () => {
@@ -248,13 +204,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         setIndexName(indexName)
         setMean(mS);
         setRisk(sS);
-        console.log(`setMean2 is now ${mean}`);
-
         setShowStocks(true);
-
-
-
-
     };
 
     const handleButton3Click = () => {
@@ -262,24 +212,16 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
         setIndexName(indexName)
         setMean(mN);
         setRisk(sN);
-        console.log(`setMean2 is now ${mean}`)
 
         setShowStocks(true);
 
-
-
-
     };
-
-
-
-
 
     return (
         <>
             <div className="up-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                 </svg>
             </div>
             <div className="index-page">
@@ -448,7 +390,7 @@ function Indexes({ mD, sD, setMD, setSD, mS, sS, setMS, setSS, mean, setMean, ri
 
             <div className="bottom-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
                 </svg>
             </div>
 
