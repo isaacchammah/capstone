@@ -38,7 +38,7 @@ To authenticate your API requests, you need to include your API key in the URL p
 Profile
 Retrieve profile information for a specific symbol.
 
-### Profile
+## Profile
 
 Retrieve profile information for a specific symbol.
 
@@ -71,25 +71,18 @@ For more detailed information on the API endpoints and their parameters, refer t
 
 
 
- # Dependencies
+ ## Dependencies
 
 The project utilizes several libraries and APIs to provide a seamless user experience:
 
-ApexCharts is used to create the scatterplot graph on the last page of the project.
-
-Axios is used to make API calls to retrieve information about the ETFs and stocks. The TwelveData API is used for all API calls.
-
-React-Scroll is used to smoothly scroll to a specific ID when a button is clicked.
-
-Swal is used to create a modal that appears between the Stocks and Results pages.
-
-Mathjs is used to calculate the mean, standard deviation, and variance of the ETFs and stocks.
-
-Recharts is used to create the line charts for the ETFs.
-
-React-Icons/FA is used to display a scroll-to-top icon in the bottom right corner of the screen.
-
-Calculate-Correlation is used to calculate the correlation between the stocks once the weights have been determined.
+- [ApexCharts](https://apexcharts.com/) is used to create the scatterplot graph on the last page of the project.
+- [Axios](https://github.com/axios/axios) is used to make API calls to retrieve information about the ETFs and stocks. The TwelveData API is used for all API calls.
+- [React-Scroll](https://www.npmjs.com/package/react-scroll) is used to smoothly scroll to a specific ID when a button is clicked.
+- [Swal](https://sweetalert2.github.io/) is used to create a modal that appears between the Stocks and Results pages.
+- [Mathjs](https://mathjs.org/) is used to calculate the mean, standard deviation, and variance of the ETFs and stocks.
+- [Recharts](https://recharts.org/en-US/) is used to create the line charts for the ETFs.
+- [React-Icons/FA](https://react-icons.github.io/react-icons/) is used to display a scroll-to-top icon in the bottom right corner of the screen.
+- [Calculate-Correlation](https://www.npmjs.com/package/calculate-correlation) is used to calculate the correlation between the stocks once the weights have been determined.
 
 
 #### Additional Sections
