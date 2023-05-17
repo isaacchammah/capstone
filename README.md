@@ -69,7 +69,9 @@ Please note that <SYMBOL>, <API_KEY>, <INTERVAL>, and <OUTPUT_SIZE> need to be r
 
 For more detailed information on the API endpoints and their parameters, refer to the TwelveData API documentation.
 
-### Dependencies
+
+
+ # Dependencies
 
 The project utilizes several libraries and APIs to provide a seamless user experience:
 
