@@ -30,12 +30,19 @@ Give information about how to prepare a development environment for your coolest
 The project utilizes several libraries and APIs to provide a seamless user experience:
 
 ApexCharts is used to create the scatterplot graph on the last page of the project.
+
 Axios is used to make API calls to retrieve information about the ETFs and stocks. The TwelveData API is used for all API calls.
+
 React-Scroll is used to smoothly scroll to a specific ID when a button is clicked.
+
 Swal is used to create a modal that appears between the Stocks and Results pages.
+
 Mathjs is used to calculate the mean, standard deviation, and variance of the ETFs and stocks.
+
 Recharts is used to create the line charts for the ETFs.
+
 React-Icons/FA is used to display a scroll-to-top icon in the bottom right corner of the screen.
+
 Calculate-Correlation is used to calculate the correlation between the stocks once the weights have been determined.
 
 #### Additional Sections
