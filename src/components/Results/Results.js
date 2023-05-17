@@ -266,31 +266,31 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
           </tr>
           <tr>
 
-            <td>
+            <td className="results__table--gray">
               <div className="results__table--weight">      {description1} </div>
               <div className="results__table--weight"> {parseFloat(s1).toFixed(2)}%</div>
               <div className="results__table--weight">{parseFloat(m1).toFixed(2)}%</div>
             </td>
 
-            <td>
+            <td className="results__table--orange">
               <div className="results__table--weight">  {description2} </div>
               <div className="results__table--weight"> {parseFloat(s2).toFixed(2)}%</div>
               <div className="results__table--weight">{parseFloat(m2).toFixed(2)}%</div>
             </td>
 
-            <td>
+            <td className="results__table--red">
               <div className="results__table--weight">  {description3} </div>
               <div className="results__table--weight"> {parseFloat(s3).toFixed(2)}%</div>
               <div className="results__table--weight">{parseFloat(m3).toFixed(2)}%</div>
             </td>
 
-            <td>
+            <td className="results__table--green">
               <div className="results__table--weight">    {indexName} </div>
               <div className="results__table--weight"> {parseFloat(risk).toFixed(2)}%</div>
               <div className="results__table--weight">{parseFloat(mean).toFixed(2)}%</div>
             </td>
 
-            <td>
+            <td className="results__table--pink">
               <div className="results__table--weight2">   {pName}'s portfolio </div>
               <div className="results__table--weight2">{parseFloat(stockPortfoliRisk).toFixed(2)}%</div>
               <div className="results__table--weight2">{parseFloat(stockPortfolioMean).toFixed(2)}%</div>

@@ -18,6 +18,8 @@
   color: white
 }
 
+.filter-input:not(focus){color: white;}
+
 .stock-button {
   padding: 0.6em 2em;
   border: none;
@@ -118,6 +120,7 @@
   color: rgb(0, 0, 0);
   align-items: center;
   padding-left: 9.5rem;
+  padding-bottom:1.5rem ;
 }
 
 .stocks-header__numbers {
@@ -133,6 +136,7 @@
   font-weight: 600;
   color: black;
   width: 100%;
+  padding-left: 1rem;
 }
 
 
@@ -183,7 +187,7 @@
 
 
   background-color: white;
-  width: 30%;
+  width: 30.3%;
   border: solid rgba(0, 0, 0, 1);
   border-width: thin;
   border-radius: .3125rem;
@@ -201,6 +205,10 @@
   justify-content: space-around;
   padding: 2rem 0;
 }
+
+
+
+
 
 .swal2-styled.swal2-confirm {
   display: none;
@@ -265,6 +273,10 @@
 
 .stocks-card__error-message {color: red; text-align: center; font-weight: 600;}
 
-// .stocks-card__error-message1 {}
-
-// .stocks-card__error-message2 {}
+.modal-button{    appearance: none;
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+background-color: white;
+margin-left: 45%;}

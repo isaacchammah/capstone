@@ -10,6 +10,8 @@ import riskreturn from "../../assets/Images/risk return.gif";
 import Swal from "sweetalert2";
 import { Link } from 'react-scroll';
 import data from "../../data/data.json"
+import Modal from "../Modal/Modal";
+
 
 
 
@@ -108,7 +110,7 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         axios.get(code15)
             .then(response => {
 
-            
+
                 setPrices1(response.data.values);
 
 
@@ -126,13 +128,13 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 ;
 
                 setM1(mean(newArray1) * 100);
-             
+
 
                 setV1(variance(newArray1));
-             
+
 
                 setS1(std(newArray1) * 100);
-            
+
 
 
                 setNewArray1(newArray1)
@@ -143,12 +145,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
         const code21 = url + html1 + text + symbolInput3 + keyText + key
 
         axios.get(code21)
-            .then(response => {        
+            .then(response => {
                 setProfile2(response.data);
             },)
 
         axios.get(code21)
-            .then(response => {             
+            .then(response => {
                 setDescription2(response.data.name);
             },)
 
@@ -304,14 +306,15 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
         setStockPortfolioRisk(pstandard)
 
-
         setShowResults(true);
 
         Swal.fire({
             title: 'Calculating your portfolio using the following formula:',
-            html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 390px; height: 150px; border-radius:0 " />',
+            html: '<img className="riskreturn" src="' + riskreturn + '" alt="risk-return" style="width: 450px; height: 170px; border-radius:0 " />',
             confirmButtonText: 'OK'
         });
+
+
     }
 
     const [filter, setFilter] = useState('');
@@ -326,6 +329,18 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
     const handleFilterChange = (event) => {
         setFilter(event.target.value);
+    };
+
+
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
     };
 
 
@@ -419,6 +434,8 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                     ></Stock1>
 
 
+
+
                 </div>
 
 
@@ -451,11 +468,10 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
                 </div>
 
 
-
                 <div className="stocks-cards__stock3">
 
 
-                <div>
+                    <div>
                         {newArray3.length === 0 || newArray3.length === 119 ? null : (
                             <div className="stocks-card__error-message">
                                 <p className="stocks-card__error-message1">This stock has been in the market for less than 10 years.</p>
@@ -480,6 +496,12 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
 
             </div >
+
+            <div>
+                <button className="modal-button" onClick={openModal}>What are these numbers?</button>
+                <Modal isOpen={isOpen} onClose={closeModal} />
+            </div>
+
             <h3 className="stock-weights" >Now, select the % you want to invest in each stock - it must add up to 100</h3>
             <div className="stock-weights__inputs">
 
@@ -497,7 +519,10 @@ function Stocks({ setLogo1, setM1, setS1, logo1, m1, s1, setDescription1,
 
                         Create my portfolio
                     </button>
+
                 </Link>
+
+
             </div>
             <div className="custom-shape-divider-bottom-1684027880">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

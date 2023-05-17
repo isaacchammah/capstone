@@ -33,6 +33,7 @@
   margin-right: 10%;
   font-size: 24px;
   font-weight: 600;
+  padding-left: 1rem;
 }
 
 
@@ -60,11 +61,21 @@ td {
   text-align: center;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
+
+td:hover{background-color:#dfdede;}
 
 table {
   height: 1%;
   width: 40rem;
+  transition: all 0.2s; /* Add smooth transition effect */
+}
+
+
+table:hover {
+  transform: scale(1.2); /* Increase the scale on hover (1.2 times) */
+  background-color: white;
 }
 
 .box {
@@ -108,7 +119,7 @@ font-size:x-large;
 .results__table--weight2 {
   width: 15rem;
   text-align: center;
-  background-color: pink;
+  font-weight: 600;
 }
 
 
@@ -194,3 +205,12 @@ font-size:x-large;
 .top-wave .shape-fill {
   fill: #000000;
 }
+
+
+
+.results__table--gray:hover{background-color: gray;}
+.results__table--orange:hover{background-color: orange;}
+.results__table--red:hover{background-color: red;}
+.results__table--green:hover{background-color: green;}
+.results__table--pink:hover{background-color: pink;}
+
