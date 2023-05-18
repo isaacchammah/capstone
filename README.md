@@ -138,11 +138,11 @@ I also developed a strong understanding of how to use state and props effectivel
 
 ## Next steps
 
-To enhance the user experience of the simulator, you can implement the option for the user to select a custom time period instead of the default 10 years.
+To enhance the user experience of the simulator, I want to implement the option for the user to select a custom time period instead of the default 10 years.
 
-To further optimize the performance of the simulator, you can implement a backend to store information that has already been called in previous axios calls.
+To further optimize the performance of the simulator, I want to create a backend to store information that has already been called in previous axios calls.
 
-Also putting the data file in the backend
+Also putting the data file in the backend would be great. 
 #### Contributors
 
 
