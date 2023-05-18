@@ -23,7 +23,7 @@
 
 .indexes-header__subheader {
     margin-right: 30%;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600; color:black;
     width: 100%;
 padding-left: 1rem;
@@ -37,7 +37,7 @@ padding-left: 1rem;
   border-radius: .3125rem;
   height: auto;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 1);
 
 }
 
@@ -70,8 +70,8 @@ padding-left: 1rem;
 .up-wave svg {
     position: relative;
     display: block;
-    width: calc(172% + 1.3px);
-    height: 81px;
+    width: calc(172% + .0813rem);
+    height: 5.0625rem;
 }
 
 .up-wave .shape-fill {
@@ -91,7 +91,7 @@ padding-left: 1rem;
     cursor: pointer;
     position: relative;
     z-index: 0;
-    border-radius: 10px;
+    border-radius: .625rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -99,7 +99,7 @@ padding-left: 1rem;
     height: 3rem;
     width: 18rem;
     padding-bottom:1% ;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   
   .button-855:before {
@@ -115,17 +115,17 @@ padding-left: 1rem;
         #ff00c8,
         #ff0000);
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: -0.125rem;
+    left: -0.125rem;
     background-size: 400%;
     z-index: -1;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+    filter: blur(.3125rem);
+    -webkit-filter: blur(.3125rem);
+    width: calc(100% + .25rem);
+    height: calc(100% + .25rem);
     animation: glowing-button-85 20s linear infinite;
     transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: .625rem;
   }
   
   @keyframes glowing-button-855 {
@@ -151,7 +151,7 @@ padding-left: 1rem;
     background: #222;
     left: 0;
     top: 0;
-    border-radius: 10px;
+    border-radius: .625rem;
   }
   
 .bottom-wave {
@@ -166,8 +166,8 @@ padding-left: 1rem;
 .bottom-wave svg {
   position: relative;
   display: block;
-  width: calc(172% + 1.3px);
-  height: 81px;
+  width: calc(172% + .0813rem);
+  height: 5.0625rem;
 }
 
 .bottom-wave .shape-fill {

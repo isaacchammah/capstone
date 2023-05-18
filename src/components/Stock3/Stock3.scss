@@ -33,7 +33,7 @@
 
 .stock__input {
     appearance: none;
-    border: 1px solid black;
+    border: .0625rem solid black;
     padding: 0.5em;
     border-radius: 0.25em;
     cursor: pointer;
@@ -61,7 +61,7 @@
     height: 8vh;
     width: auto;
     border-radius: 100%;
-    top: 15px;
+    top: .9375rem;
     margin-left: 0.5%;
     aspect-ratio: 16/16;
     object-fit: contain;
@@ -73,13 +73,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
+    font-size: .8125rem;
 }
 
 table {
-    border: 2px solid rgb(34, 48, 139);
-    width: 350px;
-    height: 200px;
+    border: .125rem solid rgb(34, 48, 139);
+    width: 21.875rem;
+    height: 12.5rem;
 }
 
 th {
@@ -108,7 +108,6 @@ td {
 
 h1 {
     margin: 0;
-    // font-size: 150px;
     color: rgba(225, 225, 225, .01);
     background-image: url("https://images.unsplash.com/photo-1593959734793-6e92d102da1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
     background-repeat: repeat;

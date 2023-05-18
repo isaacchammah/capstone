@@ -23,7 +23,8 @@ The application will be running at http://localhost:3000 in your browser. Any er
 
 ## API Reference
 
-The TwelveData API is a powerful tool for accessing financial market data. This project utilizes the API to retrieve information about stocks and indexes. Below is the API reference for the TwelveData endpoints used in this project:
+The TwelveData API is a powerful tool for accessing financial market data. This project utilizes the API to retrieve information about stocks and indexes. In total 21 calls are made
+Below is the API reference for the TwelveData endpoints used in this project:
 
 ## Base URL
 
@@ -81,6 +82,7 @@ The project utilizes several libraries and APIs to provide a seamless user exper
 - [Recharts](https://recharts.org/en-US/) is used to create the line charts for the ETFs.
 - [React-Icons/FA](https://react-icons.github.io/react-icons/) is used to display a scroll-to-top icon in the bottom right corner of the screen.
 - [Calculate-Correlation](https://www.npmjs.com/package/calculate-correlation) is used to calculate the correlation between the stocks once the weights have been determined.
+- [react-router-dom] (https://www.npmjs.com/package/react-router-dom) to create one single route
 
 
 #### Additional Sections

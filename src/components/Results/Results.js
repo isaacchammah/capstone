@@ -210,21 +210,21 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
 
     if (stockPortfoliRisk < risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + ", lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) +  "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + ", it was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + ", higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + "%");
     } else if (stockPortfoliRisk > risk && stockPortfolioMean > mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%")
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + ", it was higher than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + ", higher than the market's volatility that was " + " " + parseFloat(risk).toFixed(2)  + "%")
     }
     else if (stockPortfoliRisk < risk && stockPortfolioMean < mean) {
       setMessage2("As you can see above your portfolio had a return of" + " "
-        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + " " + ", its was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
-        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + " " + "lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2) + " " + "%");
+        + parseFloat(stockPortfolioMean).toFixed(2) + "%" + ", its was lower than the market's return of" + " " + parseFloat(mean).toFixed(2) + "%" +
+        " " + "and your volatility was" + " " + parseFloat(stockPortfoliRisk).toFixed(2) + "%" + ", lower than the market's volatility that was " + " " + parseFloat(risk).toFixed(2)  + "%");
     }
   })
 
@@ -301,7 +301,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         </table>
       </div>
 
-        <p className="results__text">Next time try using Diversification, which is a technique that reduces risk by allocating investments across various financial instruments, industries, and other categories. It aims to minimize losses by investing in different areas that would each react differently to the same event</p>
+        <p className="results__text">Next time try using Diversification, a technique that reduces risk by allocating investments across various financial instruments, industries, and other categories. It aims to minimize losses by investing in different areas that would each react differently to the same event</p>
 
       <div className="results__button-container">
         <Link to="/">

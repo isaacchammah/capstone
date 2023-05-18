@@ -30,7 +30,7 @@
 
 .results-header__subheader {
   margin-right: 10%;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   padding-left: 1rem;
 }
@@ -45,12 +45,12 @@
 }
 
 .results__table--color {
-  border: 2px solid rgb(34, 48, 139);
-  font-size: 23px;
+  border: .125rem solid rgb(34, 48, 139);
+  font-size: 1.4375rem;
 }
 
 th {
-  border-bottom: 1px solid black;
+  border-bottom: .0625rem solid black;
   display: flex;
   justify-content: space-around;
 }
@@ -80,9 +80,9 @@ table:hover {
 }
 
 .box {
-  --size: 50px;
-  --p: 25px;
-  --R: 55.9px;
+  --size: 3.125rem;
+  --p: 1.5625rem;
+  --R: 3.4937rem;
   height: 5.3rem;
   -webkit-mask:
     radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), rgb(25, 25, 28) 99%, #0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
@@ -103,7 +103,7 @@ table:hover {
 }
 
 .results-message {
-  font-size: 50px;
+  font-size: 3.125rem;
 }
 
 .results-message2 {
@@ -126,19 +126,19 @@ table:hover {
 .results__button {
   appearance: none;
   background-color: #FAFBFC;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  border: .0625rem solid rgba(27, 31, 35, 0.15);
+  border-radius: .375rem;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 .0625rem 0, rgba(255, 255, 255, 0.25) 0 .0625rem 0 inset;
   box-sizing: border-box;
   color: #24292E;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 1.25rem;
   list-style: none;
-  padding: 6px 16px;
+  padding: .375rem 1rem;
   position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   user-select: none;
@@ -164,12 +164,12 @@ table:hover {
 
 .results__button:active {
   background-color: #EDEFF2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 .0625rem 0 inset;
   transition: none 0s;
 }
 
 .results__button:focus {
-  outline: 1px transparent;
+  outline: .0625rem transparent;
 }
 
 .results__button:before {
@@ -197,8 +197,8 @@ table:hover {
 .top-wave svg {
   position: relative;
   display: block;
-  width: calc(172% + 1.3px);
-  height: 81px;
+  width: calc(172% + .0813rem);
+  height: 5.0625rem;
 }
 
 .top-wave .shape-fill {
@@ -233,7 +233,7 @@ table:hover {
   border-width:thin;
   border-radius: .3125rem;
   height: auto;
-  box-shadow: 0 0 20px rgb(236, 236, 236);
+  box-shadow: 0 0 1.25rem rgb(236, 236, 236);
   width: 47%;
   margin-left:26.5% ;
 

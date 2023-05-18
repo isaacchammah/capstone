@@ -15,17 +15,17 @@
 
 .modal-content {
     background-color: #fff;
-    padding: 10px 70px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: .625rem 4.375rem;
+    border-radius: .5rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.2);
 }
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: .625rem;
+    right: .625rem;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #888;
 }
@@ -38,7 +38,7 @@
 
 
 th {
-    border-bottom: 1px solid black;
+    border-bottom: .0625rem solid black;
     display: flex;
     justify-content: space-around;
 }
@@ -48,7 +48,7 @@ th {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid rgb(197, 197, 197);
+    border-bottom: .0625rem solid rgb(197, 197, 197);
 }
 
 .modal__table--lines:hover {background-color: #dfdede;} 
@@ -77,19 +77,19 @@ th {
 .modal__button {
     appearance: none;
     background-color: #FAFBFC;
-    border: 1px solid rgba(27, 31, 35, 0.15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    border: .0625rem solid rgba(27, 31, 35, 0.15);
+    border-radius: .375rem;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 .0625rem 0, rgba(255, 255, 255, 0.25) 0 .0625rem 0 inset;
     box-sizing: border-box;
     color: #24292E;
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-size: 14px;
+    font-size: .875rem;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 1.25rem;
     list-style: none;
-    padding: 6px 16px;
+    padding: .375rem 1rem;
     position: relative;
     transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     user-select: none;
@@ -117,12 +117,12 @@ th {
   
   .modal__button:active {
     background-color: #EDEFF2;
-    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 .0625rem 0 inset;
     transition: none 0s;
   }
   
   .modal__button:focus {
-    outline: 1px transparent;
+    outline: .0625rem transparent;
   }
   
   .modal__button:before {

@@ -5,7 +5,7 @@ import number2 from "../../assets/Images/number 2.webp";
 import number3 from "../../assets/Images/number 3.webp";
 import { Link } from 'react-scroll';
 
-//used  to set the users first letter into upper case
+//used  to set the users first letter to upper case
 function Home({ setShowIndexes, yourName, setYourName, setPName }) {
     const handleHome = () => {
         setShowIndexes(true);
@@ -26,7 +26,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number1} alt='logo' />
                         <p className="hero-instructions__title">Select the market index you intend to beat</p>
                     </div>
-                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most market indexesin the US market. Your goal is to try to beat this market index creating a stock portfolio that has a higher return and a lower volatility.</p>
+                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most market indexes from the US market. Your goal is to try to beat this market index creating a stock portfolio that has a higher return and a lower volatility than the index you have chosen.</p>
                 </div>
 
                 <div className="hero-instructions__instruction">
@@ -34,7 +34,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number2} alt='logo' />
                         <p className="hero-instructions__title">Select 3 stocks to create your portfolio</p>
                     </div>
-                    <p className="hero-instructions__description"> A stock represents a share in the ownership of a company, including a claim on the company's earnings and assets. Here you will select 3 stocks, have the chance to analyze their quantitative and qualitative data and decide the % you want to invest in each of them. Please select stocks that have been in the market for at leat 10 years  </p>
+                    <p className="hero-instructions__description"> A stock represents a share in the ownership of a company, including a claim on the company's earnings and assets. Here you will select 3 stocks, have the chance to analyze their quantitative and qualitative data and decide the % you want to invest in each of them. Please select stocks that have been in the market for at least 10 years  </p>
                 </div>
 
                 <div className="hero-instructions__instruction">
@@ -42,7 +42,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number3} alt='logo' />
                         <p className="hero-instructions__title">Did you beat the market?</p>
                     </div>
-                    <p className="hero-instructions__description"> Check if you were able to create a portfolio that had a higher average monthly return and a lower volatility than the market over the past 10 years and rember 90% of actively managed investment funds failed to beat the market </p>
+                    <p className="hero-instructions__description"> Check if you were able to create a portfolio that had a higher average monthly return and a lower volatility than the market index over the past 10 years. Remember 90% of actively managed investment funds fail to beat the market </p>
                 </div>
 
             </div>

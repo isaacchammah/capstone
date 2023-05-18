@@ -11,12 +11,10 @@ ul {
 .index-card {
     background-color: rgb(255, 255, 255);
     padding: 1rem;
-    // height: 40vh;
 }
 
 .index-card__name {
     margin: 0;
-    // font-size: 150px;
     color: rgba(225, 225, 225, 0);
     background-image: url("https://i.pinimg.com/564x/7f/36/31/7f3631338b510f536dd3626dda7551be.jpg");
     background-repeat: repeat;
@@ -26,22 +24,22 @@ ul {
     text-transform: uppercase;
     font-weight: 900;
     padding-bottom: 1rem;
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 .index-card__text {
-    font-size: 12px;
+    font-size: .75rem;
     line-height: 1.5
 }
 
 .index-card__subheader {
     @include td-h2-subheader;
     padding-top: 1rem;
-    padding-bottom: 0.5rem;
-    font-size: 18px;
+    padding-bottom: 8px;
+    font-size: 1.125rem;
 }
 
 .index-card__takeaways {
-    font-size: 13px;
+    font-size: .8125rem;
     line-height: 1.5
 }

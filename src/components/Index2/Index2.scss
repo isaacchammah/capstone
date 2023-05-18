@@ -15,7 +15,6 @@ ul {
 
 .index-card__name {
     margin: 0;
-    // font-size: 150px;
     color: rgba(225, 225, 225, 0);
     background-image: url("https://images.unsplash.com/photo-1593959734793-6e92d102da1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
     background-repeat: repeat;
@@ -28,7 +27,7 @@ ul {
 }
 
 .index-card__text {
-    font-size: 12px;
+    font-size: .75rem;
     line-height: 1.5
 }
 
@@ -36,10 +35,10 @@ ul {
     @include td-h2-subheader;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .index-card__takeaways {
-    font-size: 13px;
+    font-size: .8125rem;
     line-height: 1.5
 }

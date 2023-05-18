@@ -4,14 +4,8 @@ import Main from "../src/pages/Main/Main"
 import React, { useState, useEffect } from 'react'
 
 function App() {
-
-
-
-
-
   return (
-    <>
-      
+    <>  
       <Routes>
         <Route path='/' element={<Main />} />
       </Routes>
