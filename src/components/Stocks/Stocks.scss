@@ -173,7 +173,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: rgb(255, 255, 255);
 }
 
@@ -181,7 +181,7 @@
 .stocks-cards__stock2,
 .stocks-cards__stock3 {
   background-color: white;
-  width: 30.3%;
+  width: 32.2%;
   border: solid rgba(0, 0, 0, 1);
   border-width: thin;
   border-radius: .3125rem;

@@ -3,13 +3,11 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 
-.chart {
-  margin: 0 10rem 1rem 15rem;
-}
+
 
 .results-graph {
   background-color: rgb(77, 77, 77);
-  padding-left: 3.5rem;
+  margin-left: 6rem;
   width: 90%;
 }
 
@@ -230,11 +228,11 @@ table:hover {
   text-align: center;
   font-size: medium;
   margin-bottom: 1%;
-  border-width:thin;
+  border-width: thin;
   border-radius: .3125rem;
   height: auto;
   box-shadow: 0 0 1.25rem rgb(236, 236, 236);
   width: 47%;
-  margin-left:26.5% ;
+  margin-left: 26.5%;
 
 }
