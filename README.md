@@ -23,7 +23,7 @@ The application will be running at http://localhost:3000 in your browser. Any er
 
 ## API Reference
 
-The TwelveData API is a powerful tool for accessing financial market data. This project utilizes the API to retrieve information about stocks and indexes. In total 21 calls are made
+The TwelveData API is a powerful tool for accessing financial market data. This project utilizes the API to retrieve information about stocks and indexes. In total 21 calls are made.
 Below is the API reference for the TwelveData endpoints used in this project:
 
 ## Base URL
@@ -146,7 +146,7 @@ Also putting the data file in the backend
 #### Contributors
 
 
- Special thanks to Edward Baafi for his wonderful sugestions, you rock!
+ Special thanks to Edward Baafi for his wonderful suggestions, you rock!
 
 
 *Happy Hacking!*
