@@ -301,7 +301,7 @@ function Results({ logo1, description1, m1, s1, logo2, description2, m2, s2, log
         </table>
       </div>
 
-        <p className="results__text">Next time try using Diversification, a technique that reduces risk by allocating investments across various financial instruments, industries, and other categories. It aims to minimize losses by investing in different areas that would each react differently to the same event</p>
+        <p className="results__text">Next time try using diversification, a technique that reduces risk by allocating investments across various financial instruments, industries, and other categories. It aims to minimize losses by investing in different areas that would each react differently to the same event</p>
 
       <div className="results__button-container">
         <Link to="/">
