@@ -26,7 +26,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number1} alt='logo' />
                         <p className="hero-instructions__title">Select the market index you intend to beat</p>
                     </div>
-                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most market indexes from the US market. Your goal is to try to beat this market index creating a stock portfolio that has a higher return and a lower volatility than the index you have chosen.</p>
+                    <p className="hero-instructions__description"> A market index is a hypothetical portfolio of investment holdings that represents a segment of the financial market. In this section you get to choose between the 3 most popular market indexes from the US market. Your objective is to outperform the market index by constructing a stock portfolio that delivers superior returns with lower volatility compared to the chosen index</p>
                 </div>
 
                 <div className="hero-instructions__instruction">
