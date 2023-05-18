@@ -44,32 +44,32 @@ function Modal({ isOpen, onClose }) {
 
                             <td className="modal__table--lines">
                                 <div className="modal__table--weight1">  Gross Margin </div>
-                                <div className="modal__table--weight2"> Gross profit/sales</div>
+                                <div className="modal__table--weight2"> Gross profit / Sales</div>
                                 <div className="modal__table--weight"> Provides the proportion of money left over from revenues after accounting for the cost of goods sold (COGS).</div>
                             </td>
 
                             <td className="modal__table--lines">
                                 <div className="modal__table--weight1">  Ebitda Margin </div>
-                                <div className="modal__table--weight2"> Ebitda/Sales</div>
+                                <div className="modal__table--weight2"> Ebitda / Sales</div>
                                 <div className="modal__table--weight">  Provides investors with a snapshot of short-term operational efficiency.</div>
                             </td>
 
 
                             <td className="modal__table--lines">
                                 <div className="modal__table--weight1">    Net Margin</div>
-                                <div className="modal__table--weight2"> Net profit/Sales</div>
+                                <div className="modal__table--weight2"> Net profit / Sales</div>
                                 <div className="modal__table--weight">  Illustrates how much of each dollar in revenue collected by a company translates into profit</div>
                             </td>
 
                             <td className="modal__table--lines">
                                 <div className="modal__table--weight1">    Current Ratio</div>
-                                <div className="modal__table--weight2"> Current assets/ Current liabilities</div>
+                                <div className="modal__table--weight2"> Current assets / Current liabilities</div>
                                 <div className="modal__table--weight">Measures a company's ability to pay current, or short-term, liabilities (debt and payables) with its current, or short-term, assets (cash, inventory, and receivables)</div>
                             </td>
 
                             <td className="modal__table--lines">
                                 <div className="modal__table--weight1">  Leverage Ratio </div>
-                                <div className="modal__table--weight2"> Financial debt / capital invested</div>
+                                <div className="modal__table--weight2"> Financial debt / Capital invested</div>
                                 <div className="modal__table--weight">% of the capital invested in the business that comes from debt</div>
                             </td>
                         </tr>
