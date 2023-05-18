@@ -1,6 +1,6 @@
-  # Project Title
+  # Can you beat the market?
   
-Can you beat the market?
+
 
 The financial simulator that allows you to select a market index and create a portfolio of three stocks. It uses data from the past 10 years to help you determine if your portfolio has outperformed the market.
 
