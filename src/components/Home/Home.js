@@ -42,7 +42,7 @@ function Home({ setShowIndexes, yourName, setYourName, setPName }) {
                         <img className="hero-instructions__numbers" src={number3} alt='logo' />
                         <p className="hero-instructions__title">Did you beat the market?</p>
                     </div>
-                    <p className="hero-instructions__description"> Check if you were able to create a portfolio that had a higher average monthly return and a lower volatility than the market index over the past 10 years. Remember 90% of actively managed investment funds fail to beat the market </p>
+                    <p className="hero-instructions__description"> Check if you were able to create a portfolio that had a higher average monthly return and a lower volatility than the market index over the past 10 years. Remember 90% of actively managed investment funds fail to beat the market. </p>
                 </div>
 
             </div>

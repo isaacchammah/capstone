@@ -1,9 +1,7 @@
 import "../Stock3/Stock3.scss"
-
 import React from "react";
 import "../Stock1/Stock1.scss";
-import DataTable from "react-data-table-component";
-import { Fade } from "react-awesome-reveal";
+
 
 
 
